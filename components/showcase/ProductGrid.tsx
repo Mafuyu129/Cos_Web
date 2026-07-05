@@ -8,7 +8,14 @@ import { ProductCard } from "./ProductCard";
 
 export function ProductGrid({ limit }: { limit?: number }) {
   const [category, setCategory] = useState("All");
-  const { t } = useLanguage();
+  const { locale, t } = useLanguage();
+  const categoryLabels: Record<string, string> = {
+    All: t("product.filter.all"),
+    Mask: locale === "th" ? "มาสก์" : "Mask",
+    Serum: locale === "th" ? "เซรั่ม" : "Serum",
+    Moisturizer: locale === "th" ? "มอยส์เจอร์ไรเซอร์" : "Moisturizer",
+    Cleanser: locale === "th" ? "คลีนเซอร์" : "Cleanser"
+  };
 
   const filtered = useMemo(() => {
     const list = category === "All" ? products : products.filter((product) => product.category === category);
@@ -31,7 +38,7 @@ export function ProductGrid({ limit }: { limit?: number }) {
                   : "border-border bg-white text-text-muted hover:border-accent dark:border-white/10 dark:bg-white/[0.04] dark:text-text-light"
               )}
             >
-              {item === "All" ? t("product.filter.all") : item}
+              {categoryLabels[item] ?? item}
             </button>
           ))}
         </div>

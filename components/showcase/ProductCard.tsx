@@ -17,7 +17,7 @@ export function ProductCard({ product }: { product: Product }) {
       className="group block transition duration-200 hover:-translate-y-1"
     >
       <div className="relative mb-4 aspect-[3/4] overflow-hidden rounded-[4px] border border-primary/10 bg-[#f8f9fc] dark:border-white/10 dark:bg-white/[0.04]">
-        <div className="absolute right-3 top-3 z-10 rounded-[2px] bg-primary px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.12em] text-white">
+        <div className="absolute right-3 top-3 z-10 rounded-[2px] bg-primary px-3 py-1 text-xs font-semibold uppercase tracking-[0.08em] text-white">
           {category}
         </div>
         <Image
@@ -28,7 +28,7 @@ export function ProductCard({ product }: { product: Product }) {
         />
       </div>
       <div>
-        <h3 className="font-serif text-2xl font-medium text-text-dark dark:text-white">{title}</h3>
+        <h3 className="font-serif text-[26px] font-medium leading-tight text-text-dark dark:text-white">{title}</h3>
         <p className="mt-2 text-base font-medium leading-8 text-text-muted dark:text-text-light">
           {description}
         </p>

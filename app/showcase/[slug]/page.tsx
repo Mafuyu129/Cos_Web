@@ -26,7 +26,10 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
   return (
     <>
       <ProductDetail product={product} />
-      <CTASection title={`Request a quote for ${product.title}`} />
+      <CTASection
+        titleTh={`ขอใบเสนอราคาสำหรับ ${product.titleTh}`}
+        titleEn={`Request a quote for ${product.title}`}
+      />
     </>
   );
 }

@@ -6,15 +6,25 @@ export const company = {
   phone: ["064-2451536", "061-6289415"],
   email: "pherada3569@gmail.com",
   line: "@440bqhfk",
+  lineUrl: "https://page.line.me/440bqhfk",
   address: "5 ถนนวิฑูรอุทิศ 8 ตำบลสะเตง อำเภอเมือง จังหวัดยะลา 95000",
+  addressEn: "5 Witoon Uthit 8 Road, Sateng, Mueang Yala, Yala 95000, Thailand",
+  mapUrl: "https://www.google.com/maps/search/?api=1&query=5%20Witoon%20Uthit%208%20Road%20Sateng%20Mueang%20Yala%2095000%20Thailand",
   registeredAt: "9 ธันวาคม 2565",
+  registeredAtEn: "December 9, 2022",
   businessScope: "การผลิต จำหน่าย เก็บรักษา และนำเข้าเครื่องสำอาง ประเภทผิวกายและเส้นผม",
+  businessScopeEn: "Cosmetic manufacturing, sales, storage and import support for body and hair products",
   factoryInfo: {
     productionAddress: "5 ถนนวิฑูรอุทิศ 8 ตำบลสะเตง อำเภอเมือง จังหวัดยะลา 95000",
+    productionAddressEn: "5 Witoon Uthit 8 Road, Sateng, Mueang Yala, Yala 95000, Thailand",
     storageAddress: "5 ถนนวิฑูรอุทิศ 8 ตำบลสะเตง อำเภอเมือง จังหวัดยะลา 95000",
+    storageAddressEn: "5 Witoon Uthit 8 Road, Sateng, Mueang Yala, Yala 95000, Thailand",
     importAddress: "5 ถนนวิฑูรอุทิศ 8 ตำบลสะเตง อำเภอเมือง จังหวัดยะลา 95000",
     rooms: "3 ห้อง 2 ชั้น",
+    roomsEn: "3 rooms across 2 floors",
     team: "บุคลากร 3 คน ประกอบด้วยผู้ดูแลและพัฒนา/ผลิต 2 คน",
-    machines: "เครื่องชั่ง เครื่องผสม เครื่องบรรจุ และเครื่องซีล 500 W"
+    teamEn: "3 team members including production and development support",
+    machines: "เครื่องชั่ง เครื่องผสม เครื่องบรรจุ และเครื่องซีล 500 W",
+    machinesEn: "Scales, mixing equipment, filling equipment and 500 W sealing machine"
   }
 };

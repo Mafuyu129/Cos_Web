@@ -1,6 +1,6 @@
 "use client";
 
-import { Mail, MapPin, Phone } from "lucide-react";
+import { Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 import Link from "next/link";
 import { BrandMark } from "@/components/common/BrandMark";
 import { company } from "@/data/company";
@@ -9,7 +9,9 @@ import { useLanguage } from "@/components/providers/LanguageProvider";
 import { Container } from "./Container";
 
 export function Footer() {
-  const { t } = useLanguage();
+  const { locale, t } = useLanguage();
+  const secondaryName = locale === "th" ? company.nameEn : company.concept;
+  const address = locale === "th" ? company.address : company.addressEn;
 
   return (
     <footer className="border-t border-border bg-light-bg text-text-dark dark:border-white/10 dark:bg-dark-bg dark:text-white">
@@ -18,8 +20,8 @@ export function Footer() {
           <div className="mb-4 flex items-center gap-3">
             <BrandMark className="h-12 w-12 rounded-xl" />
             <div>
-              <p className="text-lg font-bold">{company.nameEn}</p>
-              <p className="text-base text-text-muted dark:text-text-light">{company.nameTh}</p>
+              <p className="text-lg font-bold">{locale === "th" ? company.nameTh : company.nameEn}</p>
+              <p className="text-base text-text-muted dark:text-text-light">{secondaryName}</p>
             </div>
           </div>
           <p className="max-w-md text-base leading-8 text-text-muted dark:text-text-light">
@@ -45,18 +47,46 @@ export function Footer() {
             {t("footer.contact")}
           </p>
           <div className="grid gap-3 text-base text-text-muted dark:text-text-light">
-            <p className="flex gap-3">
+            <div className="flex gap-3">
               <Phone size={18} className="mt-0.5 text-accent" />
-              <span>{company.phone.join(", ")}</span>
-            </p>
-            <p className="flex gap-3">
+              <span className="flex flex-wrap gap-x-2 gap-y-1">
+                {company.phone.map((phone, index) => (
+                  <a
+                    key={phone}
+                    href={`tel:${phone.replaceAll("-", "")}`}
+                    className="transition hover:text-primary dark:hover:text-white"
+                  >
+                    {phone}
+                    {index < company.phone.length - 1 ? "," : ""}
+                  </a>
+                ))}
+              </span>
+            </div>
+            <a
+              href={`mailto:${company.email}`}
+              className="flex gap-3 transition hover:text-primary dark:hover:text-white"
+            >
               <Mail size={18} className="mt-0.5 text-accent" />
               <span>{company.email}</span>
-            </p>
-            <p className="flex gap-3">
+            </a>
+            <a
+              href={company.lineUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="flex gap-3 transition hover:text-primary dark:hover:text-white"
+            >
+              <MessageCircle size={18} className="mt-0.5 text-accent" />
+              <span>Line: {company.line}</span>
+            </a>
+            <a
+              href={company.mapUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="flex gap-3 transition hover:text-primary dark:hover:text-white"
+            >
               <MapPin size={18} className="mt-0.5 text-accent" />
-              <span>{company.address}</span>
-            </p>
+              <span>{address}</span>
+            </a>
           </div>
         </div>
       </Container>

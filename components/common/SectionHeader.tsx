@@ -42,11 +42,11 @@ export function SectionHeader({
           {displayEyebrow}
         </p>
       ) : null}
-      <h2 className="font-serif text-5xl font-medium leading-tight text-text-dark dark:text-white md:text-6xl">
+      <h2 className="font-serif text-4xl font-medium leading-tight text-text-dark dark:text-white md:text-5xl">
         {displayTitle}
       </h2>
       {displayDescription ? (
-        <p className="mt-5 text-xl font-medium leading-9 text-text-muted dark:text-text-light md:text-2xl">
+        <p className="mt-5 text-lg font-medium leading-9 text-text-muted dark:text-text-light md:text-xl">
           {displayDescription}
         </p>
       ) : null}

@@ -37,11 +37,11 @@ export function PageHero({
         <p className="mb-4 text-sm font-bold uppercase tracking-[0.2em] text-primary dark:text-accent">
           {displayEyebrow}
         </p>
-        <h1 className="max-w-4xl font-serif text-6xl font-medium leading-tight md:text-7xl">
+        <h1 className="max-w-4xl font-serif text-5xl font-medium leading-tight md:text-6xl">
           {displayTitle}
         </h1>
         {displayDescription ? (
-          <p className="mt-6 max-w-2xl text-xl font-medium leading-9 text-text-muted dark:text-text-light md:text-2xl">
+          <p className="mt-6 max-w-2xl text-lg font-medium leading-9 text-text-muted dark:text-text-light md:text-xl">
             {displayDescription}
           </p>
         ) : null}

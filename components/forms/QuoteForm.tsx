@@ -2,26 +2,39 @@
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Send } from "lucide-react";
+import { useMemo } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { Button } from "@/components/common/Button";
 import { useLanguage } from "@/components/providers/LanguageProvider";
 
-const quoteSchema = z.object({
-  contactName: z.string().min(1, "กรุณากรอกชื่อผู้ติดต่อ"),
-  brandName: z.string().optional(),
-  phone: z.string().min(8, "กรุณากรอกเบอร์โทร"),
-  lineId: z.string().optional(),
-  email: z.string().email("รูปแบบอีเมลไม่ถูกต้อง").optional().or(z.literal("")),
-  productType: z.string().min(1, "กรุณาเลือกประเภทสินค้า"),
-  quantity: z.string().optional(),
-  formulaType: z.enum(["standard", "new-formula", "not-sure"], {
-    required_error: "กรุณาเลือกประเภทสูตร"
-  }),
-  message: z.string().optional()
-});
+const createQuoteSchema = (locale: "th" | "en") =>
+  z
+    .object({
+      contactName: z.string().min(1, locale === "th" ? "กรุณากรอกชื่อผู้ติดต่อ" : "Please enter a contact name"),
+      brandName: z.string().optional(),
+      phone: z.string().min(8, locale === "th" ? "กรุณากรอกเบอร์โทร" : "Please enter a phone number"),
+      lineId: z.string().optional(),
+      email: z.string().email(locale === "th" ? "รูปแบบอีเมลไม่ถูกต้อง" : "Invalid email format").optional().or(z.literal("")),
+      productType: z.string().min(1, locale === "th" ? "กรุณาเลือกประเภทสินค้า" : "Please select a product type"),
+      otherProductType: z.string().optional(),
+      quantity: z.string().optional(),
+      formulaType: z.enum(["standard", "new-formula", "not-sure"], {
+        required_error: locale === "th" ? "กรุณาเลือกประเภทสูตร" : "Please select a formula direction"
+      }),
+      message: z.string().optional()
+    })
+    .superRefine((values, context) => {
+      if (values.productType === "other" && !values.otherProductType?.trim()) {
+        context.addIssue({
+          code: z.ZodIssueCode.custom,
+          path: ["otherProductType"],
+          message: locale === "th" ? "กรุณาระบุประเภทสินค้าอื่น ๆ" : "Please specify the product type"
+        });
+      }
+    });
 
-type QuoteFormValues = z.infer<typeof quoteSchema>;
+type QuoteFormValues = z.infer<ReturnType<typeof createQuoteSchema>>;
 
 const inputClass =
   "mt-2 w-full rounded-[2px] border border-primary/15 bg-white px-4 py-3 text-lg text-text-dark outline-none transition focus:border-primary focus:ring-2 focus:ring-accent/30 dark:border-white/10 dark:bg-white/[0.06] dark:text-white";
@@ -32,14 +45,17 @@ function ErrorText({ message }: { message?: string }) {
 
 export function QuoteForm() {
   const { locale, t } = useLanguage();
+  const quoteSchema = useMemo(() => createQuoteSchema(locale), [locale]);
   const {
     register,
     handleSubmit,
+    watch,
     formState: { errors, isSubmitSuccessful }
   } = useForm<QuoteFormValues>({
     resolver: zodResolver(quoteSchema),
     defaultValues: { formulaType: "not-sure" }
   });
+  const productType = watch("productType");
 
   function onSubmit(values: QuoteFormValues) {
     console.info("Quote request draft", values);
@@ -85,9 +101,21 @@ export function QuoteForm() {
             <option value="fragrance">Fragrance / Aroma</option>
             <option value="packaging">Packaging & Labeling</option>
             <option value="document">FDA / Document Service</option>
+            <option value="other">{locale === "th" ? "อื่น ๆ" : "Other"}</option>
           </select>
           <ErrorText message={errors.productType?.message} />
         </label>
+        {productType === "other" ? (
+          <label className="text-lg font-bold text-text-dark dark:text-white">
+            {locale === "th" ? "ระบุประเภทสินค้าอื่น ๆ" : "Specify product type"} *
+            <input
+              className={inputClass}
+              placeholder={locale === "th" ? "เช่น ลิปบาล์ม ยาสีฟัน ผลิตภัณฑ์สปา" : "e.g. lip balm, toothpaste, spa product"}
+              {...register("otherProductType")}
+            />
+            <ErrorText message={errors.otherProductType?.message} />
+          </label>
+        ) : null}
         <label className="text-lg font-bold text-text-dark dark:text-white">
           {locale === "th" ? "จำนวนผลิตโดยประมาณ" : "Estimated quantity"}
           <input

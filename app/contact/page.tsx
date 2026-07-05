@@ -1,11 +1,17 @@
+"use client";
+
 import { Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 import { Container } from "@/components/common/Container";
 import { PageHero } from "@/components/common/PageHero";
 import { SectionHeader } from "@/components/common/SectionHeader";
 import { QuoteForm } from "@/components/forms/QuoteForm";
+import { useLanguage } from "@/components/providers/LanguageProvider";
 import { company } from "@/data/company";
 
 export default function ContactPage() {
+  const { locale } = useLanguage();
+  const address = locale === "th" ? company.address : company.addressEn;
+
   return (
     <>
       <PageHero
@@ -29,24 +35,50 @@ export default function ContactPage() {
             <QuoteForm />
           </div>
           <aside className="rounded-[4px] border border-primary/10 bg-white p-6 dark:border-white/10 dark:bg-white/[0.04] md:p-8 lg:self-start">
-            <h2 className="font-serif text-4xl font-medium text-text-dark dark:text-white">Company contact</h2>
+            <h2 className="font-serif text-4xl font-medium text-text-dark dark:text-white">
+              {locale === "th" ? "ข้อมูลติดต่อบริษัท" : "Company contact"}
+            </h2>
             <div className="mt-6 grid gap-5 text-lg font-medium text-text-muted dark:text-text-light">
-              <p className="flex gap-3">
+              <div className="flex gap-3">
                 <Phone size={20} className="mt-0.5 text-accent" />
-                <span>{company.phone.join(", ")}</span>
-              </p>
-              <p className="flex gap-3">
+                <span className="flex flex-wrap gap-x-2 gap-y-1">
+                  {company.phone.map((phone, index) => (
+                    <a
+                      key={phone}
+                      href={`tel:${phone.replaceAll("-", "")}`}
+                      className="transition hover:text-primary dark:hover:text-white"
+                    >
+                      {phone}
+                      {index < company.phone.length - 1 ? "," : ""}
+                    </a>
+                  ))}
+                </span>
+              </div>
+              <a
+                href={`mailto:${company.email}`}
+                className="flex gap-3 transition hover:text-primary dark:hover:text-white"
+              >
                 <Mail size={20} className="mt-0.5 text-accent" />
                 <span>{company.email}</span>
-              </p>
-              <p className="flex gap-3">
+              </a>
+              <a
+                href={company.lineUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="flex gap-3 transition hover:text-primary dark:hover:text-white"
+              >
                 <MessageCircle size={20} className="mt-0.5 text-accent" />
                 <span>Line: {company.line}</span>
-              </p>
-              <p className="flex gap-3">
+              </a>
+              <a
+                href={company.mapUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="flex gap-3 transition hover:text-primary dark:hover:text-white"
+              >
                 <MapPin size={20} className="mt-0.5 text-accent" />
-                <span>{company.address}</span>
-              </p>
+                <span>{address}</span>
+              </a>
             </div>
           </aside>
         </Container>

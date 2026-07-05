@@ -51,22 +51,24 @@ export function ProductDetail({ product }: { product: Product }) {
           <p className="text-sm font-bold uppercase tracking-[0.2em] text-primary dark:text-accent">
             {category}
           </p>
-          <h1 className="mt-4 font-serif text-6xl font-medium leading-tight text-text-dark dark:text-white md:text-7xl">
+          <h1 className="mt-4 font-serif text-5xl font-medium leading-tight text-text-dark dark:text-white md:text-6xl">
             {title}
           </h1>
-          <p className="mt-6 text-xl font-medium leading-9 text-text-muted dark:text-text-light md:text-2xl">
+          <p className="mt-6 text-lg font-medium leading-9 text-text-muted dark:text-text-light md:text-xl">
             {description}
           </p>
           <div className="mt-10 grid gap-5 md:grid-cols-2">
             {detailCards.map(([title, text]) => (
               <div key={title} className="rounded-[4px] border border-primary/10 bg-white p-5 dark:border-white/10 dark:bg-white/[0.04]">
-                <h2 className="font-serif text-2xl font-medium text-text-dark dark:text-white">{title}</h2>
+                <h2 className="font-serif text-[26px] font-medium text-text-dark dark:text-white">{title}</h2>
                 <p className="mt-2 text-lg font-medium leading-9 text-text-muted dark:text-text-light">{text}</p>
               </div>
             ))}
           </div>
           <div className="mt-8 rounded-[4px] border border-primary/10 bg-white p-5 dark:border-white/10 dark:bg-white/[0.04]">
-            <h2 className="font-serif text-3xl font-medium text-text-dark dark:text-white">Packaging options</h2>
+            <h2 className="font-serif text-[28px] font-medium text-text-dark dark:text-white">
+              {locale === "th" ? "ตัวเลือกบรรจุภัณฑ์" : "Packaging options"}
+            </h2>
             <div className="mt-4 grid gap-3 sm:grid-cols-3">
               {product.packageOptions.map((option) => (
                 <p key={option} className="flex items-center gap-2 text-lg font-medium text-text-muted dark:text-text-light">
@@ -82,7 +84,7 @@ export function ProductDetail({ product }: { product: Product }) {
                 key={heading as string}
                 className="rounded-[4px] border border-primary/10 bg-white p-5 dark:border-white/10 dark:bg-white/[0.04]"
               >
-                <h2 className="font-serif text-3xl font-medium text-text-dark dark:text-white">{heading as string}</h2>
+                <h2 className="font-serif text-[28px] font-medium text-text-dark dark:text-white">{heading as string}</h2>
                 <div className="mt-4 grid gap-3">
                   {(items as string[]).map((item) => (
                     <p

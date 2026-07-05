@@ -18,16 +18,13 @@ export function Navbar() {
   const { t } = useLanguage();
 
   return (
-    <header className="sticky top-0 z-50 border-b border-primary/10 bg-white/95 backdrop-blur-xl">
+    <header className="sticky top-0 z-50 border-b border-primary/10 bg-white/95 backdrop-blur-xl dark:border-white/10 dark:bg-dark-bg/95">
       <Container className="flex h-[72px] items-center justify-between">
         <Link href="/" className="flex items-center gap-3" onClick={() => setOpen(false)}>
           <BrandMark className="h-9 w-9 rounded-[2px]" />
           <span className="leading-tight">
-            <span className="block font-serif text-xl font-normal uppercase leading-none tracking-[0.14em] text-primary">
+            <span className="block font-serif text-2xl font-normal uppercase leading-none tracking-[0.14em] text-primary">
               Pherada
-            </span>
-            <span className="mt-1 block text-xs font-medium uppercase leading-none tracking-[0.08em] text-text-muted">
-              {t("brand.concept")}
             </span>
           </span>
         </Link>
@@ -40,8 +37,8 @@ export function Navbar() {
                 key={item.href}
                 href={item.href}
                 className={cn(
-                  "px-3 py-2 text-xs font-medium uppercase tracking-[0.08em] text-text-muted transition hover:text-primary",
-                  active && "text-primary"
+                  "px-3 py-2 text-sm font-semibold uppercase tracking-[0.06em] text-text-muted transition hover:text-primary dark:text-text-light dark:hover:text-accent",
+                  active && "text-primary dark:text-accent"
                 )}
               >
                 {t(item.labelKey)}
@@ -65,7 +62,7 @@ export function Navbar() {
             type="button"
             aria-label="Open menu"
             onClick={() => setOpen((value) => !value)}
-            className="inline-flex h-10 w-10 items-center justify-center rounded-[2px] border border-border bg-white text-text-dark"
+            className="inline-flex h-10 w-10 items-center justify-center rounded-[2px] border border-border bg-white text-text-dark dark:border-white/15 dark:bg-white/10 dark:text-white"
           >
             {open ? <X size={20} /> : <Menu size={20} />}
           </button>
@@ -73,14 +70,14 @@ export function Navbar() {
       </Container>
 
       {open ? (
-        <div className="border-t border-border bg-white lg:hidden">
+        <div className="border-t border-border bg-white dark:border-white/10 dark:bg-dark-bg lg:hidden">
           <Container className="grid gap-2 py-4">
             {navItems.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
                 onClick={() => setOpen(false)}
-                className="px-3 py-3 text-sm font-semibold uppercase tracking-[0.08em] text-text-dark hover:bg-primary/5"
+                className="px-3 py-3 text-sm font-semibold uppercase tracking-[0.08em] text-text-dark hover:bg-primary/5 dark:text-text-light dark:hover:bg-white/10 dark:hover:text-white"
               >
                 {t(item.labelKey)}
               </Link>
