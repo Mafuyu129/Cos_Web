@@ -1,6 +1,7 @@
 "use client";
 
 import { useLanguage } from "@/components/providers/LanguageProvider";
+import { cn } from "@/lib/utils";
 import { Container } from "./Container";
 
 type PageHeroProps = {
@@ -34,7 +35,12 @@ export function PageHero({
   return (
     <section className="border-b border-primary/10 bg-white text-text-dark dark:border-white/10 dark:bg-dark-bg dark:text-white">
       <Container className="py-16 md:py-24">
-        <p className="mb-4 text-sm font-bold uppercase tracking-[0.2em] text-primary dark:text-accent">
+        <p
+          className={cn(
+            "mb-4 text-sm font-bold uppercase text-primary dark:text-accent",
+            locale === "th" ? "tracking-normal" : "tracking-[0.2em]"
+          )}
+        >
           {displayEyebrow}
         </p>
         <h1 className="max-w-4xl font-serif text-5xl font-medium leading-tight md:text-6xl">

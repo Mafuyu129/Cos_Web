@@ -15,7 +15,7 @@ import { useLanguage } from "@/components/providers/LanguageProvider";
 export function Navbar() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
-  const { t } = useLanguage();
+  const { locale, t } = useLanguage();
 
   return (
     <header className="sticky top-0 z-50 border-b border-primary/10 bg-white/95 backdrop-blur-xl dark:border-white/10 dark:bg-dark-bg/95">
@@ -37,7 +37,8 @@ export function Navbar() {
                 key={item.href}
                 href={item.href}
                 className={cn(
-                  "px-3 py-2 text-sm font-semibold uppercase tracking-[0.06em] text-text-muted transition hover:text-primary dark:text-text-light dark:hover:text-accent",
+                  "px-3 py-2 text-sm font-semibold uppercase text-text-muted transition hover:text-primary dark:text-text-light dark:hover:text-accent",
+                  locale === "th" ? "tracking-normal" : "tracking-[0.06em]",
                   active && "text-primary dark:text-accent"
                 )}
               >
@@ -77,7 +78,10 @@ export function Navbar() {
                 key={item.href}
                 href={item.href}
                 onClick={() => setOpen(false)}
-                className="px-3 py-3 text-sm font-semibold uppercase tracking-[0.08em] text-text-dark hover:bg-primary/5 dark:text-text-light dark:hover:bg-white/10 dark:hover:text-white"
+                className={cn(
+                  "px-3 py-3 text-sm font-semibold uppercase text-text-dark hover:bg-primary/5 dark:text-text-light dark:hover:bg-white/10 dark:hover:text-white",
+                  locale === "th" ? "tracking-normal" : "tracking-[0.08em]"
+                )}
               >
                 {t(item.labelKey)}
               </Link>

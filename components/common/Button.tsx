@@ -30,7 +30,7 @@ const variants: Record<ButtonVariant, string> = {
 export function Button(props: LinkButtonProps | NativeButtonProps) {
   const { children, variant = "primary", className, ...rest } = props;
   const classes = cn(
-    "inline-flex min-h-12 items-center justify-center gap-2 rounded-[2px] px-8 py-3 text-base font-semibold uppercase tracking-[0.06em] transition duration-200 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-transparent",
+    "inline-flex min-h-12 items-center justify-center gap-2 rounded-[2px] px-8 py-3 text-base font-semibold uppercase tracking-normal transition duration-200 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-transparent",
     variants[variant],
     className
   );

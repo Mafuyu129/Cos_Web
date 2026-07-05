@@ -2,6 +2,7 @@
 
 import { ArrowRight } from "lucide-react";
 import { useLanguage } from "@/components/providers/LanguageProvider";
+import { cn } from "@/lib/utils";
 import { Button } from "./Button";
 import { Container } from "./Container";
 
@@ -32,7 +33,12 @@ export function CTASection({
       <Container>
         <div className="mx-auto flex max-w-3xl flex-col items-center gap-5 text-center">
           <div>
-            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.18em] text-accent">
+            <p
+              className={cn(
+                "mb-3 text-sm font-semibold uppercase text-accent",
+                locale === "th" ? "tracking-normal" : "tracking-[0.18em]"
+              )}
+            >
               {t("cta.eyebrow")}
             </p>
             <h2 className="font-serif text-3xl font-light leading-tight md:text-4xl">

@@ -38,7 +38,12 @@ export function SectionHeader({
   return (
     <div className={cn("max-w-3xl", align === "center" && "mx-auto text-center", className)}>
       {displayEyebrow ? (
-        <p className="mb-4 text-sm font-bold uppercase tracking-[0.2em] text-primary dark:text-accent">
+        <p
+          className={cn(
+            "mb-4 text-sm font-bold uppercase text-primary dark:text-accent",
+            locale === "th" ? "tracking-normal" : "tracking-[0.2em]"
+          )}
+        >
           {displayEyebrow}
         </p>
       ) : null}

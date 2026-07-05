@@ -31,6 +31,12 @@ export function Footer() {
 
         <div>
           <p className="mb-4 text-base font-semibold uppercase tracking-[0.18em] text-accent">
+          <p
+            className={cn(
+              "mb-4 text-base font-semibold uppercase text-accent",
+              locale === "th" ? "tracking-normal" : "tracking-[0.18em]"
+            )}
+          >
             {t("footer.site")}
           </p>
           <div className="grid gap-2 text-base text-text-muted dark:text-text-light">
@@ -43,7 +49,12 @@ export function Footer() {
         </div>
 
         <div>
-          <p className="mb-4 text-base font-semibold uppercase tracking-[0.18em] text-accent">
+          <p
+            className={cn(
+              "mb-4 text-base font-semibold uppercase text-accent",
+              locale === "th" ? "tracking-normal" : "tracking-[0.18em]"
+            )}
+          >
             {t("footer.contact")}
           </p>
           <div className="grid gap-3 text-base text-text-muted dark:text-text-light">

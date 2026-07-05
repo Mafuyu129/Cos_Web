@@ -29,16 +29,16 @@ const config: Config = {
       },
       fontFamily: {
         sans: [
+          "Sarabun",
           "DM Sans",
-          "Noto Sans Thai",
           "ui-sans-serif",
           "system-ui",
           "sans-serif"
         ],
         serif: [
           "Cormorant Garamond",
-          "Georgia",
           "Noto Serif Thai",
+          "Georgia",
           "serif"
         ]
       },

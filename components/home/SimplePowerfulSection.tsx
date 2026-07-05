@@ -3,6 +3,7 @@
 import { FadeUp } from "@/components/common/FadeUp";
 import { Container } from "@/components/common/Container";
 import { useLanguage } from "@/components/providers/LanguageProvider";
+import { cn } from "@/lib/utils";
 
 export function SimplePowerfulSection() {
   const { locale, t } = useLanguage();
@@ -43,7 +44,14 @@ export function SimplePowerfulSection() {
           </div>
         </FadeUp>
         <FadeUp delay={0.08} className="flex flex-col justify-center px-6 py-16 md:px-12">
-          <span className="text-sm font-bold uppercase tracking-[0.18em] text-accent">{t("home.simple.eyebrow")}</span>
+          <span
+            className={cn(
+              "text-sm font-bold uppercase text-accent",
+              locale === "th" ? "tracking-normal" : "tracking-[0.18em]"
+            )}
+          >
+            {t("home.simple.eyebrow")}
+          </span>
           <h2 className="mt-4 font-serif text-4xl font-medium leading-tight text-text-dark dark:text-white md:text-5xl">
             {title}
           </h2>
@@ -57,7 +65,14 @@ export function SimplePowerfulSection() {
             ].map(([num, label]) => (
               <div key={label}>
                 <p className="font-serif text-3xl font-light leading-none text-primary md:text-4xl">{num}</p>
-                <p className="mt-2 text-sm uppercase tracking-[0.06em] text-text-muted dark:text-text-light">{label}</p>
+                <p
+                  className={cn(
+                    "mt-2 text-sm uppercase text-text-muted dark:text-text-light",
+                    locale === "th" ? "tracking-normal" : "tracking-[0.06em]"
+                  )}
+                >
+                  {label}
+                </p>
               </div>
             ))}
           </div>
