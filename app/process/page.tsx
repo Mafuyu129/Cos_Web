@@ -30,7 +30,7 @@ export default function ProcessPage() {
             title="Two main paths before production"
             titleTh="2 ทางเลือกหลักก่อนเริ่มผลิต"
             description="Choose the route that fits your timeline, formula direction and launch goal."
-            descriptionTh="ใช้ข้อมูลจากโปสเตอร์เดิม แต่ตัดรายละเอียดเชิงลึกออก เหลือเฉพาะสิ่งที่ช่วยให้ลูกค้าตัดสินใจว่าควรคุยเส้นทางไหนกับทีมงาน"
+            descriptionTh="เลือกระหว่างการใช้สูตรมาตรฐานที่พร้อมผลิตทันที หรือการวิจัยและพัฒนาสูตรเฉพาะเพื่อสร้างเอกลักษณ์ให้กับแบรนด์ของคุณ"
             className="mb-12"
           />
           <div className="grid gap-6 lg:grid-cols-2">

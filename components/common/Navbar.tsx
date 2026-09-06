@@ -37,9 +37,9 @@ export function Navbar() {
                 key={item.href}
                 href={item.href}
                 className={cn(
-                  "px-3 py-2 text-sm font-semibold uppercase text-text-muted transition hover:text-primary dark:text-text-light dark:hover:text-accent",
+                  "px-3 py-2 text-sm font-medium uppercase text-text-muted transition hover:text-primary dark:text-text-light dark:hover:text-accent",
                   locale === "th" ? "tracking-normal" : "tracking-[0.06em]",
-                  active && "text-primary dark:text-accent"
+                  active && "text-primary font-semibold dark:text-accent"
                 )}
               >
                 {t(item.labelKey)}

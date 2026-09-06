@@ -3,10 +3,12 @@
 import { Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 import Link from "next/link";
 import { BrandMark } from "@/components/common/BrandMark";
+import { ShopeeIcon } from "@/components/common/ShopeeIcon";
 import { company } from "@/data/company";
 import { navItems } from "@/data/nav";
 import { useLanguage } from "@/components/providers/LanguageProvider";
 import { Container } from "./Container";
+import { cn } from "@/lib/utils";
 
 export function Footer() {
   const { locale, t } = useLanguage();
@@ -30,7 +32,6 @@ export function Footer() {
         </div>
 
         <div>
-          <p className="mb-4 text-base font-semibold uppercase tracking-[0.18em] text-accent">
           <p
             className={cn(
               "mb-4 text-base font-semibold uppercase text-accent",
@@ -88,6 +89,15 @@ export function Footer() {
             >
               <MessageCircle size={18} className="mt-0.5 text-accent" />
               <span>Line: {company.line}</span>
+            </a>
+            <a
+              href={company.shopeeUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="flex items-center gap-3 font-semibold text-[#EE4D2D] transition hover:text-orange-600 dark:text-orange-400 dark:hover:text-orange-300"
+            >
+              <ShopeeIcon className="h-4 w-4 shrink-0 text-[#EE4D2D]" />
+              <span>Shopee: Pherada Store</span>
             </a>
             <a
               href={company.mapUrl}

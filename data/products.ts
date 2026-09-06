@@ -16,6 +16,7 @@ export type Product = {
   ingredients: string[];
   benefits: string[];
   usage: string[];
+  shopeeUrl?: string;
 };
 
 export const productCategories = ["All", "Mask", "Serum", "Moisturizer", "Cleanser"];

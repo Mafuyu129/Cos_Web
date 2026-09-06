@@ -109,8 +109,8 @@ export default function StandardsPage() {
               eyebrow="FDA General Information"
               title="ข้อมูลทั่วไปจากเอกสาร อย."
               titleEn="General information from FDA documents"
-              description="ข้อมูลบริษัท สถานที่ผลิต สถานที่เก็บรักษา และขอบเขตประกอบกิจการตามเอกสารที่อยู่ในโฟลเดอร์ Doc"
-              descriptionEn="Company, production location, storage location and business scope from the documents in the Doc folder."
+              description="ข้อมูลบริษัท สถานที่ผลิต สถานที่เก็บรักษา และขอบเขตประกอบกิจการตามเอกสารการจดทะเบียนอย่างเป็นทางการ"
+              descriptionEn="Company profile, production facility, storage facility and business scope from official registration filings."
             />
             <div className="mt-8 grid gap-4">
               {companyRows.map(([label, value]) => (

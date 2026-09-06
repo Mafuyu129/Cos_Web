@@ -44,13 +44,18 @@ export function CTASection({
             <h2 className="font-serif text-3xl font-light leading-tight md:text-4xl">
               {displayTitle ?? t("cta.title")}
             </h2>
-            <p className="mx-auto mt-4 max-w-2xl text-base font-light leading-8 text-text-muted dark:text-text-light">
+            <p className="mx-auto mt-4 max-w-2xl text-base font-normal leading-relaxed text-text-muted dark:text-text-light">
               {displayDescription ?? t("cta.description")}
             </p>
           </div>
-          <Button href="/contact">
-            {t("cta.button")} <ArrowRight size={18} />
-          </Button>
+          <div className="flex flex-col sm:flex-row gap-3">
+            <Button href="/contact">
+              {t("cta.button")} <ArrowRight size={18} />
+            </Button>
+            <Button href="/products" variant="secondary">
+              {locale === "th" ? "ดูผลิตภัณฑ์ทั้งหมด" : "View All Products"}
+            </Button>
+          </div>
         </div>
       </Container>
     </section>

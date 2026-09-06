@@ -24,7 +24,8 @@ const dictionary: Record<Locale, Record<string, string>> = {
     "nav.home": "หน้าแรก",
     "nav.about": "เกี่ยวกับเรา",
     "nav.services": "บริการ",
-    "nav.showcase": "ผลงานสินค้า",
+    "nav.products": "ผลิตภัณฑ์",
+    "nav.showcase": "สินค้า & ผลงาน",
     "nav.process": "ขั้นตอนผลิต",
     "nav.standards": "มาตรฐาน",
     "nav.knowledge": "บทความ",
@@ -88,7 +89,8 @@ const dictionary: Record<Locale, Record<string, string>> = {
     "nav.home": "Home",
     "nav.about": "About",
     "nav.services": "Services",
-    "nav.showcase": "Showcase",
+    "nav.products": "Products",
+    "nav.showcase": "Products & Showcase",
     "nav.process": "Process",
     "nav.standards": "Standards",
     "nav.knowledge": "Knowledge",
@@ -160,6 +162,8 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     if (stored === "th" || stored === "en") {
       setLocaleState(stored);
       document.documentElement.lang = stored;
+    } else {
+      document.documentElement.lang = "th";
     }
   }, []);
 

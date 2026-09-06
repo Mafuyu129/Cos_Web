@@ -7,6 +7,7 @@ export const company = {
   email: "pherada3569@gmail.com",
   line: "@440bqhfk",
   lineUrl: "https://page.line.me/440bqhfk",
+  shopeeUrl: "https://th.shp.ee/N9Rs9s4y",
   address: "5 ถนนวิฑูรอุทิศ 8 ตำบลสะเตง อำเภอเมือง จังหวัดยะลา 95000",
   addressEn: "5 Witoon Uthit 8 Road, Sateng, Mueang Yala, Yala 95000, Thailand",
   mapUrl: "https://www.google.com/maps/search/?api=1&query=5%20Witoon%20Uthit%208%20Road%20Sateng%20Mueang%20Yala%2095000%20Thailand",
