@@ -67,9 +67,9 @@ export async function POST(req: Request) {
     <body>
       <div class="card">
         <div class="header">
-          <span class="badge">NEW OEM / ODM INQUIRY</span>
-          <h1>มีผู้ขอใบเสนอราคาใหม่ (Pherada Cosmetics)</h1>
-          <p>ส่งจากแบบฟอร์มเว็บไซต์ pheradacosmetics.com</p>
+          <span class="badge">LEAD INQUIRY // ข้อมูลลูกค้าใหม่</span>
+          <h1>มีลูกค้าสนใจผลิตและขอข้อมูลใบเสนอราคา</h1>
+          <p>กรุณานำรายละเอียดความต้องการด้านล่างไปจัดทำใบเสนอราคา หรือติดต่อลูกค้ากลับ</p>
         </div>
         <div class="content">
           <div class="section-title">ข้อมูลผู้ติดต่อ (Client Info)</div>
@@ -138,7 +138,7 @@ export async function POST(req: Request) {
     </html>
     `;
 
-    const subject = `[ขอใบเสนอราคาใหม่] ${contactName} - ${targetProduct} (${quantity || "ไม่ระบุจำนวน"})`;
+    const subject = `🔔 [ลูกค้าใหม่ขอใบเสนอราคา] คุณ${contactName} (${phone}) - สนใจผลิต ${targetProduct}`;
 
     // Send directly to Pherada company inbox
     const sendResult = await resend.emails.send({
