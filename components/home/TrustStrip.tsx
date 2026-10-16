@@ -8,20 +8,20 @@ export function TrustStrip() {
   const items =
     locale === "th"
       ? [
-          { icon: FlaskConical, label: "DERMO-COSMETIC OEM / ODM" },
-          { icon: Beaker, label: "CLINICAL R&D FORMULATION" },
-          { icon: ShieldCheck, label: "100% THAI FDA NOTIFICATION" },
-          { icon: ClipboardCheck, label: "BMR BATCH TRACEABILITY" },
-          { icon: Sparkles, label: "HIGH-PURITY BIO-ACTIVES" },
-          { icon: Verified, label: "ONE-STOP BRAND LAUNCH" }
+          { icon: Sparkles, label: "เริ่มต้นผลิตเพียง 100 ชิ้น" },
+          { icon: ShieldCheck, label: "จดแจ้ง อย. ถูกต้อง 100%" },
+          { icon: Beaker, label: "ปรับแต่งสูตรเฉพาะแบรนด์คุณ" },
+          { icon: ClipboardCheck, label: "บันทึก BMR ตรวจสอบย้อนกลับได้" },
+          { icon: FlaskConical, label: "มีเซ็ตเทสเตอร์ให้ทดลองจริง" },
+          { icon: Verified, label: "One-Stop Service พร้อมวางขาย" }
         ]
       : [
-          { icon: FlaskConical, label: "DERMO-COSMETIC OEM / ODM" },
-          { icon: Beaker, label: "CLINICAL R&D FORMULATION" },
-          { icon: ShieldCheck, label: "100% THAI FDA NOTIFICATION" },
-          { icon: ClipboardCheck, label: "BMR BATCH TRACEABILITY" },
-          { icon: Sparkles, label: "HIGH-PURITY BIO-ACTIVES" },
-          { icon: Verified, label: "ONE-STOP BRAND LAUNCH" }
+          { icon: Sparkles, label: "Low Starter MOQ from 100 Pcs" },
+          { icon: ShieldCheck, label: "100% Thai FDA Compliant" },
+          { icon: Beaker, label: "Bespoke Active Formulation" },
+          { icon: ClipboardCheck, label: "BMR Quality & Batch Traceability" },
+          { icon: FlaskConical, label: "Sample Tester Kits Available" },
+          { icon: Verified, label: "Turnkey One-Stop Brand Launch" }
         ];
 
   return (
@@ -32,7 +32,7 @@ export function TrustStrip() {
           return (
             <div
               key={item.label}
-              className="flex shrink-0 items-center gap-2 font-mono text-[11px] font-semibold uppercase tracking-[0.12em] text-white/95"
+              className="flex shrink-0 items-center gap-2 text-xs font-semibold text-white/95"
             >
               <Icon size={14} className="text-[#48ACD6]" />
               <span>{item.label}</span>

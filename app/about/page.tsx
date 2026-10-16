@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { Beaker, Building2, Cpu, Handshake, MapPin, ShieldCheck, Target, Users } from "lucide-react";
 import { CTASection } from "@/components/common/CTASection";
 import { Container } from "@/components/common/Container";
@@ -117,6 +118,25 @@ export default function AboutPage() {
 
             <div className="mt-6 inline-flex items-center gap-2 rounded-xl border border-[#0038AE]/20 bg-[#F4F9FD] px-4 py-2.5 font-mono text-xs font-bold text-[#0038AE] dark:border-[#48ACD6]/30 dark:bg-white/5 dark:text-[#48ACD6]">
               <span>“{company.tagline}”</span>
+            </div>
+
+            <div className="relative mt-6 aspect-[16/11] overflow-hidden rounded-2xl border border-[#0038AE]/15 shadow-sm">
+              <Image
+                src="/images/hero/clinical-lab-scientist.jpg"
+                alt="Pherada Cosmetics Formulation R&D Scientist"
+                fill
+                className="object-cover transition-transform duration-500 hover:scale-105"
+                sizes="(max-width: 768px) 100vw, 450px"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#04091A]/80 via-transparent to-transparent" />
+              <div className="absolute bottom-3 left-3 right-3 text-white">
+                <p className="text-xs font-bold leading-tight">
+                  {locale === "th" ? "การวิจัยและพัฒนาสูตรเวชสำอางโดยนักวิทยาศาสตร์เครื่องสำอาง" : "Dedicated Formulation R&D Scientist"}
+                </p>
+                <p className="mt-0.5 text-[11px] text-[#9EE4FF]">
+                  {locale === "th" ? "ทดสอบค่า pH ความคงตัว และคัดสรรสารสกัด Active เกรดคลินิก" : "Clinical-grade active ingredients & pH stability testing"}
+                </p>
+              </div>
             </div>
           </div>
 

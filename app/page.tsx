@@ -4,6 +4,7 @@ import { HeroSection } from "@/components/home/HeroSection";
 import { ProcessPreview } from "@/components/home/ProcessPreview";
 import { ShowcasePreview } from "@/components/home/ShowcasePreview";
 import { SimplePowerfulSection } from "@/components/home/SimplePowerfulSection";
+import { StarterKitBanner } from "@/components/home/StarterKitBanner";
 import { TrustStrip } from "@/components/home/TrustStrip";
 
 export default function HomePage() {
@@ -12,6 +13,7 @@ export default function HomePage() {
       <HeroSection />
       <TrustStrip />
       <SimplePowerfulSection />
+      <StarterKitBanner />
       <FeaturedServices />
       <ShowcasePreview />
       <ProcessPreview />
