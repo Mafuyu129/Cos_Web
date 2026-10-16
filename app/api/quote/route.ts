@@ -45,7 +45,6 @@ export async function POST(req: Request) {
     const targetProduct = productTypeLabels[productType] || productType;
     const targetFormula = formulaTypeLabels[formulaType] || formulaType || "ขอรับคำปรึกษาจากผู้เชี่ยวชาญ";
     const primaryReceiver = process.env.NOTIFICATION_RECEIVER_EMAIL || "pherada3569@gmail.com";
-    const fallbackReceiver = "gotelove555@gmail.com";
 
     const htmlBody = `
     <!DOCTYPE html>
@@ -141,8 +140,8 @@ export async function POST(req: Request) {
 
     const subject = `[ขอใบเสนอราคาใหม่] ${contactName} - ${targetProduct} (${quantity || "ไม่ระบุจำนวน"})`;
 
-    // Attempt to send to primary receiver (e.g. pherada3569@gmail.com)
-    let sendResult = await resend.emails.send({
+    // Send directly to Pherada company inbox
+    const sendResult = await resend.emails.send({
       from: "Pherada Web Lead <onboarding@resend.dev>",
       to: primaryReceiver,
       replyTo: email || undefined,
@@ -150,31 +149,9 @@ export async function POST(req: Request) {
       html: htmlBody
     });
 
-    // If Resend gives error (e.g. domain not verified yet to send to external email)
     if (sendResult.error) {
-      console.warn(
-        `⚠️ Resend could not send to ${primaryReceiver}: ${sendResult.error.message}. Falling back to account email ${fallbackReceiver}...`
-      );
-
-      // Send to registered Resend account owner so lead is never lost
-      sendResult = await resend.emails.send({
-        from: "Pherada Web Lead <onboarding@resend.dev>",
-        to: fallbackReceiver,
-        replyTo: email || undefined,
-        subject: `[FWD: ส่งต่อให้ Pherada] ${subject}`,
-        html: `
-          <div style="background: #fef3c7; border: 1px solid #f59e0b; padding: 12px 16px; border-radius: 8px; margin-bottom: 16px; font-family: sans-serif; font-size: 13px; color: #92400e;">
-            <strong>📌 ข้อความแจ้งเตือนสำหรับผู้ดูแลเว็บไซต์:</strong><br/>
-            อีเมลฉบับนี้ถูกส่งมาที่บัญชีของคุณ (${fallbackReceiver}) เนื่องจากยังไม่ได้เพิ่ม Custom Domain บน Resend เพื่อส่งต่อไปที่ ${primaryReceiver}<br/>
-            (เมื่อคุณเพิ่มโดเมนที่ <a href="https://resend.com/domains" target="_blank">resend.com/domains</a> ระบบจะยิงตรงเข้า ${primaryReceiver} อัตโนมัติทันทีครับ)
-          </div>
-          ${htmlBody}
-        `
-      });
-
-      if (sendResult.error) {
-        throw new Error(sendResult.error.message);
-      }
+      console.error("Resend error:", sendResult.error);
+      throw new Error(sendResult.error.message);
     }
 
     return NextResponse.json({
