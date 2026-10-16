@@ -17,9 +17,10 @@ export function ThemeToggle() {
       type="button"
       aria-label="Toggle theme"
       onClick={() => setTheme(isDark ? "light" : "dark")}
-      className="inline-flex h-10 w-10 items-center justify-center rounded-[2px] border border-primary/15 bg-white text-text-dark transition hover:bg-light-bg dark:border-white/15 dark:bg-white/10 dark:text-white dark:hover:bg-white/20"
+      className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-[#0038AE]/15 bg-[#F4F9FD] text-[#0038AE] transition hover:border-[#48ACD6] hover:bg-white dark:border-white/15 dark:bg-white/[0.06] dark:text-[#48ACD6] dark:hover:bg-white/15"
     >
-      {isDark ? <Sun size={18} /> : <Moon size={18} />}
+      {isDark ? <Sun size={17} /> : <Moon size={17} />}
     </button>
   );
 }
+

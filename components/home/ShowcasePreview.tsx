@@ -1,33 +1,40 @@
 "use client";
 
+import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/common/Button";
 import { Container } from "@/components/common/Container";
 import { SectionHeader } from "@/components/common/SectionHeader";
 import { ProductGrid } from "@/components/showcase/ProductGrid";
+import { ShopeeBanner } from "@/components/showcase/ShopeeBanner";
 import { useLanguage } from "@/components/providers/LanguageProvider";
 
 export function ShowcasePreview() {
   const { locale, t } = useLanguage();
 
   return (
-    <section className="border-b border-primary/10 bg-white py-16 dark:border-white/10 dark:bg-dark-section md:py-20">
+    <section className="border-b border-[#0038AE]/15 bg-white py-16 dark:border-white/10 dark:bg-[#081128] md:py-24">
       <Container>
-        <div className="mb-10 flex flex-col justify-between gap-4 md:flex-row md:items-end">
+        <div className="mb-12 flex flex-col justify-between gap-4 md:flex-row md:items-end">
           <SectionHeader
-            eyebrow={t("home.showcase.eyebrow")}
-            title={locale === "th" ? "สูตรและผลิตภัณฑ์พร้อมผลิต" : t("home.showcase.title")}
+            eyebrow={locale === "th" ? "สูตรมาตรฐานห้องแล็บ (RX BASE FORMULAS)" : t("home.showcase.eyebrow")}
+            title={locale === "th" ? "สูตรเวชสำอางและสกินแคร์พร้อมผลิต" : t("home.showcase.title")}
             description={
               locale === "th"
-                ? "ตัวอย่างสูตรผลิตภัณฑ์และแนวทางแพ็กเกจที่พร้อมผลิตจริง สามารถกดสั่งซื้อขนาดทดลองผ่าน Shopee ได้ทันที"
+                ? "คัดสรรสารสกัดเข้มข้นระดับคลินิก พร้อมข้อมูล Active Ingredients ชัดเจน สามารถสั่งขนาดทดลองไปทดสอบเนื้อสัมผัสผ่าน Shopee ทางการได้ทันที"
                 : t("home.showcase.description")
             }
           />
           <Button href="/products" variant="secondary">
-            {locale === "th" ? "ดูผลิตภัณฑ์ทั้งหมด" : t("home.showcase.all")}
+            <span>{locale === "th" ? "ดูสูตรทั้งหมด (8 สูตร)" : t("home.showcase.all")}</span>
+            <ArrowRight size={16} />
           </Button>
         </div>
         <ProductGrid limit={4} />
+        <div className="mt-12">
+          <ShopeeBanner />
+        </div>
       </Container>
     </section>
   );
 }
+

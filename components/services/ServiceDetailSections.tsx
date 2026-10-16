@@ -1,6 +1,6 @@
 "use client";
 
-import { CheckCircle2 } from "lucide-react";
+import { CheckCircle2, FlaskConical } from "lucide-react";
 import { CTASection } from "@/components/common/CTASection";
 import { Container } from "@/components/common/Container";
 import { SectionHeader } from "@/components/common/SectionHeader";
@@ -30,61 +30,84 @@ export function ServiceDetailSections({
 
   return (
     <>
-      <section className="bg-light-bg py-20 dark:bg-dark-bg md:py-28">
+      <section className="bg-[#F4F9FD] py-16 dark:bg-[#04091A] md:py-24">
         <Container className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
           <SectionHeader
             eyebrow="What we can produce"
-            eyebrowTh="ผลิตอะไรได้บ้าง"
+            eyebrowTh="รายการเวชสำอางที่รับผลิต"
             title={`Products in ${service.title}`}
-            titleTh={`สินค้าในกลุ่ม${service.titleTh}`}
-            description="Items can be adjusted by formula, packaging and brand goal."
-            descriptionTh="รายการสามารถปรับตามสูตร บรรจุภัณฑ์ และเป้าหมายแบรนด์"
+            titleTh={`ผลิตภัณฑ์ในกลุ่ม${service.titleTh}`}
+            description="Items can be customized by active concentration, pH, texture, and clinical packaging."
+            descriptionTh="สามารถปรับความเข้มข้นของสารสกัด Active เนื้อสัมผัส กลิ่น และบรรจุภัณฑ์ตามตำแหน่งทางการตลาดของแบรนด์"
           />
-          <div className="grid gap-4 md:grid-cols-2">
+          <div className="grid gap-4 sm:grid-cols-2">
             {service.items.map((item) => (
-              <div key={item} className="rounded-[4px] border border-primary/10 bg-white p-5 dark:border-white/10 dark:bg-white/[0.04]">
-                <CheckCircle2 size={22} className="text-primary dark:text-accent" />
-                <p className="mt-3 text-lg font-bold text-text-dark dark:text-white">{item}</p>
+              <div
+                key={item}
+                className="flex items-center gap-3.5 rounded-2xl border border-[#0038AE]/15 bg-white p-5 shadow-sm dark:border-white/10 dark:bg-[#0D1936]"
+              >
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-[#0038AE] to-[#48ACD6] text-white">
+                  <CheckCircle2 size={18} />
+                </div>
+                <p className="text-base font-bold text-text-dark dark:text-white">{item}</p>
               </div>
             ))}
           </div>
         </Container>
       </section>
 
-      <section className="bg-white py-20 dark:bg-dark-section md:py-28">
-        <Container className="grid gap-5 md:grid-cols-3">
+      <section className="border-y border-[#0038AE]/12 bg-white py-16 dark:border-white/10 dark:bg-[#081128] md:py-24">
+        <Container className="grid gap-6 md:grid-cols-3">
           {[
-            [locale === "th" ? "ตัวเลือกสูตร" : "Formula options", service.formulaOptions.join(" / ")],
-            [locale === "th" ? "จำนวนผลิตขั้นต่ำ" : "MOQ", moqText],
-            [locale === "th" ? "ระยะเวลาผลิต" : "Timeline", timelineText]
-          ].map(([heading, text]) => (
-            <div key={heading} className="rounded-[4px] border border-primary/10 bg-light-bg p-6 dark:border-white/10 dark:bg-white/[0.04]">
-              <h2 className="font-serif text-[28px] font-medium text-text-dark dark:text-white">{heading}</h2>
-              <p className="mt-3 text-lg font-medium leading-9 text-text-muted dark:text-text-light">{text}</p>
+            [locale === "th" ? "ทิศทางสูตร (Active Directions)" : "Formula Directions", service.formulaOptions.join(" • "), "LAB-SPEC // 01"],
+            [locale === "th" ? "จำนวนผลิตขั้นต่ำ (Starter MOQ)" : "Starter MOQ", moqText, "LAB-SPEC // 02"],
+            [locale === "th" ? "ระยะเวลาผลิต (Lead Time)" : "Production Timeline", timelineText, "LAB-SPEC // 03"]
+          ].map(([heading, text, code]) => (
+            <div
+              key={heading}
+              className="relative overflow-hidden rounded-2xl border border-[#0038AE]/15 bg-[#F4F9FD] p-6 dark:border-white/10 dark:bg-[#0D1936]"
+            >
+              <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-[#0038AE] to-[#48ACD6]" />
+              <div className="flex items-center justify-between">
+                <FlaskConical size={18} className="text-[#48ACD6]" />
+                <span className="font-mono text-[10px] font-bold text-[#0038AE] dark:text-[#48ACD6]">{code}</span>
+              </div>
+              <h2 className="mt-4 text-lg font-extrabold text-text-dark dark:text-white">{heading}</h2>
+              <p className="mt-2 text-sm leading-relaxed text-text-muted dark:text-text-light/85">{text}</p>
             </div>
           ))}
         </Container>
       </section>
 
-      <section className="bg-light-bg py-20 dark:bg-dark-bg md:py-28">
+      <section className="bg-[#F4F9FD] py-16 dark:bg-[#04091A] md:py-24">
         <Container>
           <SectionHeader
             eyebrow="Production Steps"
-            eyebrowTh="ขั้นตอนผลิต"
+            eyebrowTh="โปรโตคอลการผลิต"
             title="Typical path for this service"
-            titleTh="เส้นทางผลิตโดยทั่วไปสำหรับบริการนี้"
-            description="Every project summarizes steps and documents before production starts."
-            descriptionTh="ทุกโปรเจกต์จะสรุปขั้นตอนและเอกสารก่อนเริ่มผลิตจริง"
+            titleTh="ขั้นตอนการดำเนินงานมาตรฐาน"
+            description="Every project summarizes formulation specs and FDA documents before production starts."
+            descriptionTh="ทุกโปรเจกต์ได้รับการดูแลตั้งแต่สรุปสเปกสูตร ทดสอบความคงตัว ไปจนถึงจดแจ้ง อย. และผลิตจริง"
             className="mb-10"
           />
-          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
             {processSteps.slice(0, 4).map((step) => (
-              <div key={step.number} className="rounded-[4px] border border-primary/10 bg-white p-5 dark:border-white/10 dark:bg-white/[0.04]">
-                <p className="font-serif text-3xl font-medium text-primary dark:text-accent">{step.number}</p>
-                <h2 className="mt-3 font-serif text-[26px] font-medium leading-tight text-text-dark dark:text-white">
+              <div
+                key={step.number}
+                className="relative overflow-hidden rounded-2xl border border-[#0038AE]/15 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-[#0D1936]"
+              >
+                <div className="flex items-center justify-between">
+                  <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-[#0038AE] to-[#48ACD6] font-mono text-sm font-bold text-white">
+                    0{step.number}
+                  </span>
+                  <span className="font-mono text-[10px] font-semibold text-[#0038AE] dark:text-[#48ACD6]">
+                    STEP 0{step.number}
+                  </span>
+                </div>
+                <h2 className="mt-4 text-base font-extrabold leading-snug text-text-dark dark:text-white">
                   {locale === "th" ? step.title : step.titleEn}
                 </h2>
-                <p className="mt-2 text-lg font-medium leading-9 text-text-muted dark:text-text-light">
+                <p className="mt-2 text-xs leading-relaxed text-text-muted dark:text-text-light/85 sm:text-sm">
                   {locale === "th" ? step.description : step.descriptionEn}
                 </p>
               </div>
@@ -93,9 +116,10 @@ export function ServiceDetailSections({
         </Container>
       </section>
       <CTASection
-        titleTh={`เริ่มโปรเจกต์${service.titleTh}`}
-        titleEn={`Start your ${title} project`}
+        titleTh={`เริ่มพัฒนาและผลิต${service.titleTh}กับ Pherada Lab`}
+        titleEn={`Start your ${title} project with Pherada Lab`}
       />
     </>
   );
 }
+

@@ -38,23 +38,25 @@ export function SectionHeader({
   return (
     <div className={cn("max-w-3xl", align === "center" && "mx-auto text-center", className)}>
       {displayEyebrow ? (
-        <p
+        <div
           className={cn(
-            "mb-4 text-sm font-bold uppercase text-primary dark:text-accent",
-            locale === "th" ? "tracking-normal" : "tracking-[0.2em]"
+            "mb-3.5 inline-flex items-center gap-2 rounded-full border border-[#0038AE]/15 bg-gradient-to-r from-[#0038AE]/10 to-[#48ACD6]/15 px-3.5 py-1 text-xs font-semibold uppercase text-[#0038AE] dark:border-[#48ACD6]/30 dark:from-[#0038AE]/30 dark:to-[#48ACD6]/20 dark:text-[#48ACD6]",
+            locale === "th" ? "tracking-wide" : "tracking-[0.14em]"
           )}
         >
-          {displayEyebrow}
-        </p>
+          <span className="h-1.5 w-1.5 rounded-full bg-[#48ACD6]" />
+          <span>{displayEyebrow}</span>
+        </div>
       ) : null}
-      <h2 className="font-serif text-4xl font-medium leading-tight text-text-dark dark:text-white md:text-5xl">
+      <h2 className="text-3xl font-bold leading-[1.2] tracking-tight text-text-dark dark:text-white sm:text-4xl">
         {displayTitle}
       </h2>
       {displayDescription ? (
-        <p className="mt-5 text-lg font-medium leading-9 text-text-muted dark:text-text-light md:text-xl">
+        <p className="mt-4 text-base font-normal leading-relaxed text-text-muted dark:text-text-light/85 md:text-lg">
           {displayDescription}
         </p>
       ) : null}
     </div>
   );
 }
+

@@ -1,13 +1,23 @@
 "use client";
 
-import Image from "next/image";
-import { ArrowRight, Check, ExternalLink, ShieldCheck, Sparkles, Truck } from "lucide-react";
+import {
+  ArrowRight,
+  Beaker,
+  Check,
+  CheckCircle2,
+  ExternalLink,
+  FlaskConical,
+  ShieldCheck,
+  Sparkles,
+  Truck
+} from "lucide-react";
 import { Button } from "@/components/common/Button";
 import { Container } from "@/components/common/Container";
 import { ShopeeIcon } from "@/components/common/ShopeeIcon";
 import { useLanguage } from "@/components/providers/LanguageProvider";
 import { company } from "@/data/company";
 import type { Product } from "@/data/products";
+import { CosmeceuticalProductVisual } from "./CosmeceuticalProductVisual";
 
 export function ProductDetail({ product }: { product: Product }) {
   const { locale } = useLanguage();
@@ -19,199 +29,201 @@ export function ProductDetail({ product }: { product: Product }) {
   const detailCards =
     locale === "th"
       ? [
-          ["คอนเซปต์ผลิตภัณฑ์", product.concept],
-          ["เนื้อสัมผัสและวิธีใช้", product.texture],
-          ["MOQ ขั้นต่ำในการผลิต", product.moq],
-          ["ระยะเวลาการผลิตโดยประมาณ", product.timeline]
+          ["คอนเซปต์เวชสำอาง (Clinical Concept)", product.concept],
+          ["เนื้อสัมผัสและโปรโตคอลการใช้", product.texture],
+          ["จำนวนผลิตขั้นต่ำ (Starter MOQ)", product.moq],
+          ["ระยะเวลาการผลิต (Lead Time)", product.timeline]
         ]
       : [
-          ["Product Concept", product.shortDescription],
-          ["Texture & Application", "Designed as a practical formulation direction for brand development."],
+          ["Clinical Concept", product.shortDescription],
+          ["Texture & Application Protocol", "Engineered for high dermal absorption and daily skin comfort."],
           ["Starter OEM MOQ", product.moq],
-          ["Estimated Timeline", product.timeline]
+          ["Estimated Production Timeline", product.timeline]
         ];
 
   const infoGroups =
     locale === "th"
       ? [
-          ["สารสำคัญหลัก (Key Actives)", product.ingredients],
-          ["คุณสมบัติเด่นของสูตร", product.benefits],
-          ["วิธีใช้และคำแนะนำ", product.usage]
+          ["สารสำคัญระดับคลินิก (Key Actives)", product.ingredients],
+          ["ประสิทธิภาพของสูตร (Clinical Benefits)", product.benefits],
+          ["ขั้นตอนการใช้ (Application Steps)", product.usage]
         ]
       : [
           ["Key Active Ingredients", product.ingredients],
-          ["Formula Benefits", product.benefits],
-          ["How to Use", product.usage]
+          ["Clinical Formula Benefits", product.benefits],
+          ["Application Protocol", product.usage]
         ];
 
   return (
-    <section className="bg-gradient-to-b from-[#f8fafd] via-white to-[#f0f6fa] py-16 dark:bg-gradient-to-b dark:from-dark-bg dark:via-dark-section dark:to-dark-bg md:py-24">
-      <Container className="grid gap-12 lg:grid-cols-[0.82fr_1.18fr] lg:items-start">
-        {/* Left Column: Product Showcase & Shopee Sample Box */}
-        <div className="space-y-6 lg:sticky lg:top-28">
-          {/* Main Visual Box */}
-          <div className="relative overflow-hidden rounded-[4px] border border-primary/15 bg-white p-10 shadow-premium dark:border-white/10 dark:bg-white/[0.04]">
-            {/* Ambient inner glow */}
-            <div className="pointer-events-none absolute inset-0 surface-grid opacity-[0.03] dark:opacity-[0.06]" />
-            <div className="pointer-events-none absolute left-1/2 top-1/2 h-64 w-64 -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent/15 blur-3xl" />
+    <section className="relative overflow-hidden bg-gradient-to-b from-[#F4F9FD] via-white to-[#EAF4FC] py-14 dark:from-[#04091A] dark:via-[#081128] dark:to-[#04091A] md:py-20">
+      <div className="pointer-events-none absolute inset-0 surface-grid opacity-40" />
 
-            <div className="relative aspect-square w-full">
-              <Image
-                src={product.image}
-                alt={product.title}
-                fill
-                className="object-contain transition-transform duration-500 hover:scale-105"
-                priority
-              />
+      <Container className="relative z-10 grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
+        {/* Left Column: Clinical Specimen Display & Shopee Sample Box */}
+        <div className="space-y-6 lg:sticky lg:top-28">
+          <div className="overflow-hidden rounded-3xl border border-[#0038AE]/20 bg-white p-6 shadow-premium dark:border-white/10 dark:bg-[#0D1936]">
+            <div className="aspect-[4/3.6] w-full">
+              <CosmeceuticalProductVisual product={product} size="detail" />
             </div>
 
-            {/* Packaging Badge */}
-            <div className="mt-4 flex items-center justify-between border-t border-primary/10 pt-3 text-xs text-text-muted dark:border-white/10 dark:text-text-light">
-              <span className="font-mono text-[10px] uppercase tracking-wider text-primary dark:text-accent">
-                PHERADA LAB STANDARD
+            <div className="mt-4 flex items-center justify-between border-t border-[#0038AE]/10 pt-3.5 text-xs text-text-muted dark:border-white/10 dark:text-text-light">
+              <span className="inline-flex items-center gap-1.5 font-mono text-[11px] font-bold uppercase tracking-wider text-[#0038AE] dark:text-[#48ACD6]">
+                <FlaskConical size={13} className="text-[#48ACD6]" />
+                PHERADA DERMO-LAB STANDARD
               </span>
-              <span className="text-[11px] font-medium">สูตรมาตรฐานโรงงาน</span>
+              <span className="rounded-md bg-[#0038AE]/10 px-2.5 py-0.5 text-[11px] font-semibold text-[#0038AE] dark:bg-[#48ACD6]/20 dark:text-[#48ACD6]">
+                {locale === "th" ? "พร้อมผลิต OEM / ODM" : "Ready for OEM / ODM"}
+              </span>
             </div>
           </div>
 
-          {/* Shopee Sample Order Box */}
-          <div className="rounded-[4px] border border-orange-500/30 bg-gradient-to-br from-orange-50/80 via-white to-amber-50/50 p-6 shadow-sm dark:border-orange-500/20 dark:from-orange-950/20 dark:via-dark-card dark:to-transparent">
+          {/* Shopee Sample Order Card */}
+          <div className="overflow-hidden rounded-3xl border border-[#0038AE]/20 bg-gradient-to-br from-[#04091A] via-[#002880] to-[#0B5A8A] p-6 text-white shadow-lg">
             <div className="flex items-center justify-between">
-              <div className="flex items-center gap-2">
-                <div className="flex h-8 w-8 items-center justify-center rounded-[2px] bg-[#EE4D2D] text-white shadow-sm">
-                  <ShopeeIcon className="h-4 w-4" />
+              <div className="flex items-center gap-3">
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#EE4D2D] text-white shadow-md">
+                  <ShopeeIcon className="h-5 w-5" />
                 </div>
                 <div>
-                  <h3 className="font-serif text-base font-semibold text-text-dark dark:text-white">
-                    {locale === "th" ? "สั่งขนาดทดลองบน Shopee" : "Order Sample on Shopee"}
+                  <h3 className="text-base font-extrabold text-white">
+                    {locale === "th" ? "สั่งขนาดทดลองบน Shopee" : "Order Lab Sample on Shopee"}
                   </h3>
-                  <p className="text-[11px] text-text-muted dark:text-text-light">
-                    {locale === "th" ? "ทดลองเนื้อสัมผัสและกลิ่นก่อนสั่งผลิตจริง" : "Test texture & scent before full production"}
+                  <p className="text-xs text-[#CBEBFF]/85">
+                    {locale === "th" ? "ทดสอบเนื้อสัมผัสและผลลัพธ์ก่อนสั่งผลิตจริง" : "Test texture & active feel before OEM run"}
                   </p>
                 </div>
               </div>
-
-              <span className="rounded-[2px] bg-orange-100 px-2 py-0.5 text-[10px] font-semibold text-orange-700 dark:bg-orange-900/40 dark:text-orange-300">
-                Official
+              <span className="rounded-full border border-[#48ACD6]/40 bg-white/10 px-2.5 py-0.5 font-mono text-[10px] font-bold text-[#9EE4FF]">
+                OFFICIAL
               </span>
             </div>
 
-            <p className="mt-3 text-xs leading-relaxed text-text-muted dark:text-text-light">
+            <p className="mt-3 text-xs leading-relaxed text-[#CBEBFF]/90">
               {locale === "th"
-                ? "ท่านสามารถกดสั่งซื้อขนาดทดลองส่งตรงจากโรงงาน Pherada ได้ทันทีผ่านร้านค้า Shopee ทางการ การันตีคุณภาพสูตรจริง 100%"
-                : "Order test samples directly manufactured by Pherada via our verified Shopee storefront with fast shipping."}
+                ? "กดสั่งซื้อขนาดทดลองส่งตรงจากห้องปฏิบัติการ Pherada Cosmetics ได้ทันทีผ่านร้านค้า Shopee ทางการ การันตีคุณภาพสูตรจริง 100%"
+                : "Order authentic lab test samples directly manufactured by Pherada via our verified Shopee storefront."}
             </p>
 
             <a
               href={shopeeUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-4 flex w-full items-center justify-center gap-2 rounded-[2px] bg-[#EE4D2D] px-5 py-3 font-serif text-sm font-semibold uppercase tracking-[0.14em] text-white shadow-sm transition hover:bg-[#d84022] hover:shadow-md"
+              className="mt-4 flex w-full items-center justify-center gap-2 rounded-xl bg-[#EE4D2D] px-5 py-3.5 text-xs font-bold uppercase tracking-wider text-white shadow-md transition hover:bg-[#d84022]"
             >
               <ShopeeIcon className="h-4 w-4" />
-              <span>{locale === "th" ? "คลิกสั่งซื้อบน Shopee" : "Buy Sample on Shopee"}</span>
-              <ExternalLink size={15} className="opacity-90" />
+              <span>{locale === "th" ? "คลิกสั่งซื้อขนาดทดลองบน Shopee" : "Buy Sample on Shopee"}</span>
+              <ExternalLink size={15} />
             </a>
 
-            <div className="mt-3.5 flex items-center justify-around border-t border-orange-200/60 pt-3 text-[11px] text-text-muted dark:border-white/10 dark:text-text-light">
-              <span className="flex items-center gap-1 text-orange-600 dark:text-orange-400">
-                <ShieldCheck size={13} />
-                {locale === "th" ? "ของแท้จากแล็บ" : "100% Authentic"}
+            <div className="mt-4 flex items-center justify-around border-t border-white/15 pt-3 text-[11px] text-white/85">
+              <span className="flex items-center gap-1">
+                <ShieldCheck size={13} className="text-[#48ACD6]" />
+                {locale === "th" ? "สูตรแท้จากแล็บ" : "100% Lab Authentic"}
               </span>
               <span className="flex items-center gap-1">
-                <Truck size={13} className="text-accent" />
-                {locale === "th" ? "จัดส่งรวดเร็ว" : "Fast Delivery"}
+                <Truck size={13} className="text-[#48ACD6]" />
+                {locale === "th" ? "จัดส่งรวดเร็ว" : "Fast Shipping"}
               </span>
               <span className="flex items-center gap-1">
-                <Sparkles size={13} className="text-primary dark:text-accent" />
-                {locale === "th" ? "เริ่มที่ 1 ชิ้น" : "From 1 Pc"}
+                <Sparkles size={13} className="text-[#48ACD6]" />
+                {locale === "th" ? "เริ่มที่ 1 ชิ้น" : "From 1 Unit"}
               </span>
             </div>
           </div>
         </div>
 
-        {/* Right Column: Information, Specs and Formulations */}
+        {/* Right Column: Clinical Dossier, Active Ingredients & Specifications */}
         <div>
           <div className="flex flex-wrap items-center gap-2.5">
-            <span className="rounded-[2px] bg-primary/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-primary dark:bg-accent/10 dark:text-accent">
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-[#0038AE]/20 bg-[#0038AE]/10 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-[#0038AE] dark:border-[#48ACD6]/30 dark:bg-[#48ACD6]/15 dark:text-[#48ACD6]">
+              <Beaker size={13} className="text-[#48ACD6]" />
               {category}
             </span>
-            <span className="rounded-[2px] border border-primary/20 px-2.5 py-1 text-xs font-medium text-text-muted dark:border-white/15 dark:text-text-light">
-              MOQ: {product.moq.split(" ")[0] || "100"} ชิ้น
+            <span className="rounded-full border border-[#0038AE]/15 bg-white px-3 py-1 font-mono text-xs font-semibold text-text-muted dark:border-white/15 dark:bg-white/5 dark:text-text-light">
+              MOQ: 100+ Pcs
+            </span>
+            <span className="rounded-full border border-emerald-500/25 bg-emerald-500/10 px-3 py-1 font-mono text-xs font-semibold text-emerald-700 dark:text-emerald-300">
+              THAI FDA READY
             </span>
           </div>
 
-          <h1 className="mt-4 font-serif text-4xl font-normal leading-tight text-text-dark dark:text-white sm:text-5xl">
+          <h1 className="mt-4 text-3xl font-extrabold leading-tight text-text-dark dark:text-white sm:text-4xl md:text-5xl">
             {title}
           </h1>
 
-          <p className="mt-4 text-base font-normal leading-relaxed text-text-muted dark:text-text-light md:text-lg">
+          <p className="mt-4 text-base leading-relaxed text-text-muted dark:text-text-light/90 md:text-lg">
             {description}
           </p>
 
           {/* Primary Action Buttons */}
-          <div className="mt-8 flex flex-wrap items-center gap-3">
+          <div className="mt-7 flex flex-wrap items-center gap-3.5">
             <Button href="/contact">
-              {locale === "th" ? "ขอใบเสนอราคาผลิตสูตรนี้" : "Request Production Quote"} <ArrowRight size={18} />
+              <span>{locale === "th" ? "ขอใบเสนอราคาผลิตสูตรนี้" : "Request OEM Quote for Formula"}</span>
+              <ArrowRight size={17} />
             </Button>
             <a
               href={shopeeUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 rounded-[2px] bg-[#EE4D2D] px-7 py-3 font-serif text-sm font-semibold uppercase tracking-[0.14em] text-white shadow-sm transition hover:bg-[#d84022]"
+              className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-[#EE4D2D] px-6 py-3 text-sm font-bold text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-[#d84022]"
             >
               <ShopeeIcon className="h-4 w-4" />
               <span>{locale === "th" ? "สั่งขนาดทดลองบน Shopee" : "Buy Sample on Shopee"}</span>
-              <ExternalLink size={16} />
+              <ExternalLink size={15} />
             </a>
           </div>
 
-          {/* 4 Detail Specification Cards */}
-          <div className="mt-10 grid gap-4 sm:grid-cols-2">
+          {/* 4 Clinical Specification Cards */}
+          <div className="mt-9 grid gap-4 sm:grid-cols-2">
             {detailCards.map(([cardTitle, text]) => (
               <div
                 key={cardTitle}
-                className="rounded-[4px] border border-primary/10 bg-white p-5 shadow-sm transition hover:border-primary/25 dark:border-white/10 dark:bg-white/[0.04]"
+                className="relative overflow-hidden rounded-2xl border border-[#0038AE]/15 bg-white p-5 shadow-sm dark:border-white/10 dark:bg-[#0D1936]"
               >
-                <h2 className="font-serif text-lg font-medium text-primary dark:text-accent">{cardTitle}</h2>
-                <p className="mt-2 text-sm leading-relaxed text-text-muted dark:text-text-light">{text}</p>
+                <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-[#0038AE] to-[#48ACD6]" />
+                <h2 className="text-sm font-bold uppercase tracking-wider text-[#0038AE] dark:text-[#48ACD6]">
+                  {cardTitle}
+                </h2>
+                <p className="mt-2 text-sm leading-relaxed text-text-muted dark:text-text-light/85">{text}</p>
               </div>
             ))}
           </div>
 
-          {/* Packaging Options */}
-          <div className="mt-6 rounded-[4px] border border-primary/10 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-white/[0.04]">
-            <h2 className="font-serif text-xl font-medium text-text-dark dark:text-white">
-              {locale === "th" ? "ตัวเลือกบรรจุภัณฑ์ที่รองรับ" : "Compatible Packaging Options"}
+          {/* Compatible Clinical Packaging */}
+          <div className="mt-6 rounded-2xl border border-[#0038AE]/15 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-[#0D1936]">
+            <h2 className="text-base font-extrabold text-text-dark dark:text-white">
+              {locale === "th" ? "บรรจุภัณฑ์เวชสำอางที่รองรับ (Compatible Clinical Packaging)" : "Compatible Clinical Packaging"}
             </h2>
-            <div className="mt-4 flex flex-wrap gap-3">
+            <div className="mt-3.5 flex flex-wrap gap-2.5">
               {product.packageOptions.map((option) => (
                 <span
                   key={option}
-                  className="inline-flex items-center gap-2 rounded-[2px] border border-primary/15 bg-light-bg px-3.5 py-1.5 text-xs font-semibold text-text-dark dark:border-white/15 dark:bg-white/5 dark:text-white"
+                  className="inline-flex items-center gap-2 rounded-xl border border-[#0038AE]/15 bg-[#F4F9FD] px-4 py-2 text-xs font-bold text-[#0038AE] dark:border-white/15 dark:bg-white/5 dark:text-[#9EE4FF]"
                 >
-                  <Check size={14} className="text-accent" />
+                  <Check size={14} className="text-[#48ACD6]" />
                   {option}
                 </span>
               ))}
             </div>
           </div>
 
-          {/* Key Actives, Benefits and Usage Groups */}
+          {/* Key Actives, Clinical Benefits & Usage Protocol */}
           <div className="mt-6 grid gap-4 lg:grid-cols-3">
             {infoGroups.map(([heading, items]) => (
               <div
                 key={heading as string}
-                className="rounded-[4px] border border-primary/10 bg-white p-5 shadow-sm dark:border-white/10 dark:bg-white/[0.04]"
+                className="rounded-2xl border border-[#0038AE]/15 bg-white p-5 shadow-sm dark:border-white/10 dark:bg-[#0D1936]"
               >
-                <h2 className="font-serif text-base font-medium text-text-dark dark:text-white">{heading as string}</h2>
-                <div className="mt-3.5 space-y-2">
+                <h2 className="border-b border-[#0038AE]/10 pb-2.5 text-sm font-extrabold text-[#0038AE] dark:border-white/10 dark:text-[#48ACD6]">
+                  {heading as string}
+                </h2>
+                <div className="mt-3.5 space-y-2.5">
                   {(items as string[]).map((item) => (
                     <div
                       key={item}
-                      className="flex items-start gap-2 text-xs leading-relaxed text-text-muted dark:text-text-light"
+                      className="flex items-start gap-2 text-xs leading-relaxed text-text-muted dark:text-text-light/85"
                     >
-                      <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
+                      <CheckCircle2 size={14} className="mt-0.5 shrink-0 text-[#48ACD6]" />
                       <span>{item}</span>
                     </div>
                   ))}
@@ -224,3 +236,4 @@ export function ProductDetail({ product }: { product: Product }) {
     </section>
   );
 }
+
