@@ -9,6 +9,7 @@ export async function POST(req: Request) {
     const {
       contactName,
       brandName,
+      countryCode,
       phone,
       lineId,
       email,
@@ -25,6 +26,8 @@ export async function POST(req: Request) {
         { status: 400 }
       );
     }
+
+    const displayPhone = countryCode && countryCode !== "+66" && countryCode !== "+other" ? `${countryCode} ${phone}` : phone;
 
     const productTypeLabels: Record<string, string> = {
       facial: "Facial Care (ดูแลผิวหน้า: เซรั่ม, ครีม, มาสก์, กันแดด)",
@@ -81,7 +84,7 @@ export async function POST(req: Request) {
             <tr>
               <td style="padding: 8px 0; color: #64748b; font-weight: 600;">เบอร์โทรศัพท์:</td>
               <td style="padding: 8px 0; color: #0038AE; font-weight: 700; font-size: 15px;">
-                <a href="tel:${phone}" style="color: #0038AE; text-decoration: none;">${phone}</a>
+                <a href="tel:${displayPhone.replace(/[^\d+]/g, '')}" style="color: #0038AE; text-decoration: none;">${displayPhone}</a>
               </td>
             </tr>
             ${brandName ? `
