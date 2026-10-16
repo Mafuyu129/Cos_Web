@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
+import { FloatingContact } from "@/components/common/FloatingContact";
 import { Footer } from "@/components/common/Footer";
 import { Navbar } from "@/components/common/Navbar";
 import { LanguageProvider } from "@/components/providers/LanguageProvider";
@@ -31,6 +32,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             <Navbar />
             <main>{children}</main>
             <Footer />
+            <FloatingContact />
           </LanguageProvider>
         </ThemeProvider>
       </body>

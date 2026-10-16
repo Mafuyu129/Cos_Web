@@ -1,7 +1,7 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
-import { AlertCircle, CheckCircle2, FlaskConical, Loader2, Send } from "lucide-react";
+import { AlertCircle, CheckCircle2, FlaskConical, Loader2, Send, ShieldCheck } from "lucide-react";
 import { useMemo, useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -408,19 +408,30 @@ export function QuoteForm() {
         </label>
       </div>
 
-      <Button type="submit" disabled={isSubmitting} className="mt-7 w-full md:w-auto">
-        {isSubmitting ? (
-          <>
-            <Loader2 size={16} className="animate-spin" />
-            <span>{locale === "th" ? "กำลังส่งข้อมูล..." : "Sending..."}</span>
-          </>
-        ) : (
-          <>
-            <span>{t("form.submit")}</span>
-            <Send size={16} />
-          </>
-        )}
-      </Button>
+      <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:items-center">
+        <Button type="submit" disabled={isSubmitting} className="w-full sm:w-auto">
+          {isSubmitting ? (
+            <>
+              <Loader2 size={16} className="animate-spin" />
+              <span>{locale === "th" ? "กำลังส่งข้อมูล..." : "Sending..."}</span>
+            </>
+          ) : (
+            <>
+              <span>{t("form.submit")}</span>
+              <Send size={16} />
+            </>
+          )}
+        </Button>
+
+        <div className="flex items-center gap-2 text-[11px] font-medium text-text-muted dark:text-text-light/75">
+          <ShieldCheck size={15} className="shrink-0 text-emerald-500" />
+          <span>
+            {locale === "th"
+              ? "ข้อมูลของคุณได้รับการคุ้มครองตามมาตรฐาน PDPA เพื่อการประเมินราคาเท่านั้น"
+              : "Protected under PDPA standards for quotation evaluation only."}
+          </span>
+        </div>
+      </div>
 
       {submitResult ? (
         <div
