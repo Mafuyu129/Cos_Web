@@ -1,8 +1,8 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
-import { CheckCircle2, FlaskConical, Send } from "lucide-react";
-import { useMemo } from "react";
+import { AlertCircle, CheckCircle2, FlaskConical, Loader2, Send } from "lucide-react";
+import { useMemo, useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { Button } from "@/components/common/Button";
@@ -45,20 +45,63 @@ function ErrorText({ message }: { message?: string }) {
 
 export function QuoteForm() {
   const { locale, t } = useLanguage();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitResult, setSubmitResult] = useState<{ success: boolean; message: string } | null>(null);
+
   const quoteSchema = useMemo(() => createQuoteSchema(locale), [locale]);
   const {
     register,
     handleSubmit,
     watch,
-    formState: { errors, isSubmitSuccessful }
+    reset,
+    formState: { errors }
   } = useForm<QuoteFormValues>({
     resolver: zodResolver(quoteSchema),
     defaultValues: { formulaType: "not-sure" }
   });
   const productType = watch("productType");
 
-  function onSubmit(values: QuoteFormValues) {
-    console.info("Quote request draft", values);
+  async function onSubmit(values: QuoteFormValues) {
+    setIsSubmitting(true);
+    setSubmitResult(null);
+
+    try {
+      const response = await fetch("/api/quote", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(values)
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.error || "เกิดข้อผิดพลาดในการส่งข้อมูล");
+      }
+
+      setSubmitResult({
+        success: true,
+        message:
+          locale === "th"
+            ? "ส่งข้อมูลเรียบร้อยแล้ว! รายละเอียดได้ถูกส่งไปยังทีมงาน Pherada Cosmetics เรียบร้อย ฝ่าย R&D จะติดต่อกลับโดยเร็วที่สุด"
+            : "Request submitted successfully! Details sent to Pherada team. We will contact you soon."
+      });
+      reset();
+    } catch (err: unknown) {
+      const errMsg =
+        err instanceof Error
+          ? err.message
+          : locale === "th"
+            ? "ไม่สามารถส่งข้อมูลได้ชั่วคราว กรุณาลองใหม่อีกครั้ง หรือติดต่อโทร 095-235-9626 หรือ Line @pheradacosmetics"
+            : "Could not send request. Please try again or reach us via Line.";
+      setSubmitResult({
+        success: false,
+        message: errMsg
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   }
 
   return (
@@ -178,14 +221,34 @@ export function QuoteForm() {
           />
         </label>
       </div>
-      <Button type="submit" className="mt-7 w-full md:w-auto">
-        <span>{t("form.submit")}</span>
-        <Send size={16} />
+      <Button type="submit" disabled={isSubmitting} className="mt-7 w-full md:w-auto">
+        {isSubmitting ? (
+          <>
+            <Loader2 size={16} className="animate-spin" />
+            <span>{locale === "th" ? "กำลังส่งข้อมูล..." : "Sending..."}</span>
+          </>
+        ) : (
+          <>
+            <span>{t("form.submit")}</span>
+            <Send size={16} />
+          </>
+        )}
       </Button>
-      {isSubmitSuccessful ? (
-        <div className="mt-4 flex items-center gap-2 rounded-xl border border-[#48ACD6]/40 bg-[#48ACD6]/10 px-4 py-3 text-sm font-semibold text-[#0038AE] dark:text-[#48ACD6]">
-          <CheckCircle2 size={18} />
-          <span>{t("form.success")}</span>
+
+      {submitResult ? (
+        <div
+          className={`mt-4 flex items-start gap-3 rounded-2xl border p-4 text-sm font-semibold ${
+            submitResult.success
+              ? "border-emerald-500/30 bg-emerald-50 text-emerald-800 dark:border-emerald-500/30 dark:bg-emerald-950/40 dark:text-emerald-300"
+              : "border-rose-500/30 bg-rose-50 text-rose-800 dark:border-rose-500/30 dark:bg-rose-950/40 dark:text-rose-300"
+          }`}
+        >
+          {submitResult.success ? (
+            <CheckCircle2 size={20} className="mt-0.5 shrink-0 text-emerald-600 dark:text-emerald-400" />
+          ) : (
+            <AlertCircle size={20} className="mt-0.5 shrink-0 text-rose-600 dark:text-rose-400" />
+          )}
+          <div className="leading-relaxed">{submitResult.message}</div>
         </div>
       ) : null}
     </form>
