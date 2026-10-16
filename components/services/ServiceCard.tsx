@@ -30,8 +30,8 @@ export function ServiceCard({ service, index }: ServiceCardProps) {
           <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-[#0038AE] to-[#48ACD6] text-white shadow-md transition-transform duration-300 group-hover:scale-105">
             <Icon size={22} />
           </div>
-          <span className="rounded-lg border border-[#0038AE]/15 bg-[#F4F9FD] px-2.5 py-1 font-mono text-[11px] font-bold text-[#0038AE] dark:border-[#48ACD6]/30 dark:bg-white/[0.05] dark:text-[#48ACD6]">
-            LAB-MOD // {String(index + 1).padStart(2, "0")}
+          <span className="font-mono text-xs font-extrabold text-[#0038AE]/40 dark:text-[#48ACD6]/40">
+            0{index + 1}
           </span>
         </div>
 

@@ -59,9 +59,9 @@ export function ServiceDetailSections({
       <section className="border-y border-[#0038AE]/12 bg-white py-16 dark:border-white/10 dark:bg-[#081128] md:py-24">
         <Container className="grid gap-6 md:grid-cols-3">
           {[
-            [locale === "th" ? "ทิศทางสูตร (Active Directions)" : "Formula Directions", service.formulaOptions.join(" • "), "LAB-SPEC // 01"],
-            [locale === "th" ? "จำนวนผลิตขั้นต่ำ (Starter MOQ)" : "Starter MOQ", moqText, "LAB-SPEC // 02"],
-            [locale === "th" ? "ระยะเวลาผลิต (Lead Time)" : "Production Timeline", timelineText, "LAB-SPEC // 03"]
+            [locale === "th" ? "ทิศทางสูตร (Active Directions)" : "Formula Directions", service.formulaOptions.join(" • "), "01"],
+            [locale === "th" ? "จำนวนผลิตขั้นต่ำ (Starter MOQ)" : "Starter MOQ", moqText, "02"],
+            [locale === "th" ? "ระยะเวลาผลิต (Lead Time)" : "Production Timeline", timelineText, "03"]
           ].map(([heading, text, code]) => (
             <div
               key={heading}

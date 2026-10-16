@@ -3,13 +3,11 @@
 import { motion } from "framer-motion";
 import {
   ArrowRight,
-  Beaker,
   CheckCircle2,
   FlaskConical,
   Microscope,
   ShieldCheck,
-  ShoppingBag,
-  Sparkles
+  ShoppingBag
 } from "lucide-react";
 import { Button } from "@/components/common/Button";
 import { Container } from "@/components/common/Container";
@@ -127,43 +125,34 @@ export function HeroSection() {
             </Button>
           </div>
 
-          {/* 4-Column Clinical Telemetry Metrics Bar */}
+          {/* 4-Column Clinical Metrics Bar */}
           <div className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-4">
             {[
               {
                 value: "8+",
-                code: "RX-BASE",
                 label: locale === "th" ? "สูตรเวชสำอางพร้อมผลิต" : "Clinical Base Formulas"
               },
               {
                 value: "100",
-                code: "MOQ-PCS",
                 label: locale === "th" ? "ขั้นต่ำเริ่มต้น (ชิ้น)" : "Starter MOQ (Pcs)"
               },
               {
                 value: "pH 5.5",
-                code: "DERMO-SPEC",
                 label: locale === "th" ? "สมดุลเกราะป้องกันผิว" : "Skin-Barrier Balanced"
               },
               {
                 value: "100%",
-                code: "FDA / BMR",
                 label: locale === "th" ? "จดแจ้ง อย. ถูกต้อง" : "Thai FDA & BMR Ready"
               }
             ].map((stat) => (
               <div
-                key={stat.code}
-                className="rounded-2xl border border-[#0038AE]/12 bg-white/90 p-3.5 shadow-sm backdrop-blur-md dark:border-white/10 dark:bg-white/[0.04]"
+                key={stat.label}
+                className="flex flex-col justify-center rounded-2xl border border-[#0038AE]/12 bg-white/95 p-4 shadow-sm backdrop-blur-md dark:border-white/10 dark:bg-white/[0.04]"
               >
-                <div className="flex items-center justify-between">
-                  <span className="bg-gradient-to-r from-[#0038AE] to-[#48ACD6] bg-clip-text text-2xl font-extrabold text-transparent dark:from-[#6BA3FF] dark:to-[#48ACD6]">
-                    {stat.value}
-                  </span>
-                  <span className="rounded bg-[#0038AE]/10 px-1.5 py-0.5 font-mono text-[9px] font-semibold text-[#0038AE] dark:bg-[#48ACD6]/20 dark:text-[#48ACD6]">
-                    {stat.code}
-                  </span>
+                <div className="bg-gradient-to-r from-[#0038AE] to-[#48ACD6] bg-clip-text text-2xl font-extrabold text-transparent sm:text-3xl dark:from-[#6BA3FF] dark:to-[#48ACD6]">
+                  {stat.value}
                 </div>
-                <p className="mt-1 text-xs font-medium text-text-muted dark:text-text-light/80">
+                <p className="mt-1.5 text-xs font-semibold leading-relaxed text-text-muted dark:text-text-light/85">
                   {stat.label}
                 </p>
               </div>
@@ -187,7 +176,7 @@ export function HeroSection() {
                 </div>
                 <div>
                   <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-[#48ACD6]">
-                    PHERADA LAB // CHAMBER 01
+                    PHERADA INNOVATION LAB
                   </p>
                   <p className="text-xs font-semibold text-white">
                     {locale === "th" ? "ห้องปฏิบัติการวิจัยและพัฒนาสูตรเวชสำอาง" : "Dermo-Cosmetic Formulation Suite"}
@@ -223,34 +212,8 @@ export function HeroSection() {
             {/* Glowing Bio-Active Core Orb */}
             <div className="pointer-events-none absolute left-1/2 top-1/2 h-64 w-64 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#48ACD6]/30 blur-3xl" />
 
-            {/* Floating Active Molecule Badge 1 */}
-            <motion.div
-              className="absolute left-5 top-20 z-20 flex items-center gap-2 rounded-xl border border-[#48ACD6]/40 bg-[#04091A]/85 px-3 py-2 shadow-lg backdrop-blur-md"
-              animate={{ y: [0, -6, 0] }}
-              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-            >
-              <Sparkles className="h-3.5 w-3.5 text-[#48ACD6]" />
-              <div>
-                <p className="font-mono text-[9px] uppercase tracking-wider text-[#48ACD6]">ACTIVE CONCENTRATE</p>
-                <p className="text-[11px] font-bold text-white">Niacinamide 10% + BHA</p>
-              </div>
-            </motion.div>
-
-            {/* Floating Active Molecule Badge 2 */}
-            <motion.div
-              className="absolute right-5 top-28 z-20 flex items-center gap-2 rounded-xl border border-[#48ACD6]/40 bg-[#04091A]/85 px-3 py-2 shadow-lg backdrop-blur-md"
-              animate={{ y: [0, 6, 0] }}
-              transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 0.8 }}
-            >
-              <Beaker className="h-3.5 w-3.5 text-[#48ACD6]" />
-              <div>
-                <p className="font-mono text-[9px] uppercase tracking-wider text-[#48ACD6]">SKIN BARRIER</p>
-                <p className="text-[11px] font-bold text-white">Ceramide NP + Peptides</p>
-              </div>
-            </motion.div>
-
             {/* 3D Cosmeceutical Vessels Display */}
-            <div className="relative z-10 mt-16 flex items-end justify-center gap-4 pb-6 pt-10 sm:gap-6">
+            <div className="relative z-10 mt-6 flex items-end justify-center gap-4 pb-4 pt-6 sm:gap-6">
               {/* Vessel 1: Clinical Dropper Ampoule */}
               <motion.div
                 className="group flex flex-col items-center"

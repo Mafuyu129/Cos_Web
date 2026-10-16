@@ -32,7 +32,7 @@ export default function KnowledgePage() {
             className="mb-12"
           />
           <div className="grid gap-6 md:grid-cols-2">
-            {articles.map((article, idx) => (
+            {articles.map((article) => (
               <Link
                 key={article.slug}
                 href={`/knowledge/${article.slug}`}
@@ -43,7 +43,7 @@ export default function KnowledgePage() {
                   <div className="flex items-center justify-between text-xs text-text-muted dark:text-text-light">
                     <span className="inline-flex items-center gap-1.5 rounded-lg border border-[#0038AE]/15 bg-[#F4F9FD] px-3 py-1 font-mono text-[11px] font-bold uppercase tracking-wider text-[#0038AE] dark:border-[#48ACD6]/30 dark:bg-white/5 dark:text-[#48ACD6]">
                       <BookOpen size={12} className="text-[#48ACD6]" />
-                      DOC // 0{idx + 1} • {article.category}
+                      {article.category}
                     </span>
                     <span className="flex items-center gap-1 font-mono text-[11px]">
                       <Clock size={12} className="text-[#48ACD6]" />

@@ -26,8 +26,8 @@ export function ProcessTimeline({ steps }: { steps: ProcessStep[] }) {
               <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-[#0038AE] to-[#48ACD6] font-mono text-base font-extrabold text-white shadow-sm">
                 {String(step.number).padStart(2, "0")}
               </div>
-              <span className="rounded-lg border border-[#0038AE]/15 bg-[#F4F9FD] px-2.5 py-1 font-mono text-[10px] font-bold uppercase tracking-wider text-[#0038AE] dark:border-[#48ACD6]/30 dark:bg-white/5 dark:text-[#48ACD6]">
-                PROTOCOL // STEP {String(step.number).padStart(2, "0")}
+              <span className="rounded-lg border border-[#0038AE]/12 bg-[#F4F9FD] px-2.5 py-1 text-[11px] font-semibold text-[#0038AE] dark:border-white/10 dark:bg-white/5 dark:text-[#48ACD6]">
+                {locale === "th" ? `ขั้นตอนที่ ${step.number}` : `Step 0${step.number}`}
               </span>
             </div>
 

@@ -14,7 +14,7 @@ export default function NotFound() {
         {/* Lab Specimen Telemetry Pill */}
         <div className="inline-flex items-center gap-2 rounded-full border border-[#48ACD6]/40 bg-white/10 px-4 py-1.5 font-mono text-xs font-bold uppercase tracking-wider text-[#9EE4FF] backdrop-blur-md">
           <FileQuestion size={14} className="text-[#48ACD6]" />
-          <span>SPECIMEN ERROR // 404 NOT FOUND</span>
+          <span>404 • PAGE NOT FOUND</span>
         </div>
 
         {/* 404 Display */}

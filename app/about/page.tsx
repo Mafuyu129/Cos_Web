@@ -11,7 +11,7 @@ import { company } from "@/data/company";
 
 const pillars = [
   {
-    code: "CORE // 01",
+    code: "01",
     title: "Vision & Mission",
     titleTh: "วิสัยทัศน์และพันธกิจ",
     text: "เป็นโรงงานวิจัยและผลิตเวชสำอางคู่คิดสำหรับเจ้าของแบรนด์ใหม่และ SME ที่ต้องการเริ่มต้นอย่างเป็นระบบและโปร่งใส",
@@ -19,7 +19,7 @@ const pillars = [
     icon: Target
   },
   {
-    code: "CORE // 02",
+    code: "02",
     title: "Dermo-Active R&D",
     titleTh: "วิจัยและนวัตกรรมเวชสำอาง",
     text: "พัฒนาสูตรเวชสำอางโดยคัดสรรสารสกัด Active เข้มข้น ปรับค่า pH เนื้อสัมผัส และความคงตัวให้เหมาะกับสภาพผิว",
@@ -27,7 +27,7 @@ const pillars = [
     icon: Beaker
   },
   {
-    code: "CORE // 03",
+    code: "03",
     title: "Quality & Regulatory",
     titleTh: "คุณภาพและมาตรฐาน อย.",
     text: "ควบคุมการผลิตตามมาตรฐานความสะอาด ตรวจสอบคุณภาพ QC บันทึก BMR และขึ้นทะเบียนจดแจ้ง อย. ครบวงจร",
@@ -35,7 +35,7 @@ const pillars = [
     icon: ShieldCheck
   },
   {
-    code: "CORE // 04",
+    code: "04",
     title: "Long-Term Brand Partner",
     titleTh: "พาร์ทเนอร์เติบโตระยะยาว",
     text: "ช่วยวางแผนขยายไลน์ผลิตภัณฑ์เวชสำอาง ปรับปรุงบรรจุภัณฑ์ และต่อยอดจุดขายให้แบรนด์เติบโตอย่างยั่งยืน",

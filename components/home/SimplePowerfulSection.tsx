@@ -26,28 +26,28 @@ export function SimplePowerfulSection() {
       ? [
           {
             icon: Beaker,
-            code: "LAB // 01",
+            code: "01",
             title: "วิจัยและพัฒนาสูตรเวชสำอาง R&D",
             desc: "คัดสรรสารสกัด Active เข้มข้นระดับคลินิก ปรับเนื้อสัมผัส ค่า pH และความคงตัวของสูตรโดยทีมนักเคมีเฉพาะทาง",
             tag: "Clinical R&D"
           },
           {
             icon: Cpu,
-            code: "LAB // 02",
+            code: "02",
             title: "มาตรฐานห้องสะอาด & เครื่องจักรแม่นยำ",
             desc: "ควบคุมความสะอาดทุกขั้นตอนด้วยระบบเครื่องชั่ง เครื่องผสมความเร็วสูง เครื่องบรรจุ และเครื่องซีลมาตรฐาน",
             tag: "Cleanroom Tech"
           },
           {
             icon: FileCheck,
-            code: "LAB // 03",
+            code: "03",
             title: "ขึ้นทะเบียน อย. & บันทึก BMR 100%",
             desc: "ดูแลเอกสารจดแจ้งเครื่องสำอางถูกต้องตามกฎหมาย พร้อมจัดทำ Batch Manufacturing Record ตรวจสอบย้อนกลับได้",
             tag: "FDA & BMR"
           },
           {
             icon: Layers,
-            code: "LAB // 04",
+            code: "04",
             title: "บรรจุภัณฑ์เวชสำอางพร้อมจัดจำหน่าย",
             desc: "แนะนำขวดดรอปเปอร์ ขวดปั๊มสุญญากาศ (Airless) กระปุก และฉลากที่ช่วยรักษาความเสถียรของสารสกัด",
             tag: "Dermo Packaging"
@@ -56,28 +56,28 @@ export function SimplePowerfulSection() {
       : [
           {
             icon: Beaker,
-            code: "LAB // 01",
+            code: "01",
             title: "Dermo-Cosmetic R&D Formulation",
             desc: "High-purity clinical actives, balanced pH, and stability-tested textures engineered by our cosmetic chemists.",
             tag: "Clinical R&D"
           },
           {
             icon: Cpu,
-            code: "LAB // 02",
+            code: "02",
             title: "Cleanroom Precision Manufacturing",
             desc: "Controlled hygiene protocols with precision weighing, high-shear mixing, automated filling and sealing.",
             tag: "Cleanroom Tech"
           },
           {
             icon: FileCheck,
-            code: "LAB // 03",
+            code: "03",
             title: "100% Thai FDA & BMR Traceability",
             desc: "Full cosmetic regulatory filing and complete Batch Manufacturing Records for every production lot.",
             tag: "FDA & BMR"
           },
           {
             icon: Layers,
-            code: "LAB // 04",
+            code: "04",
             title: "Clinical Packaging & Launch",
             desc: "Airless pumps, UV-protected droppers, and compliant clinical labeling ready for retail and clinic channels.",
             tag: "Dermo Packaging"

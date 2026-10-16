@@ -11,7 +11,7 @@ import { company } from "@/data/company";
 
 const standards = [
   {
-    code: "STD // 01",
+    code: "01",
     title: "Thai FDA Compliance",
     titleTh: "มาตรฐานจดแจ้ง อย. ไทย",
     text: "ตรวจสอบความถูกต้องของสารสกัด (INCI Name) อัตราส่วนตามกฎหมาย และฉลากเพื่อยื่นจดแจ้งเครื่องสำอางอย่างถูกต้อง",
@@ -19,7 +19,7 @@ const standards = [
     icon: ShieldCheck
   },
   {
-    code: "STD // 02",
+    code: "02",
     title: "Licensed Facility",
     titleTh: "สถานที่ผลิตได้รับอนุญาต",
     text: "สถานที่ผลิตและเก็บรักษาเครื่องสำอางมีเอกสารรับรองชัดเจน แบ่งกั้นห้องปฏิบัติการอย่างเป็นระบบ",
@@ -27,7 +27,7 @@ const standards = [
     icon: FileCheck2
   },
   {
-    code: "STD // 03",
+    code: "03",
     title: "Clinical QC Inspection",
     titleTh: "กระบวนการตรวจสอบ QC",
     text: "ตรวจสอบค่า pH ความหนืด สี กลิ่น เนื้อสัมผัส ความสะอาดของบรรจุภัณฑ์ และการซีลก่อนส่งมอบทุกแบตช์",
@@ -35,7 +35,7 @@ const standards = [
     icon: FlaskConical
   },
   {
-    code: "STD // 04",
+    code: "04",
     title: "BMR Traceability",
     titleTh: "ระบบบันทึกการผลิต BMR",
     text: "จัดทำ Batch Manufacturing Record บันทึกข้อมูลวัตถุดิบและขั้นตอนการผลิตเพื่อการตรวจสอบย้อนกลับ 100%",
@@ -114,7 +114,7 @@ export default function StandardsPage() {
                       <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-[#0038AE] to-[#48ACD6] text-white shadow-md">
                         <Icon size={22} />
                       </div>
-                      <span className="font-mono text-[10px] font-bold text-[#0038AE] dark:text-[#48ACD6]">
+                      <span className="font-mono text-sm font-extrabold text-[#0038AE]/40 dark:text-[#48ACD6]/40">
                         {item.code}
                       </span>
                     </div>
@@ -162,7 +162,7 @@ export default function StandardsPage() {
           <div className="overflow-hidden rounded-3xl border border-[#0038AE]/20 bg-[#F4F9FD] p-4 shadow-premium dark:border-white/10 dark:bg-[#0D1936]">
             <div className="mb-3 flex items-center justify-between px-2">
               <span className="font-mono text-xs font-bold uppercase tracking-wider text-[#0038AE] dark:text-[#48ACD6]">
-                OFFICIAL DOCUMENT // THAI FDA FILING
+                OFFICIAL THAI FDA DOCUMENT
               </span>
               <span className="inline-flex items-center gap-1 rounded-full bg-emerald-500/10 px-2.5 py-0.5 font-mono text-[10px] font-bold text-emerald-600 dark:text-emerald-400">
                 <CheckCircle2 size={12} /> VERIFIED
