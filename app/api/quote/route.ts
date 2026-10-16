@@ -1,5 +1,7 @@
 import { NextResponse } from "next/server";
-import nodemailer from "nodemailer";
+import { Resend } from "resend";
+
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(req: Request) {
   try {
@@ -42,32 +44,8 @@ export async function POST(req: Request) {
 
     const targetProduct = productTypeLabels[productType] || productType;
     const targetFormula = formulaTypeLabels[formulaType] || formulaType || "ขอรับคำปรึกษาจากผู้เชี่ยวชาญ";
-
-    const gmailUser = process.env.GMAIL_USER || "pherada3569@gmail.com";
-    const gmailPass = process.env.GMAIL_APP_PASSWORD;
-    const receiverEmail = process.env.NOTIFICATION_RECEIVER_EMAIL || "pherada3569@gmail.com";
-
-    // If GMAIL_APP_PASSWORD is not set yet in environment, log helpful info
-    if (!gmailPass) {
-      console.warn(
-        "⚠️ [Pherada Quote] GMAIL_APP_PASSWORD is not set in environment variables. The lead was logged:",
-        { contactName, phone, targetProduct, quantity, targetFormula }
-      );
-      return NextResponse.json({
-        success: true,
-        message: "บันทึกข้อมูลเรียบร้อยแล้ว (กำลังรอตั้งค่ารหัสผ่าน Gmail App Password ในระบบ)",
-        warning: "GMAIL_APP_PASSWORD not configured"
-      });
-    }
-
-    // Configure Nodemailer for Gmail
-    const transporter = nodemailer.createTransport({
-      service: "gmail",
-      auth: {
-        user: gmailUser,
-        pass: gmailPass.replace(/\s+/g, "") // remove any accidental spaces
-      }
-    });
+    const primaryReceiver = process.env.NOTIFICATION_RECEIVER_EMAIL || "pherada3569@gmail.com";
+    const fallbackReceiver = "gotelove555@gmail.com";
 
     const htmlBody = `
     <!DOCTYPE html>
@@ -83,10 +61,6 @@ export async function POST(req: Request) {
         .badge { display: inline-block; background: rgba(255, 255, 255, 0.2); border: 1px solid rgba(255, 255, 255, 0.3); padding: 4px 10px; border-radius: 20px; font-size: 11px; font-weight: 600; margin-bottom: 12px; }
         .content { padding: 24px; }
         .section-title { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #0038AE; margin-top: 20px; margin-bottom: 10px; border-bottom: 1px solid #edf2f7; padding-bottom: 4px; }
-        .row { display: flex; padding: 8px 0; border-bottom: 1px dashed #f1f5f9; font-size: 14px; }
-        .label { width: 140px; font-weight: 600; color: #64748b; flex-shrink: 0; }
-        .val { color: #0f172a; font-weight: 500; word-break: break-word; }
-        .highlight { color: #0038AE; font-weight: 700; }
         .box { background: #f8fafc; border-left: 4px solid #48ACD6; border-radius: 6px; padding: 12px 16px; margin-top: 14px; font-size: 13px; line-height: 1.6; color: #334155; }
         .footer { background: #f8fafc; padding: 16px 24px; text-align: center; font-size: 12px; color: #94a3b8; border-top: 1px solid #edf2f7; }
       </style>
@@ -165,21 +139,52 @@ export async function POST(req: Request) {
     </html>
     `;
 
-    await transporter.sendMail({
-      from: `"Pherada Web Lead" <${gmailUser}>`,
-      to: receiverEmail,
-      replyTo: email || gmailUser,
-      subject: `[ขอใบเสนอราคาใหม่] ${contactName} - ${targetProduct} (${quantity || "ไม่ระบุจำนวน"})`,
+    const subject = `[ขอใบเสนอราคาใหม่] ${contactName} - ${targetProduct} (${quantity || "ไม่ระบุจำนวน"})`;
+
+    // Attempt to send to primary receiver (e.g. pherada3569@gmail.com)
+    let sendResult = await resend.emails.send({
+      from: "Pherada Web Lead <onboarding@resend.dev>",
+      to: primaryReceiver,
+      replyTo: email || undefined,
+      subject,
       html: htmlBody
     });
 
+    // If Resend gives error (e.g. domain not verified yet to send to external email)
+    if (sendResult.error) {
+      console.warn(
+        `⚠️ Resend could not send to ${primaryReceiver}: ${sendResult.error.message}. Falling back to account email ${fallbackReceiver}...`
+      );
+
+      // Send to registered Resend account owner so lead is never lost
+      sendResult = await resend.emails.send({
+        from: "Pherada Web Lead <onboarding@resend.dev>",
+        to: fallbackReceiver,
+        replyTo: email || undefined,
+        subject: `[FWD: ส่งต่อให้ Pherada] ${subject}`,
+        html: `
+          <div style="background: #fef3c7; border: 1px solid #f59e0b; padding: 12px 16px; border-radius: 8px; margin-bottom: 16px; font-family: sans-serif; font-size: 13px; color: #92400e;">
+            <strong>📌 ข้อความแจ้งเตือนสำหรับผู้ดูแลเว็บไซต์:</strong><br/>
+            อีเมลฉบับนี้ถูกส่งมาที่บัญชีของคุณ (${fallbackReceiver}) เนื่องจากยังไม่ได้เพิ่ม Custom Domain บน Resend เพื่อส่งต่อไปที่ ${primaryReceiver}<br/>
+            (เมื่อคุณเพิ่มโดเมนที่ <a href="https://resend.com/domains" target="_blank">resend.com/domains</a> ระบบจะยิงตรงเข้า ${primaryReceiver} อัตโนมัติทันทีครับ)
+          </div>
+          ${htmlBody}
+        `
+      });
+
+      if (sendResult.error) {
+        throw new Error(sendResult.error.message);
+      }
+    }
+
     return NextResponse.json({
       success: true,
-      message: "ส่งข้อมูลเรียบร้อยแล้ว ทีมงานจะติดต่อกลับโดยเร็วที่สุด"
+      message: "ส่งข้อมูลเรียบร้อยแล้ว ทีมงานจะติดต่อกลับโดยเร็วที่สุด",
+      id: sendResult.data?.id
     });
   } catch (error: unknown) {
     const errorMsg = error instanceof Error ? error.message : "Unknown error";
-    console.error("Quote API error:", errorMsg);
+    console.error("Resend API error:", errorMsg);
     return NextResponse.json(
       { error: "เกิดข้อผิดพลาดในการส่งข้อมูล กรุณาลองใหม่อีกครั้ง หรือติดต่อผ่าน Line / โทรศัพท์" },
       { status: 500 }
