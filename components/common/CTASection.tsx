@@ -1,8 +1,9 @@
 "use client";
 
-import { ArrowRight, Beaker, CheckCircle2, Sparkles } from "lucide-react";
+import Link from "next/link";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { useLanguage } from "@/components/providers/LanguageProvider";
-import { Button } from "./Button";
+import { company } from "@/data/company";
 import { Container } from "./Container";
 
 type CTASectionProps = {
@@ -27,68 +28,70 @@ export function CTASection({
   const displayDescription =
     locale === "th" ? descriptionTh ?? description : descriptionEn ?? description;
 
-  const badges =
-    locale === "th"
-      ? ["ปรึกษาทีมวิจัย R&D ฟรี", "MOQ เริ่มต้น 100 ชิ้น", "ดูแลจดแจ้ง อย. ครบวงจร"]
-      : ["Free R&D Lab Consultation", "Starter MOQ 100 Pcs", "Full Thai FDA Registration"];
-
   return (
-    <section className="relative overflow-hidden py-16 md:py-24">
-      <Container>
-        <div className="relative overflow-hidden rounded-3xl border border-[#48ACD6]/30 bg-gradient-to-br from-[#002066] via-[#0038AE] to-[#1D82AB] p-8 text-white shadow-premium md:p-14">
-          {/* Background laboratory grid & glows */}
-          <div className="pointer-events-none absolute inset-0 surface-grid opacity-20" />
-          <div className="pointer-events-none absolute -right-20 -top-20 h-80 w-80 rounded-full bg-[#48ACD6]/35 blur-3xl" />
-          <div className="pointer-events-none absolute -bottom-24 -left-20 h-80 w-80 rounded-full bg-[#0038AE]/60 blur-3xl" />
+    <section className="relative overflow-hidden border-t border-white/10 bg-[#030816] py-20 text-white md:py-28">
+      {/* Subtle Cobalt Illumination */}
+      <div className="pointer-events-none absolute -right-24 -top-24 h-96 w-96 rounded-full bg-[#0038AE]/40 blur-[150px]" />
+      <div className="pointer-events-none absolute -bottom-24 -left-24 h-96 w-96 rounded-full bg-[#48ACD6]/20 blur-[150px]" />
 
-          <div className="relative z-10 mx-auto flex max-w-3xl flex-col items-center text-center">
-            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 font-mono text-xs font-semibold uppercase tracking-widest text-[#9EE4FF] backdrop-blur-md">
-              <Beaker size={14} className="text-[#48ACD6]" />
-              <span>{t("cta.eyebrow")} • CLINICAL OEM / ODM</span>
+      {/* Architectural Watermark */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute bottom-4 right-8 hidden select-none font-serif text-[130px] font-light italic leading-none text-white/[0.03] lg:block"
+      >
+        Pherada Lab
+      </div>
+
+      <Container className="relative z-10">
+        <div className="grid items-center gap-10 border border-white/15 bg-white/[0.02] p-8 sm:p-12 lg:grid-cols-12 lg:p-16">
+          <div className="lg:col-span-8">
+            <div className="editorial-eyebrow text-[#48ACD6]">
+              <span>{t("cta.eyebrow")} • THE BLUE FACTORY</span>
             </div>
 
-            <h2 className="text-3xl font-extrabold leading-tight tracking-tight text-white sm:text-4xl md:text-5xl">
+            <p className="mt-4 font-serif text-2xl font-light italic text-[#9EE4FF] sm:text-3xl">
+              “From the Concept to Global Success.”
+            </p>
+
+            <h2 className="mt-2 text-3xl font-semibold leading-[1.18] tracking-tight text-white sm:text-4xl md:text-5xl">
               {displayTitle ?? t("cta.title")}
             </h2>
 
-            <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-[#CBEBFF]/90 md:text-lg">
+            <p className="mt-4 max-w-2xl text-base leading-relaxed text-white/75 md:text-lg">
               {displayDescription ?? t("cta.description")}
             </p>
+          </div>
 
-            <div className="mt-6 flex flex-wrap items-center justify-center gap-4 text-xs font-medium text-white/90">
-              {badges.map((badge) => (
-                <span
-                  key={badge}
-                  className="inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/10 px-3.5 py-1.5 backdrop-blur-sm"
-                >
-                  <CheckCircle2 size={14} className="text-[#48ACD6]" />
-                  <span>{badge}</span>
-                </span>
-              ))}
-            </div>
+          <div className="flex flex-col gap-3.5 lg:col-span-4">
+            <Link
+              href="/contact"
+              className="inline-flex items-center justify-center gap-3 bg-[#48ACD6] px-8 py-4 text-xs font-bold uppercase tracking-[0.16em] text-[#030816] transition hover:bg-white"
+            >
+              <span>{t("cta.button")}</span>
+              <ArrowRight size={16} />
+            </Link>
 
-            <div className="mt-8 flex flex-col gap-3.5 sm:flex-row">
-              <Button
-                href="/contact"
-                variant="light"
-                className="bg-white text-[#0038AE] hover:bg-[#E8F7FC]"
-              >
-                <Sparkles size={16} className="text-[#0038AE]" />
-                <span>{t("cta.button")}</span>
-                <ArrowRight size={17} />
-              </Button>
-              <Button
-                href="/products"
-                variant="secondary"
-                className="border-white/30 bg-white/10 text-white hover:border-white hover:bg-white/20"
-              >
-                {locale === "th" ? "ดูสูตรเวชสำอางพร้อมผลิต" : "Explore Clinical Formulas"}
-              </Button>
-            </div>
+            <a
+              href={company.lineUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 border border-white/25 bg-white/[0.04] px-8 py-4 text-xs font-semibold uppercase tracking-[0.14em] text-white transition hover:border-[#48ACD6] hover:text-[#48ACD6]"
+            >
+              <span>LINE OFFICIAL: {company.line}</span>
+              <ArrowUpRight size={15} />
+            </a>
+
+            <Link
+              href="/products"
+              className="inline-flex items-center justify-center gap-2 py-2 text-xs font-medium uppercase tracking-[0.14em] text-white/65 underline underline-offset-4 transition hover:text-white"
+            >
+              <span>{locale === "th" ? "สำรวจ 8 สูตรมาตรฐานพร้อมผลิต" : "Explore 8 Base Formulas"}</span>
+            </Link>
           </div>
         </div>
       </Container>
     </section>
   );
 }
+
 

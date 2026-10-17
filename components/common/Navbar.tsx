@@ -1,6 +1,6 @@
 "use client";
 
-import { FlaskConical, Menu, PhoneCall, ShieldCheck, Sparkles, X } from "lucide-react";
+import { ArrowUpRight, Menu, PhoneCall, X } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
@@ -8,7 +8,6 @@ import { navItems } from "@/data/nav";
 import { company } from "@/data/company";
 import { cn } from "@/lib/utils";
 import { BrandMark } from "./BrandMark";
-import { Button } from "./Button";
 import { Container } from "./Container";
 import { LanguageToggle } from "./LanguageToggle";
 import { ThemeToggle } from "./ThemeToggle";
@@ -22,69 +21,70 @@ export function Navbar() {
 
   return (
     <header className="sticky top-0 z-50">
-      {/* Top Clinical Telemetry Bar */}
-      <div className="hidden border-b border-white/10 bg-gradient-to-r from-[#00226B] via-[#0038AE] to-[#1D7EA6] text-white lg:block">
-        <Container className="flex h-9 items-center justify-between text-xs">
-          <div className="flex items-center gap-6">
-            <span className="inline-flex items-center gap-1.5 font-mono text-[11px] font-medium tracking-wider text-[#9EE4FF]">
-              <FlaskConical size={13} className="text-[#48ACD6]" />
-              DERMO-COSMETIC OEM / ODM LAB
+      {/* Top Architectural Editorial Bar */}
+      <div className="hidden border-b border-white/10 bg-[#020611] text-white/80 lg:block">
+        <Container className="flex h-9 items-center justify-between text-[11px] tracking-wider">
+          <div className="flex items-center gap-5">
+            <span className="font-semibold uppercase tracking-[0.22em] text-[#48ACD6]">
+              THE BLUE FACTORY
             </span>
-            <span className="h-3 w-px bg-white/20" />
-            <span className="inline-flex items-center gap-1.5 text-white/90">
-              <ShieldCheck size={13} className="text-[#48ACD6]" />
+            <span className="h-3 w-px bg-white/15" />
+            <span className="font-serif text-xs italic tracking-wide text-white/75">
+              From the Concept to Global Success
+            </span>
+            <span className="h-3 w-px bg-white/15" />
+            <span className="text-white/70">
               {locale === "th"
-                ? "มาตรฐานการผลิตเวชสำอาง • จดแจ้ง อย. & BMR ครบวงจร"
-                : "Clinical Formulation • 100% Thai FDA & BMR Traceability"}
+                ? "โรงงานวิจัยและรับผลิตเวชสำอาง OEM / ODM มาตรฐาน อย. & BMR"
+                : "Clinical Cosmeceutical OEM / ODM • Thai FDA & BMR Standard"}
             </span>
           </div>
 
-          <div className="flex items-center gap-5">
+          <div className="flex items-center gap-6">
             <a
               href={`tel:${company.phone[0].replaceAll("-", "")}`}
-              className="inline-flex items-center gap-1.5 font-mono text-[11px] text-white/90 transition hover:text-[#48ACD6]"
+              className="inline-flex items-center gap-1.5 text-white/80 transition hover:text-[#48ACD6]"
             >
               <PhoneCall size={12} className="text-[#48ACD6]" />
               <span>{company.phone[0]}</span>
             </a>
-            <span className="h-3 w-px bg-white/20" />
+            <span className="h-3 w-px bg-white/15" />
             <a
               href={company.shopeeUrl}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-1.5 font-medium text-white transition hover:text-[#9EE4FF]"
+              className="inline-flex items-center gap-1.5 font-medium text-white transition hover:text-[#48ACD6]"
             >
-              <ShopeeIcon className="h-3.5 w-3.5 text-[#FF7A59]" />
-              <span>{locale === "th" ? "สั่งขนาดทดลอง (Shopee Official)" : "Order Lab Samples (Shopee)"}</span>
+              <ShopeeIcon className="h-3.5 w-3.5 text-[#FF6B4A]" />
+              <span>{locale === "th" ? "สั่งชุดเทสเตอร์ทดลอง (Shopee)" : "Order Discovery Samples"}</span>
+              <ArrowUpRight size={12} className="opacity-70" />
             </a>
           </div>
         </Container>
       </div>
 
-      {/* Main Navigation Header */}
-      <div className="border-b border-[#0038AE]/10 bg-white/90 shadow-[0_4px_24px_-6px_rgba(0,56,174,0.08)] backdrop-blur-xl dark:border-white/10 dark:bg-[#04091A]/90">
-        <Container className="flex h-[76px] items-center justify-between gap-4">
+      {/* Main Luxury Navigation Header */}
+      <div className="border-b border-[#071126]/10 bg-white/95 backdrop-blur-xl dark:border-white/10 dark:bg-[#030816]/95">
+        <Container className="flex h-[78px] items-center justify-between gap-4">
           <Link href="/" className="group flex items-center gap-3.5" onClick={() => setOpen(false)}>
-            <div className="relative">
-              <div className="absolute -inset-0.5 rounded-xl bg-gradient-to-br from-[#0038AE] to-[#48ACD6] opacity-70 blur-[2px] transition group-hover:opacity-100" />
-              <BrandMark className="relative h-11 w-11 rounded-xl border border-white/50" />
-            </div>
+            <BrandMark className="h-11 w-11 rounded-lg border border-[#0038AE]/15 transition duration-300 group-hover:border-[#48ACD6] dark:border-white/15" />
             <div className="leading-tight">
-              <div className="flex items-center gap-2">
-                <span className="text-xl font-extrabold tracking-wider text-[#0038AE] dark:text-white">
+              <div className="flex items-baseline gap-2">
+                <span className="text-xl font-bold tracking-[0.14em] text-[#071126] dark:text-white">
                   PHERADA
                 </span>
-                <span className="rounded-md bg-[#0038AE]/10 px-1.5 py-0.5 font-mono text-[9px] font-semibold uppercase tracking-widest text-[#0038AE] dark:bg-[#48ACD6]/20 dark:text-[#48ACD6]">
-                  LAB
+                <span className="font-serif text-sm italic text-[#0038AE] dark:text-[#48ACD6]">
+                  The Blue Factory
                 </span>
               </div>
-              <span className="block font-mono text-[10px] font-medium uppercase tracking-[0.14em] text-text-muted dark:text-[#48ACD6]">
-                {locale === "th" ? "โรงงานผลิตเวชสำอาง & สกินแคร์" : "Cosmeceutical OEM / ODM"}
+              <span className="block text-[10px] font-medium uppercase tracking-[0.18em] text-text-muted dark:text-white/55">
+                {locale === "th" ? "COSMECEUTICAL OEM & ODM LABORATORY" : "COSMECEUTICAL OEM & ODM LABORATORY"}
               </span>
             </div>
           </Link>
 
-          <nav className="hidden items-center gap-1 rounded-2xl border border-[#0038AE]/10 bg-[#F4F9FD]/80 p-1.5 dark:border-white/10 dark:bg-white/[0.04] xl:flex">
+          {/* Architectural Hairline Nav */}
+          <nav className="hidden items-center gap-7 xl:flex">
             {navItems.map((item) => {
               const active = item.href === "/" ? pathname === "/" : pathname.startsWith(item.href);
               return (
@@ -92,26 +92,35 @@ export function Navbar() {
                   key={item.href}
                   href={item.href}
                   className={cn(
-                    "relative rounded-xl px-3.5 py-2 text-xs font-semibold transition-all duration-200",
-                    locale === "th" ? "tracking-normal text-[13px]" : "uppercase tracking-wider",
+                    "relative py-2 text-[13px] font-medium transition-colors duration-200",
+                    locale === "th" ? "tracking-wide" : "uppercase tracking-[0.12em] text-xs",
                     active
-                      ? "bg-gradient-to-r from-[#0038AE] to-[#48ACD6] text-white shadow-sm"
-                      : "text-text-muted hover:bg-white hover:text-[#0038AE] dark:text-text-light dark:hover:bg-white/10 dark:hover:text-white"
+                      ? "font-semibold text-[#0038AE] dark:text-[#48ACD6]"
+                      : "text-[#071126]/75 hover:text-[#0038AE] dark:text-white/75 dark:hover:text-white"
                   )}
                 >
                   {t(item.labelKey)}
+                  <span
+                    className={cn(
+                      "absolute inset-x-0 -bottom-0.5 h-[1.5px] bg-[#0038AE] transition-transform duration-300 dark:bg-[#48ACD6]",
+                      active ? "scale-x-100" : "scale-x-0"
+                    )}
+                  />
                 </Link>
               );
             })}
           </nav>
 
-          <div className="hidden items-center gap-2.5 lg:flex">
+          <div className="hidden items-center gap-3 lg:flex">
             <LanguageToggle />
             <ThemeToggle />
-            <Button href="/contact" className="min-h-10 rounded-xl px-5 py-2.5 text-xs">
-              <Sparkles size={14} />
+            <Link
+              href="/contact"
+              className="inline-flex h-10 items-center gap-2 bg-[#0038AE] px-5 text-xs font-semibold uppercase tracking-[0.12em] text-white transition hover:bg-[#002880] dark:bg-[#48ACD6] dark:text-[#030816] dark:hover:bg-white"
+            >
               <span>{t("nav.quote")}</span>
-            </Button>
+              <ArrowUpRight size={14} />
+            </Link>
           </div>
 
           <div className="flex items-center gap-2 lg:hidden">
@@ -121,7 +130,7 @@ export function Navbar() {
               type="button"
               aria-label="Open menu"
               onClick={() => setOpen((value) => !value)}
-              className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-[#0038AE]/15 bg-[#F4F9FD] text-[#0038AE] dark:border-white/15 dark:bg-white/10 dark:text-white"
+              className="inline-flex h-10 w-10 items-center justify-center border border-[#071126]/15 bg-transparent text-[#071126] dark:border-white/15 dark:text-white"
             >
               {open ? <X size={20} /> : <Menu size={20} />}
             </button>
@@ -130,8 +139,8 @@ export function Navbar() {
       </div>
 
       {open ? (
-        <div className="border-b border-[#0038AE]/15 bg-white/98 shadow-xl backdrop-blur-xl dark:border-white/10 dark:bg-[#04091A]/98 lg:hidden">
-          <Container className="grid gap-1.5 py-5">
+        <div className="border-b border-[#071126]/15 bg-white shadow-2xl dark:border-white/10 dark:bg-[#030816] lg:hidden">
+          <Container className="divide-y divide-[#071126]/10 py-4 dark:divide-white/10">
             {navItems.map((item) => {
               const active = item.href === "/" ? pathname === "/" : pathname.startsWith(item.href);
               return (
@@ -140,21 +149,26 @@ export function Navbar() {
                   href={item.href}
                   onClick={() => setOpen(false)}
                   className={cn(
-                    "flex items-center justify-between rounded-xl px-4 py-3 text-sm font-semibold transition",
+                    "flex items-center justify-between py-3.5 text-sm font-medium transition",
                     active
-                      ? "bg-gradient-to-r from-[#0038AE] to-[#48ACD6] text-white"
-                      : "text-text-dark hover:bg-[#0038AE]/5 dark:text-text-light dark:hover:bg-white/10"
+                      ? "font-semibold text-[#0038AE] dark:text-[#48ACD6]"
+                      : "text-[#071126] dark:text-white/85"
                   )}
                 >
                   <span>{t(item.labelKey)}</span>
-                  <span className="font-mono text-[10px] opacity-70">→</span>
+                  <ArrowUpRight size={15} className="opacity-60" />
                 </Link>
               );
             })}
-            <div className="mt-3 grid gap-2 border-t border-[#0038AE]/10 pt-3 dark:border-white/10">
-              <Button href="/contact" onClick={() => setOpen(false)} className="w-full">
-                {t("nav.start")}
-              </Button>
+            <div className="pt-4">
+              <Link
+                href="/contact"
+                onClick={() => setOpen(false)}
+                className="flex w-full items-center justify-center gap-2 bg-[#0038AE] py-3.5 text-xs font-semibold uppercase tracking-[0.14em] text-white"
+              >
+                <span>{t("nav.start")}</span>
+                <ArrowUpRight size={15} />
+              </Link>
             </div>
           </Container>
         </div>
@@ -162,4 +176,5 @@ export function Navbar() {
     </header>
   );
 }
+
 

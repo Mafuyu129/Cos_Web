@@ -1,240 +1,268 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { motion } from "framer-motion";
-import {
-  ArrowRight,
-  CheckCircle2,
-  FlaskConical,
-  PackageOpen,
-  ShieldCheck,
-  Sparkles
-} from "lucide-react";
-import { Button } from "@/components/common/Button";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { Container } from "@/components/common/Container";
 import { useLanguage } from "@/components/providers/LanguageProvider";
+import { company } from "@/data/company";
 
 export function HeroSection() {
   const { locale } = useLanguage();
 
-  const eyebrow =
-    locale === "th"
-      ? "PHERADA COSMETICS • โรงงานวิจัยและผลิตเวชสำอาง OEM / ODM ครบวงจร"
-      : "PHERADA COSMETICS • CLINICAL COSMECEUTICAL OEM / ODM FACTORY";
-
-  const title =
-    locale === "th" ? (
-      <>
-        เปลี่ยนไอเดียสู่
-        <span className="mt-1 block bg-gradient-to-r from-[#0038AE] via-[#0B5ED7] to-[#48ACD6] bg-clip-text text-transparent dark:from-[#68A0FF] dark:via-[#48ACD6] dark:to-[#9EE4FF]">
-          แบรนด์เวชสำอางระดับพรีเมียม
-        </span>
-        เริ่มต้นง่าย ในงบที่คุณกำหนดได้
-      </>
-    ) : (
-      <>
-        Turn Your Vision Into a
-        <span className="mt-1 block bg-gradient-to-r from-[#0038AE] via-[#0B5ED7] to-[#48ACD6] bg-clip-text text-transparent dark:from-[#68A0FF] dark:via-[#48ACD6] dark:to-[#9EE4FF]">
-          Premium Dermo Brand
-        </span>
-        Engineered for Real Growth
-      </>
-    );
-
-  const subtitle =
-    locale === "th"
-      ? "มาตรฐาน อย. 100% • สารสกัดเกรดคลินิก • ผลิตขั้นต่ำเริ่มต้นเพียง 100 ชิ้น"
-      : "100% Thai FDA Compliant • Clinical-Grade Actives • Starter MOQ from 100 Pcs";
-
-  const body =
-    locale === "th"
-      ? "ห้างหุ้นส่วนจำกัด ภีรดา คอสเมติกส์ (Pherada Cosmetics) คือโรงงานวิจัยและรับผลิตเวชสำอางแบบ One-Stop Service ดูแลคุณตั้งแต่คิดค้นสูตร ปรับเนื้อสัมผัส ออกแบบบรรจุภัณฑ์ จดแจ้ง อย. จนถึงผลิตจริง พร้อมส่งเซ็ตตัวอย่างเทสเตอร์ให้ลองใช้บนผิวจริงก่อนสั่งผลิต"
-      : "Pherada Cosmetics Ltd. bridges clinical formulation science with turnkey OEM/ODM execution—guiding your brand from active ingredient selection and sensory texture refinement to BMR quality control, Thai FDA filing, and mass production.";
-
-  const highlights =
-    locale === "th"
-      ? [
-          "เริ่มต้นผลิตเพียง 100 ชิ้น (Low MOQ)",
-          "ปรับแต่งสารสกัดและเนื้อสูตรเฉพาะแบรนด์",
-          "จดแจ้ง อย. และเอกสาร BMR ถูกต้อง 100%",
-          "มีเซ็ตตัวอย่างเทสเตอร์ให้ลองใช้จริงก่อนผลิต"
-        ]
-      : [
-          "Low Starter MOQ from 100 Pcs",
-          "Bespoke Active Formulations & Textures",
-          "100% Thai FDA Registration & BMR",
-          "Real Sensory Tester Samples Available"
-        ];
-
   return (
-    <section className="relative overflow-hidden border-b border-[#0038AE]/15 bg-gradient-to-b from-[#F4F9FD] via-white to-[#EAF4FC] text-text-dark dark:border-white/10 dark:from-[#04091A] dark:via-[#07122B] dark:to-[#04091A] dark:text-white">
-      {/* Subtle Ambient Brand Glows */}
-      <div className="pointer-events-none absolute inset-0 surface-grid opacity-50 dark:opacity-25" />
-      <div className="pointer-events-none absolute -left-28 -top-20 h-[520px] w-[520px] rounded-full bg-[#0038AE]/12 blur-[130px] dark:bg-[#0038AE]/35" />
-      <div className="pointer-events-none absolute right-0 top-1/4 h-[520px] w-[520px] rounded-full bg-[#48ACD6]/15 blur-[130px] dark:bg-[#48ACD6]/20" />
+    <section className="relative overflow-hidden border-b border-white/10 bg-[#030816] text-white">
+      {/* Deep Cobalt & Sapphire Architectural Lighting */}
+      <div className="pointer-events-none absolute -left-40 -top-40 h-[620px] w-[620px] rounded-full bg-[#0038AE]/35 blur-[160px]" />
+      <div className="pointer-events-none absolute right-0 top-1/3 h-[540px] w-[540px] rounded-full bg-[#48ACD6]/18 blur-[150px]" />
 
-      <Container className="relative z-10 grid items-center gap-12 py-14 lg:grid-cols-12 lg:py-20">
-        {/* Left Column: Brand Launch Positioning, Value Props & CTAs */}
-        <motion.div
-          className="lg:col-span-7"
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.65, ease: "easeOut" }}
-        >
-          {/* Status Pill */}
-          <div className="mb-6 inline-flex items-center gap-2.5 rounded-full border border-[#0038AE]/20 bg-white/90 px-4 py-1.5 text-xs font-semibold tracking-wider text-[#0038AE] shadow-sm backdrop-blur-md dark:border-[#48ACD6]/30 dark:bg-white/[0.06] dark:text-[#48ACD6]">
-            <span className="relative flex h-2.5 w-2.5">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#48ACD6] opacity-75" />
-              <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-[#0038AE] dark:bg-[#48ACD6]" />
-            </span>
-            <span>{eyebrow}</span>
-          </div>
+      {/* Giant Background Architectural Serif Watermark */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute bottom-16 left-1/2 -translate-x-1/2 select-none whitespace-nowrap font-serif text-[130px] font-light italic leading-none tracking-tight text-white/[0.025] lg:text-[210px]"
+      >
+        The Blue Factory
+      </div>
 
-          <h1 className="text-4xl font-extrabold leading-[1.15] tracking-tight text-text-dark dark:text-white sm:text-5xl xl:text-[54px]">
-            {title}
-          </h1>
+      <Container className="relative z-10 py-14 lg:py-24">
+        <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-10">
+          {/* Left Column: Editorial Statement & Partner Positioning */}
+          <motion.div
+            className="lg:col-span-7"
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
+          >
+            <div className="editorial-eyebrow text-[#48ACD6]">
+              <span>
+                {locale === "th"
+                  ? "THE BLUE FACTORY • โรงงานวิจัยและผลิตเวชสำอาง OEM / ODM"
+                  : "THE BLUE FACTORY • CLINICAL OEM & ODM LABORATORY"}
+              </span>
+            </div>
 
-          <p className="mt-4 text-xs font-bold uppercase tracking-wider text-[#0038AE] dark:text-[#48ACD6] sm:text-sm">
-            {subtitle}
-          </p>
+            {/* Editorial English Display Super-Title (BazicSkin + Skin Solution Lab Fusion) */}
+            <p className="mt-5 font-serif text-2xl font-light italic tracking-wide text-[#9EE4FF] sm:text-3xl lg:text-[36px]">
+              “Your Skincare Dream. Our Formulation Science.”
+            </p>
 
-          <p className="mt-4 max-w-2xl text-base leading-relaxed text-text-muted dark:text-text-light/85 md:text-lg">
-            {body}
-          </p>
+            {/* Primary Statement Headline */}
+            <h1 className="mt-3 text-3xl font-semibold leading-[1.18] tracking-tight text-white sm:text-5xl xl:text-[54px]">
+              {locale === "th" ? (
+                <>
+                  เราเป็นมากกว่าโรงงานผลิต <br className="hidden sm:inline" />
+                  แต่คือ{" "}
+                  <span className="border-b border-[#48ACD6]/60 pb-1 text-[#48ACD6]">
+                    พาร์ทเนอร์สร้างแบรนด์เวชสำอาง
+                  </span>
+                  ของคุณ
+                </>
+              ) : (
+                <>
+                  More Than a Factory — <br className="hidden sm:inline" />
+                  Your{" "}
+                  <span className="border-b border-[#48ACD6]/60 pb-1 text-[#48ACD6]">
+                    Dermo-Cosmetic Brand
+                  </span>{" "}
+                  Partner
+                </>
+              )}
+            </h1>
 
-          {/* 4 Brand Guarantee Pills */}
-          <div className="mt-6 grid grid-cols-1 gap-2.5 sm:grid-cols-2">
-            {highlights.map((item) => (
-              <div
-                key={item}
-                className="flex items-center gap-2.5 rounded-xl border border-[#0038AE]/10 bg-white/80 px-3.5 py-2.5 text-xs font-semibold text-text-dark shadow-sm backdrop-blur-sm dark:border-white/10 dark:bg-white/[0.04] dark:text-white"
+            {/* Editorial Lead Paragraph */}
+            <p className="mt-6 max-w-2xl border-l-2 border-[#48ACD6] pl-5 text-base font-normal leading-relaxed text-white/75 md:text-lg">
+              {locale === "th"
+                ? "ห้างหุ้นส่วนจำกัด ภีรดา คอสเมติกส์ (Pherada Cosmetics) ผสานศาสตร์การวิจัยสารสกัดเวชสำอางระดับคลินิก เข้ากับการออกแบบเนื้อสัมผัสที่เรียบหรูแต่ทรงพลัง (A Simple is Powerful) ดูแลครบวงจรตั้งแต่คิดค้นสูตร บรรจุภัณฑ์ จดแจ้ง อย. และเอกสาร BMR เริ่มต้นสร้างแบรนด์ได้ตั้งแต่ 100 ชิ้น"
+                : "Pherada Cosmetics Ltd. unites clinical formulation science with sensory luxury ('A Simple is Powerful'). We guide founders from bespoke active R&D and packaging architecture to Thai FDA registration and full BMR batch traceability—starting at just 100 pieces."}
+            </p>
+
+            {/* Editorial Action Row */}
+            <div className="mt-9 flex flex-col gap-4 sm:flex-row sm:items-center">
+              <Link
+                href="/contact"
+                className="inline-flex items-center justify-center gap-3 bg-[#48ACD6] px-8 py-4 text-xs font-bold uppercase tracking-[0.16em] text-[#030816] transition hover:bg-white"
               >
-                <CheckCircle2 size={16} className="shrink-0 text-[#48ACD6]" />
-                <span>{item}</span>
-              </div>
-            ))}
-          </div>
+                <span>
+                  {locale === "th" ? "ปรึกษาสร้างแบรนด์ & พัฒนาสูตรฟรี" : "Start Your Brand Consultation"}
+                </span>
+                <ArrowRight size={16} />
+              </Link>
 
-          {/* Action CTAs */}
-          <div className="mt-8 flex flex-col gap-3.5 sm:flex-row sm:items-center">
-            <Button href="/contact" className="px-8 py-3.5 text-sm">
-              <FlaskConical size={17} />
-              <span>{locale === "th" ? "ปรึกษาพัฒนาสูตรฟรี" : "Consult Formula Free"}</span>
-              <ArrowRight size={17} />
-            </Button>
-            <Button href="/products" variant="secondary" className="px-7 py-3.5 text-sm">
-              <PackageOpen size={16} className="text-[#48ACD6]" />
-              <span>{locale === "th" ? "ดู 8 สูตรมาตรฐาน & สั่งเทสเตอร์" : "8 Standard Formulas & Samples"}</span>
-            </Button>
-          </div>
-
-          {/* 4-Column Clinical Metrics Bar */}
-          <div className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-4">
-            {[
-              {
-                value: "8+",
-                label: locale === "th" ? "สูตรเวชสำอางพร้อมผลิต" : "Clinical Base Formulas"
-              },
-              {
-                value: "100",
-                label: locale === "th" ? "ขั้นต่ำเริ่มต้น (ชิ้น)" : "Starter MOQ (Pcs)"
-              },
-              {
-                value: "pH 5.5",
-                label: locale === "th" ? "สมดุลผิวสุขภาพดี" : "Balanced Dermo pH"
-              },
-              {
-                value: "100%",
-                label: locale === "th" ? "จดแจ้ง อย. & ตรวจสอบได้" : "Thai FDA Compliant"
-              }
-            ].map((stat) => (
-              <div
-                key={stat.label}
-                className="flex flex-col justify-center rounded-2xl border border-[#0038AE]/12 bg-white/95 p-4 shadow-sm backdrop-blur-md dark:border-white/10 dark:bg-white/[0.04]"
+              <Link
+                href="/products"
+                className="inline-flex items-center justify-center gap-3 border border-white/25 bg-white/[0.03] px-7 py-4 text-xs font-semibold uppercase tracking-[0.14em] text-white transition hover:border-[#48ACD6] hover:bg-white/[0.08]"
               >
-                <div className="bg-gradient-to-r from-[#0038AE] to-[#48ACD6] bg-clip-text text-2xl font-extrabold text-transparent sm:text-3xl dark:from-[#6BA3FF] dark:to-[#48ACD6]">
-                  {stat.value}
+                <span>
+                  {locale === "th" ? "สำรวจ 8 สูตรมาตรฐาน & สั่งเทสเตอร์" : "Explore 8 Base Formulas & Samples"}
+                </span>
+                <ArrowUpRight size={16} className="text-[#48ACD6]" />
+              </Link>
+            </div>
+
+            {/* Direct Sample Store Note */}
+            <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-white/60">
+              <span>
+                {locale === "th"
+                  ? "✦ มีเซ็ตเทสเตอร์เนื้อสูตรจริงจัดส่งให้ทดสอบก่อนสั่งผลิต"
+                  : "✦ Real sensory formula sample kits available before production"}
+              </span>
+              <a
+                href={company.shopeeUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1 font-medium text-[#48ACD6] underline underline-offset-4 transition hover:text-white"
+              >
+                <span>{locale === "th" ? "สั่งซื้อเทสเตอร์ผ่าน Shopee Official" : "Order Samples on Shopee"}</span>
+                <ArrowUpRight size={13} />
+              </a>
+            </div>
+          </motion.div>
+
+          {/* Right Column: Editorial Asymmetric Studio Composition */}
+          <motion.div
+            className="relative lg:col-span-5"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.75, delay: 0.15, ease: "easeOut" }}
+          >
+            <div className="relative mx-auto max-w-lg lg:max-w-none">
+              {/* Primary Architectural Frame */}
+              <div className="relative aspect-[4/4.6] w-full overflow-hidden border border-white/15 bg-[#07122B]">
+                <Image
+                  src="/images/hero/luxury-cosmetic-bottles.jpg"
+                  alt="Pherada Cosmetics — The Blue Factory Bespoke Skincare Collection"
+                  fill
+                  priority
+                  className="object-cover transition-transform duration-1000 hover:scale-105"
+                  sizes="(max-width: 1024px) 100vw, 520px"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#030816]/90 via-transparent to-[#030816]/20" />
+
+                {/* Top Editorial Index Label */}
+                <div className="absolute left-5 right-5 top-5 flex items-center justify-between border-b border-white/15 pb-3 text-[11px] uppercase tracking-[0.2em] text-white/80">
+                  <span>COLLECTION NO. 01</span>
+                  <span className="font-serif italic tracking-normal text-[#9EE4FF]">
+                    The Blue Factory Edition
+                  </span>
                 </div>
-                <p className="mt-1.5 text-xs font-semibold leading-relaxed text-text-muted dark:text-text-light/85">
-                  {stat.label}
-                </p>
-              </div>
-            ))}
-          </div>
-        </motion.div>
 
-        {/* Right Column: Luxury Photorealistic Cosmeceutical Visual Showcase */}
-        <motion.div
-          className="relative lg:col-span-5"
-          initial={{ opacity: 0, scale: 0.96 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.7, delay: 0.15, ease: "easeOut" }}
-        >
-          <div className="relative overflow-hidden rounded-3xl border border-[#0038AE]/20 bg-gradient-to-b from-[#0A1931] via-[#051026] to-[#04091A] p-3.5 shadow-2xl sm:p-4">
-            {/* Main Luxury Bottles Photo */}
-            <div className="relative aspect-[4/4.2] w-full overflow-hidden rounded-2xl bg-slate-900 shadow-inner">
-              <Image
-                src="/images/hero/luxury-cosmetic-bottles.jpg"
-                alt="Pherada Luxury Dermo-Cosmetics Studio Formulation"
-                fill
-                priority
-                className="object-cover transition-transform duration-700 hover:scale-105"
-                sizes="(max-width: 768px) 100vw, 500px"
-              />
-
-              {/* Top Glass Badge */}
-              <div className="absolute left-3 top-3 z-10 flex items-center gap-2 rounded-full border border-white/25 bg-black/45 px-3.5 py-1 text-xs font-semibold text-white backdrop-blur-md">
-                <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
-                <span>{locale === "th" ? "สูตรเวชสำอางพร้อมผลิต (Ready Formulas)" : "Clinical Formulas"}</span>
+                {/* Bottom Caption Inside Frame */}
+                <div className="absolute bottom-5 left-5 right-5 flex items-end justify-between gap-4">
+                  <div>
+                    <p className="font-serif text-xl italic text-[#9EE4FF]">
+                      A Simple is Powerful
+                    </p>
+                    <p className="mt-0.5 text-xs text-white/80">
+                      {locale === "th"
+                        ? "เวชสำอางสูตรเข้มข้น ปรับแต่งเนื้อสัมผัสและสารสกัดเฉพาะแบรนด์คุณ"
+                        : "Clinical-grade formulations tailored exclusively to your brand identity"}
+                    </p>
+                  </div>
+                  <span className="shrink-0 border border-[#48ACD6]/40 bg-[#030816]/80 px-3 py-1.5 font-mono text-[10px] tracking-widest text-[#48ACD6]">
+                    pH 5.5
+                  </span>
+                </div>
               </div>
 
-              {/* Bottom Inset: Real Texture Swatch Snippet */}
-              <div className="absolute inset-x-3 bottom-3 z-10 flex items-center justify-between rounded-xl border border-white/20 bg-black/60 p-3 text-white backdrop-blur-md">
-                <div className="flex items-center gap-2.5">
-                  <div className="relative h-10 w-10 shrink-0 overflow-hidden rounded-lg border border-white/30">
+              {/* Secondary Overlapping Chemist & Sensory Strip */}
+              <div className="mt-4 grid grid-cols-2 gap-4">
+                <div className="group relative flex items-center gap-3.5 border border-white/15 bg-[#07122B]/90 p-3.5">
+                  <div className="relative h-14 w-14 shrink-0 overflow-hidden border border-white/20">
                     <Image
-                      src="/images/hero/cosmetic-texture-swatches.jpg"
-                      alt="Sensory texture swatches"
+                      src="/images/hero/clinical-lab-scientist.jpg"
+                      alt="Pherada R&D Cosmetic Chemist"
                       fill
                       className="object-cover"
+                      sizes="64px"
                     />
                   </div>
                   <div>
-                    <p className="text-xs font-bold leading-tight">
-                      {locale === "th" ? "สัมผัสเนื้อสูตรจริง (Sensory Test)" : "Real Sensory Textures"}
+                    <p className="font-serif text-xs italic text-[#48ACD6]">R&D Laboratory</p>
+                    <p className="text-xs font-semibold text-white">
+                      {locale === "th" ? "ทีมนักเคมีวิจัยสูตร" : "In-House Chemists"}
                     </p>
-                    <p className="text-[11px] text-[#9EE4FF]">
-                      {locale === "th" ? "เซรั่มฉ่ำน้ำ • ครีมเกราะผิว • แอมพูล" : "Aqua Serum • Barrier Cream"}
+                    <p className="mt-0.5 text-[11px] text-white/60">
+                      {locale === "th" ? "พัฒนาสูตรเฉพาะแบรนด์" : "Bespoke ODM / OEM"}
                     </p>
                   </div>
                 </div>
 
-                <span className="rounded-md border border-[#48ACD6]/40 bg-[#48ACD6]/20 px-2 py-1 font-mono text-[10px] font-bold text-[#9EE4FF]">
-                  pH 5.5
-                </span>
+                <Link
+                  href="/products"
+                  className="group relative flex items-center gap-3.5 border border-white/15 bg-[#07122B]/90 p-3.5 transition hover:border-[#48ACD6]"
+                >
+                  <div className="relative h-14 w-14 shrink-0 overflow-hidden border border-white/20">
+                    <Image
+                      src="/images/hero/cosmetic-texture-swatches.jpg"
+                      alt="Sensory Swatches"
+                      fill
+                      className="object-cover"
+                      sizes="64px"
+                    />
+                  </div>
+                  <div>
+                    <p className="font-serif text-xs italic text-[#48ACD6]">Sensory Library</p>
+                    <p className="text-xs font-semibold text-white group-hover:text-[#48ACD6]">
+                      {locale === "th" ? "สัมผัสเนื้อสูตรจริง →" : "Texture Swatches →"}
+                    </p>
+                    <p className="mt-0.5 text-[11px] text-white/60">
+                      {locale === "th" ? "เซรั่ม • ครีม • เจล • มาสก์" : "Serum • Cream • Gel"}
+                    </p>
+                  </div>
+                </Link>
               </div>
             </div>
+          </motion.div>
+        </div>
 
-            {/* Bottom 2-Column Guarantee Cards */}
-            <div className="mt-3 grid grid-cols-2 gap-2 text-xs">
-              <div className="flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 p-2.5 text-white">
-                <ShieldCheck size={16} className="shrink-0 text-[#48ACD6]" />
-                <div>
-                  <p className="font-bold">{locale === "th" ? "มาตรฐาน อย. 100%" : "Thai FDA Certified"}</p>
-                  <p className="text-[10px] text-white/60">{locale === "th" ? "ถูกต้องตามกฎหมาย" : "Full Compliance"}</p>
-                </div>
-              </div>
-              <div className="flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 p-2.5 text-white">
-                <Sparkles size={16} className="shrink-0 text-[#FFB800]" />
-                <div>
-                  <p className="font-bold">{locale === "th" ? "เริ่มต้น 100 ชิ้น" : "MOQ from 100 Pcs"}</p>
-                  <p className="text-[10px] text-white/60">{locale === "th" ? "ทุนไม่จม เริ่มง่าย" : "Low Risk Launch"}</p>
-                </div>
-              </div>
+        {/* Bottom Architectural Hairline Ledger (BazicSkin-Inspired Spec Bar) */}
+        <div className="mt-14 grid grid-cols-2 border-t border-white/15 pt-8 sm:grid-cols-4 lg:mt-20">
+          {[
+            {
+              index: "01",
+              metric: "100 PCS",
+              label: locale === "th" ? "จำนวนขั้นต่ำเริ่มต้นสร้างแบรนด์" : "Accessible Starter Brand MOQ",
+              sub: locale === "th" ? "ลดความเสี่ยง ทุนไม่จม" : "Low-risk market entry"
+            },
+            {
+              index: "02",
+              metric: "08+ RX",
+              label: locale === "th" ? "สูตรเวชสำอางมาตรฐานพร้อมผลิต" : "Clinical Ready-to-Produce Formulas",
+              sub: locale === "th" ? "พร้อมส่งเทสเตอร์ให้ลองจริง" : "Sample kits ready to ship"
+            },
+            {
+              index: "03",
+              metric: locale === "th" ? company.factoryInfo.rooms : company.factoryInfo.roomsEn,
+              label: locale === "th" ? "โครงสร้างโรงงานแยกโซนมาตรฐาน" : "Dedicated Cleanroom Zoning",
+              sub: locale === "th" ? "แยกส่วนผลิต ชั่งผสม บรรจุ และ QC" : "Hygienic separated lab workflow"
+            },
+            {
+              index: "04",
+              metric: "100% FDA",
+              label: locale === "th" ? "จดแจ้ง อย. และบันทึก BMR ครบวงจร" : "Full Thai FDA & BMR Traceability",
+              sub: locale === "th" ? "ถูกต้องตามกฎหมาย ตรวจสอบย้อนกลับได้" : "Complete batch documentation"
+            }
+          ].map((item, idx) => (
+            <div
+              key={item.index}
+              className={`py-3 ${
+                idx !== 0 ? "sm:border-l sm:border-white/15 sm:pl-6" : ""
+              } ${idx % 2 === 1 ? "border-l border-white/15 pl-4 sm:pl-6" : "pr-4"}`}
+            >
+              <span className="font-mono text-[10px] tracking-[0.2em] text-[#48ACD6]">
+                /{item.index}
+              </span>
+              <p className="mt-1 font-serif text-2xl font-normal tracking-wide text-white sm:text-3xl">
+                {item.metric}
+              </p>
+              <p className="mt-1 text-xs font-semibold text-white/90">{item.label}</p>
+              <p className="mt-0.5 text-[11px] text-white/50">{item.sub}</p>
             </div>
-          </div>
-        </motion.div>
+          ))}
+        </div>
       </Container>
     </section>
   );
 }
+

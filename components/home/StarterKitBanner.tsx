@@ -1,7 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { ArrowRight, CheckCircle2, FlaskConical, PackageOpen, Sparkles } from "lucide-react";
+import Link from "next/link";
+import { ArrowRight, ArrowUpRight, Check } from "lucide-react";
 import { Container } from "@/components/common/Container";
 import { FadeUp } from "@/components/common/FadeUp";
 import { ShopeeIcon } from "@/components/common/ShopeeIcon";
@@ -11,157 +12,247 @@ import { company } from "@/data/company";
 export function StarterKitBanner() {
   const { locale } = useLanguage();
 
+  const launchPackages =
+    locale === "th"
+      ? [
+          {
+            tier: "TIER 01 • DISCOVERY SAMPLE",
+            name: "ชุดทดลองเนื้อสูตรจริง (Tester Kit)",
+            subtitle: "Try Before You Produce",
+            highlight: "สั่งผ่าน Shopee Official",
+            desc: "ทดสอบเนื้อสัมผัส กลิ่น การซึมซาบ และผลลัพธ์บนผิวจริงครบทั้ง 8 สูตรมาตรฐานจากห้องแล็บ ก่อนตัดสินใจสั่งผลิตล็อตแรก",
+            features: [
+              "รวมเทสเตอร์สูตรเวชสำอางยอดนิยม (เซรั่ม ครีม เจล มาสก์)",
+              "แนบสเปกสารสกัด Active และค่า pH ประจำสูตร",
+              "จัดส่งด่วนถึงบ้านผ่าน Shopee Official Store",
+              "นำค่าเทสเตอร์มาหักเป็นส่วนลดเมื่อสั่งผลิตจริงได้"
+            ],
+            ctaText: "สั่งซื้อเทสเตอร์บน Shopee",
+            ctaHref: company.shopeeUrl,
+            external: true,
+            featured: false
+          },
+          {
+            tier: "TIER 02 • STARTER BRAND OEM",
+            name: "แพ็กเกจเริ่มต้นสร้างแบรนด์ 100 ชิ้น",
+            subtitle: "Turnkey Low-MOQ Launch",
+            highlight: "MOQ เริ่มต้น 100 ชิ้น",
+            desc: "ทางเลือกยอดนิยมสำหรับเจ้าของแบรนด์มือใหม่ เลือกสูตรเวชสำอางมาตรฐานที่พัฒนาสำเร็จแล้ว พร้อมดูแลบรรจุภัณฑ์และจดแจ้ง อย. ครบวงจร",
+            features: [
+              "ขั้นต่ำเริ่มต้นเพียง 100 ชิ้น (แบบซองเริ่มต้น 200 ชิ้น)",
+              "คัดสรรบรรจุภัณฑ์ขวดดรอปเปอร์ ปั๊มสุญญากาศ หรือกระปุก",
+              "บริการออกแบบฉลากและตรวจสอบความถูกต้องตามเกณฑ์ อย.",
+              "ดำเนินการยื่นจดแจ้งเลขที่ใบรับจดแจ้ง อย. และบันทึก BMR"
+            ],
+            ctaText: "ปรึกษาแพ็กเกจ 100 ชิ้น",
+            ctaHref: "/contact",
+            external: false,
+            featured: true
+          },
+          {
+            tier: "TIER 03 • BESPOKE R&D ODM",
+            name: "แพ็กเกจวิจัยและพัฒนาสูตรเฉพาะแบรนด์",
+            subtitle: "Exclusive Custom Formulation",
+            highlight: "1 Brand 1 Exclusive Formula",
+            desc: "สร้างความแตกต่างในตลาดด้วยสูตรที่คิดค้นขึ้นใหม่เฉพาะแบรนด์คุณ ปรับแต่งสารสกัด Active เนื้อสัมผัส สี และกลิ่นโดยทีมนักเคมี R&D",
+            features: [
+              "ปรึกษาเจาะลึก Concept แบรนด์และกลุ่มเป้าหมายกับนักเคมี",
+              "ขึ้นตัวอย่างสูตร (Lab Sample) เพื่อปรับจูนเนื้อสัมผัสจนพอใจ",
+              "ทดสอบความคงตัวของสูตร (Stability & pH Control)",
+              "ดูแลการผลิต บรรจุภัณฑ์ จดแจ้ง อย. และเอกสาร BMR ครบวงจร"
+            ],
+            ctaText: "นัดหมายทีมวิจัย R&D",
+            ctaHref: "/contact",
+            external: false,
+            featured: false
+          }
+        ]
+      : [
+          {
+            tier: "TIER 01 • DISCOVERY SAMPLE",
+            name: "Real Sensory Discovery Sample Kit",
+            subtitle: "Try Before You Produce",
+            highlight: "Via Shopee Official",
+            desc: "Test viscosity, absorption, scent, and real skin performance across our 8 clinical base formulas before committing to production.",
+            features: [
+              "Includes clinical serums, moisturizers, mask & cleanser",
+              "Complete active ingredient & pH specification sheet",
+              "Fast nationwide delivery via Shopee Official Store",
+              "Sample kit fee credited toward your first production order"
+            ],
+            ctaText: "Order Kit on Shopee",
+            ctaHref: company.shopeeUrl,
+            external: true,
+            featured: false
+          },
+          {
+            tier: "TIER 02 • STARTER BRAND OEM",
+            name: "Starter Brand Launch (MOQ 100 Pcs)",
+            subtitle: "Turnkey Low-MOQ Launch",
+            highlight: "Starter MOQ 100 Pcs",
+            desc: "Designed for new founders. Select a proven clinical base formula with turnkey packaging coordination, label review, and Thai FDA filing.",
+            features: [
+              "Accessible minimum order from 100 pcs (200 pcs for sachets)",
+              "Dropper, airless pump, and frosted jar vessel sourcing",
+              "Brand label design & regulatory compliance check",
+              "Full Thai FDA notification & BMR batch documentation"
+            ],
+            ctaText: "Inquire Starter Package",
+            ctaHref: "/contact",
+            external: false,
+            featured: true
+          },
+          {
+            tier: "TIER 03 • BESPOKE R&D ODM",
+            name: "Bespoke Clinical R&D Formulation",
+            subtitle: "Exclusive Custom Formulation",
+            highlight: "100% Bespoke Formula",
+            desc: "Stand out with a proprietary formulation engineered exclusively for your brand—customizing active concentrations, rheology, and scent.",
+            features: [
+              "1-on-1 formulation briefing with our R&D chemists",
+              "Iterative lab prototyping until sensory feel is perfected",
+              "Stability, compatibility, and pH 5.5 precision testing",
+              "End-to-end manufacturing, Thai FDA filing & BMR records"
+            ],
+            ctaText: "Consult R&D Chemists",
+            ctaHref: "/contact",
+            external: false,
+            featured: false
+          }
+        ];
+
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-[#040C28] via-[#002B88] to-[#084B7C] py-16 text-white md:py-20">
-      {/* Ambient background glows */}
-      <div className="pointer-events-none absolute -left-20 top-0 h-96 w-96 rounded-full bg-[#48ACD6]/20 blur-[120px]" />
-      <div className="pointer-events-none absolute -right-20 bottom-0 h-96 w-96 rounded-full bg-[#0038AE]/40 blur-[120px]" />
+    <section className="relative overflow-hidden border-b border-white/10 bg-[#030816] py-20 text-white md:py-28">
+      {/* Subtle Cobalt Illumination */}
+      <div className="pointer-events-none absolute left-1/4 top-0 h-[500px] w-[500px] rounded-full bg-[#0038AE]/30 blur-[160px]" />
+      <div className="pointer-events-none absolute right-0 bottom-0 h-[420px] w-[420px] rounded-full bg-[#48ACD6]/15 blur-[140px]" />
 
-      <Container>
-        <div className="relative z-10 grid items-center gap-10 rounded-3xl border border-white/15 bg-white/[0.04] p-8 shadow-2xl backdrop-blur-xl lg:grid-cols-12 lg:p-12">
-          {/* Left Column: Compelling pitch for new brand founders */}
-          <FadeUp className="lg:col-span-7">
-            <div className="inline-flex items-center gap-2 rounded-full border border-[#48ACD6]/40 bg-[#48ACD6]/15 px-3.5 py-1 text-xs font-semibold text-[#9EE4FF]">
-              <PackageOpen size={14} className="text-[#48ACD6]" />
-              <span>
+      <Container className="relative z-10">
+        {/* Top Editorial Split Header */}
+        <FadeUp>
+          <div className="grid items-end gap-8 border-b border-white/15 pb-12 lg:grid-cols-12">
+            <div className="lg:col-span-7">
+              <div className="editorial-eyebrow text-[#48ACD6]">
+                <span>BRAND LAUNCH PROGRAMS • แพ็กเกจเริ่มต้นสร้างแบรนด์</span>
+              </div>
+              <p className="mt-4 font-serif text-2xl font-light italic text-[#9EE4FF] sm:text-3xl">
+                Start Small, Scale Confidently.
+              </p>
+              <h2 className="mt-2 text-3xl font-semibold leading-[1.18] tracking-tight text-white sm:text-4xl lg:text-[42px]">
                 {locale === "th"
-                  ? "PHERADA DISCOVERY KIT • ชุดทดลองก่อนตัดสินใจผลิต"
-                  : "PHERADA DISCOVERY KIT • TRY BEFORE YOU PRODUCE"}
-              </span>
+                  ? "เลือกรูปแบบการเริ่มต้นสร้างแบรนด์ที่เหมาะกับงบประมาณและเป้าหมายของคุณ"
+                  : "Tailored Brand Launch Programs — From Discovery Samples to Bespoke R&D"}
+              </h2>
             </div>
 
-            <h2 className="mt-4 text-3xl font-extrabold leading-tight tracking-tight text-white sm:text-4xl">
-              {locale === "th" ? (
-                <>
-                  สัมผัสเนื้อจริง กลิ่นจริง <br className="hidden sm:inline" />
-                  <span className="bg-gradient-to-r from-[#9EE4FF] via-[#48ACD6] to-white bg-clip-text text-transparent">
-                    ทดลอง 8 สูตรเวชสำอาง
-                  </span>{" "}
-                  ก่อนสั่งผลิต
-                </>
-              ) : (
-                <>
-                  Experience Real Sensory Textures <br className="hidden sm:inline" />
-                  <span className="bg-gradient-to-r from-[#9EE4FF] via-[#48ACD6] to-white bg-clip-text text-transparent">
-                    Try 8 Dermo-Cosmetic Formulas
-                  </span>{" "}
-                  First
-                </>
-              )}
-            </h2>
-
-            <p className="mt-4 text-sm leading-relaxed text-[#D2E9FB] sm:text-base">
-              {locale === "th"
-                ? "อยากสร้างแบรนด์แต่ไม่รู้จะเลือกสูตรไหน? Pherada จัดส่งเซ็ตขนาดทดลอง (Tester Samples) ครบทั้ง 8 สูตรเวชสำอางยอดนิยม พร้อมคู่มือส่วนผสม Active, ค่า pH และคำแนะนำในการวางจุดขาย ให้คุณทดลองใช้บนผิวจริงก่อนสั่งผลิตขั้นต่ำ"
-                : "Not sure which formula matches your brand? Order our Discovery Sample Kit featuring 8 clinical base formulas with active ingredient profiles and pH specs to test sensory feel and performance before manufacturing."}
-            </p>
-
-            {/* Benefit Checkpoints */}
-            <div className="mt-6 grid gap-2.5 sm:grid-cols-2">
-              {[
-                locale === "th" ? "ครบ 8 เนื้อสัมผัสยอดนิยม (เซรั่ม ครีม เจล มาสก์)" : "8 popular cosmetic textures (Serums, Creams, Gel)",
-                locale === "th" ? "คัดสรรสารสกัด Active เกรดคลินิกเห็นผลชัด" : "High-purity clinical actives with visible results",
-                locale === "th" ? "ทดลองกับผิวจริงเพื่อความมั่นใจก่อนลงทุน" : "Test on real skin before committing capital",
-                locale === "th" ? "สั่งซื้อง่าย ส่งด่วนตรงถึงบ้านผ่าน Shopee" : "Easy direct order with fast home delivery via Shopee"
-              ].map((benefit) => (
-                <div key={benefit} className="flex items-center gap-2 text-xs font-medium text-white/90 sm:text-sm">
-                  <CheckCircle2 size={16} className="shrink-0 text-[#48ACD6]" />
-                  <span>{benefit}</span>
+            <div className="lg:col-span-5">
+              <div className="flex items-center gap-4 border border-white/15 bg-white/[0.03] p-4">
+                <div className="relative h-16 w-20 shrink-0 overflow-hidden border border-white/15">
+                  <Image
+                    src="/images/hero/cosmetic-texture-swatches.jpg"
+                    alt="Pherada Discovery Swatches"
+                    fill
+                    className="object-cover"
+                    sizes="90px"
+                  />
                 </div>
-              ))}
-            </div>
-
-            {/* CTAs */}
-            <div className="mt-8 flex flex-wrap items-center gap-4">
-              <a
-                href={company.shopeeUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-xl bg-[#EE4D2D] px-6 py-3.5 text-sm font-bold text-white shadow-lg transition hover:bg-[#d73f20] hover:scale-105"
-              >
-                <ShopeeIcon className="h-4 w-4" />
-                <span>{locale === "th" ? "สั่งซื้อชุดทดลองบน Shopee" : "Order Sample Kit on Shopee"}</span>
-                <ArrowRight size={15} />
-              </a>
-
-              <a
-                href={company.lineUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-xl border border-white/20 bg-white/10 px-6 py-3.5 text-sm font-bold text-white backdrop-blur-md transition hover:bg-white/20"
-              >
-                <FlaskConical size={16} className="text-[#48ACD6]" />
-                <span>{locale === "th" ? "ปรึกษาพัฒนาสูตรทาง LINE" : "Consult Formula on LINE"}</span>
-              </a>
-            </div>
-          </FadeUp>
-
-          {/* Right Column: Visual Showcase Box */}
-          <FadeUp delay={0.1} className="lg:col-span-5">
-            <div className="relative overflow-hidden rounded-2xl border border-white/20 bg-gradient-to-b from-white/10 to-white/5 p-5 backdrop-blur-md sm:p-7">
-              {/* Texture Swatch Image Preview */}
-              <div className="relative mb-5 aspect-[16/9] w-full overflow-hidden rounded-xl border border-white/20 shadow-md">
-                <Image
-                  src="/images/hero/cosmetic-texture-swatches.jpg"
-                  alt="Real Pherada Dermo-Cosmetics Texture Swatches"
-                  fill
-                  className="object-cover transition-transform duration-500 hover:scale-105"
-                  sizes="(max-width: 768px) 100vw, 400px"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
-                <div className="absolute bottom-2.5 left-3 right-3 flex items-center justify-between text-xs text-white">
-                  <span className="font-bold">Real Sensory Swatches</span>
-                  <span className="rounded bg-[#48ACD6]/30 px-2 py-0.5 font-mono text-[10px] text-[#9EE4FF] backdrop-blur-sm">
-                    8 Formulas
-                  </span>
+                <div>
+                  <p className="font-serif text-sm italic text-[#48ACD6]">
+                    Sensory First Policy
+                  </p>
+                  <p className="mt-0.5 text-xs leading-relaxed text-white/80">
+                    {locale === "th"
+                      ? "เราแนะนำให้ลูกค้าทุกท่านได้ลองสัมผัสเนื้อเซรั่มและครีมจริงก่อนตัดสินใจสั่งผลิต เพื่อความมั่นใจสูงสุด"
+                      : "We encourage every founder to test our real clinical textures on skin before mass production."}
+                  </p>
                 </div>
               </div>
+            </div>
+          </div>
+        </FadeUp>
 
-              <div className="flex items-center justify-between border-b border-white/15 pb-3">
-                <div className="flex items-center gap-2">
-                  <Sparkles size={16} className="text-[#FFB800]" />
-                  <span className="text-xs font-bold uppercase tracking-wider text-white">
-                    PHERADA SAMPLE BOX
+        {/* 3-Column Architectural Package Grid */}
+        <div className="mt-12 grid gap-0 border border-white/15 lg:grid-cols-3">
+          {launchPackages.map((pkg, idx) => (
+            <FadeUp
+              key={pkg.tier}
+              delay={idx * 0.08}
+              className={`flex flex-col justify-between p-8 sm:p-10 ${
+                idx !== 2 ? "border-b border-white/15 lg:border-b-0 lg:border-r" : ""
+              } ${
+                pkg.featured
+                  ? "bg-gradient-to-b from-[#002B88]/55 via-[#071536] to-[#030816]"
+                  : "bg-[#050D22]/70"
+              }`}
+            >
+              <div>
+                <div className="flex items-center justify-between gap-2">
+                  <span className="font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-[#48ACD6]">
+                    {pkg.tier}
                   </span>
-                </div>
-                <span className="rounded-full bg-emerald-500/20 px-2.5 py-0.5 font-mono text-[11px] font-bold text-emerald-300">
-                  READY TO SHIP
-                </span>
-              </div>
-
-              {/* 5 Formula Pills Preview */}
-              <div className="mt-4 space-y-2">
-                {[
-                  { name: "01. Clarielle Acne & Sebum Serum", active: "BHA + Niacinamide + Bisabolol" },
-                  { name: "02. Veilance Barrier Repair Emulsion", active: "Ceramide Complex + Squalane" },
-                  { name: "03. Lumea Radiance Brightening Serum", active: "Tranexamic Acid + Aquaxyl" },
-                  { name: "04. Eloria Peptide Firming Ampoule", active: "Copper Peptide + Tripeptide" },
-                  { name: "05. Aeri Hyaluron Hydrating Gel-Cream", active: "8D Hyaluronic + Panthenol B5" }
-                ].map((item) => (
-                  <div
-                    key={item.name}
-                    className="flex items-center justify-between rounded-xl border border-white/10 bg-white/5 p-2.5 text-xs transition hover:bg-white/10"
+                  <span
+                    className={`px-2.5 py-1 font-mono text-[10px] font-semibold uppercase tracking-wider ${
+                      pkg.featured
+                        ? "bg-[#48ACD6] text-[#030816]"
+                        : "border border-white/20 text-white/80"
+                    }`}
                   >
-                    <div>
-                      <p className="font-bold text-white">{item.name}</p>
-                      <p className="text-[11px] text-[#9EE4FF]">{item.active}</p>
+                    {pkg.highlight}
+                  </span>
+                </div>
+
+                <p className="mt-5 font-serif text-xl italic text-[#9EE4FF]">
+                  {pkg.subtitle}
+                </p>
+                <h3 className="mt-1 text-2xl font-semibold text-white">
+                  {pkg.name}
+                </h3>
+
+                <p className="mt-4 text-sm leading-relaxed text-white/70">
+                  {pkg.desc}
+                </p>
+
+                <div className="mt-7 space-y-3 border-t border-white/10 pt-6">
+                  {pkg.features.map((feat) => (
+                    <div key={feat} className="flex items-start gap-2.5 text-xs leading-relaxed text-white/85 sm:text-sm">
+                      <Check size={15} className="mt-0.5 shrink-0 text-[#48ACD6]" />
+                      <span>{feat}</span>
                     </div>
-                    <span className="font-mono text-[10px] text-white/60">Sample 10ml</span>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
 
-              <div className="mt-4 rounded-xl border border-[#48ACD6]/30 bg-[#48ACD6]/10 p-3 text-center">
-                <p className="text-xs font-semibold text-[#9EE4FF]">
-                  {locale === "th"
-                    ? "★ ค่าชุดทดลองสามารถนำมาใช้เป็นส่วนลดในการสั่งผลิตจริงได้"
-                    : "★ Sample kit fee can be credited against your first mass production order"}
-                </p>
+              <div className="mt-9 pt-4">
+                {pkg.external ? (
+                  <a
+                    href={pkg.ctaHref}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex w-full items-center justify-center gap-2 bg-[#EE4D2D] px-6 py-4 text-xs font-bold uppercase tracking-[0.14em] text-white transition hover:bg-[#d73f20]"
+                  >
+                    <ShopeeIcon className="h-4 w-4" />
+                    <span>{pkg.ctaText}</span>
+                    <ArrowUpRight size={15} />
+                  </a>
+                ) : (
+                  <Link
+                    href={pkg.ctaHref}
+                    className={`flex w-full items-center justify-center gap-2 px-6 py-4 text-xs font-bold uppercase tracking-[0.14em] transition ${
+                      pkg.featured
+                        ? "bg-[#48ACD6] text-[#030816] hover:bg-white"
+                        : "border border-white/25 bg-white/[0.04] text-white hover:border-[#48ACD6] hover:bg-[#48ACD6] hover:text-[#030816]"
+                    }`}
+                  >
+                    <span>{pkg.ctaText}</span>
+                    <ArrowRight size={15} />
+                  </Link>
+                )}
               </div>
-            </div>
-          </FadeUp>
+            </FadeUp>
+          ))}
         </div>
       </Container>
     </section>
   );
 }
+

@@ -33,7 +33,7 @@ export function ProductGrid({ limit }: { limit?: number }) {
   return (
     <div>
       {!limit ? (
-        <div className="mb-8 flex flex-wrap gap-2.5">
+        <div className="mb-10 flex flex-wrap border-b border-[#071126]/15 dark:border-white/15">
           {productCategories.map((item) => {
             const active = category === item;
             return (
@@ -42,22 +42,20 @@ export function ProductGrid({ limit }: { limit?: number }) {
                 type="button"
                 onClick={() => setCategory(item)}
                 className={cn(
-                  "inline-flex items-center gap-2 rounded-xl border px-4 py-2.5 text-xs font-semibold transition-all duration-200",
+                  "relative inline-flex items-center gap-2.5 px-6 py-4 text-xs font-semibold uppercase tracking-[0.12em] transition-all",
                   active
-                    ? "border-transparent bg-gradient-to-r from-[#0038AE] to-[#48ACD6] text-white shadow-md"
-                    : "border-[#0038AE]/15 bg-white text-text-muted hover:border-[#0038AE] hover:text-[#0038AE] dark:border-white/10 dark:bg-white/[0.04] dark:text-text-light dark:hover:text-white"
+                    ? "bg-[#030816] text-white dark:bg-[#48ACD6] dark:text-[#030816]"
+                    : "text-text-muted hover:text-[#0038AE] dark:text-white/70 dark:hover:text-white"
                 )}
               >
                 <span>{categoryLabels[item] ?? item}</span>
                 <span
                   className={cn(
-                    "rounded-full px-2 py-0.5 font-mono text-[10px] font-bold",
-                    active
-                      ? "bg-white/25 text-white"
-                      : "bg-[#0038AE]/10 text-[#0038AE] dark:bg-white/10 dark:text-[#48ACD6]"
+                    "font-serif text-sm italic",
+                    active ? "text-[#48ACD6] dark:text-[#030816]" : "text-[#0038AE] dark:text-[#48ACD6]"
                   )}
                 >
-                  {counts[item] ?? 0}
+                  ({counts[item] ?? 0})
                 </span>
               </button>
             );
@@ -72,4 +70,5 @@ export function ProductGrid({ limit }: { limit?: number }) {
     </div>
   );
 }
+
 

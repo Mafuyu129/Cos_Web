@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -8,14 +8,14 @@
   color-scheme: light;
   --primary: #0038AE;
   --accent: #48ACD6;
-  --background: #f4f9fd;
-  --foreground: #0a1931;
+  --background: #F7F9FC;
+  --foreground: #071126;
 }
 
 .dark {
   color-scheme: dark;
-  --background: #04091a;
-  --foreground: #ffffff;
+  --background: #030816;
+  --foreground: #F4F7FB;
 }
 
 * {
@@ -40,9 +40,8 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-:lang(th) body,
-:lang(th) .font-serif {
-  font-family: "IBM Plex Sans Thai", "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+.font-serif {
+  font-family: "Cormorant Garamond", "IBM Plex Sans Thai", Georgia, serif;
 }
 
 a {
@@ -52,45 +51,64 @@ a {
 
 ::selection {
   background: #48acd6;
-  color: #04091a;
+  color: #030816;
+}
+
+.editorial-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+.editorial-eyebrow::before {
+  content: "";
+  display: inline-block;
+  width: 28px;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.75;
 }
 
 .blue-noise {
   background:
-    radial-gradient(circle at 18% 20%, rgba(0, 56, 174, 0.42), transparent 48%),
-    radial-gradient(circle at 82% 75%, rgba(72, 172, 214, 0.25), transparent 52%),
-    linear-gradient(180deg, #04091a 0%, #081128 100%);
+    radial-gradient(circle at 18% 20%, rgba(0, 56, 174, 0.38), transparent 48%),
+    radial-gradient(circle at 82% 75%, rgba(72, 172, 214, 0.22), transparent 52%),
+    linear-gradient(180deg, #030816 0%, #07122B 100%);
 }
 
 .surface-grid {
   background-image:
-    linear-gradient(rgba(0, 56, 174, 0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 56, 174, 0.06) 1px, transparent 1px);
-  background-size: 36px 36px;
+    linear-gradient(rgba(0, 56, 174, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 56, 174, 0.045) 1px, transparent 1px);
+  background-size: 48px 48px;
 }
 
 .dark .surface-grid {
   background-image:
-    linear-gradient(rgba(72, 172, 214, 0.07) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(72, 172, 214, 0.07) 1px, transparent 1px);
+    linear-gradient(rgba(72, 172, 214, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(72, 172, 214, 0.055) 1px, transparent 1px);
 }
 
 .clinical-dots {
-  background-image: radial-gradient(rgba(0, 56, 174, 0.14) 1px, transparent 1px);
-  background-size: 20px 20px;
+  background-image: radial-gradient(rgba(0, 56, 174, 0.1) 1px, transparent 1px);
+  background-size: 24px 24px;
 }
 
 .dark .clinical-dots {
-  background-image: radial-gradient(rgba(72, 172, 214, 0.16) 1px, transparent 1px);
+  background-image: radial-gradient(rgba(72, 172, 214, 0.12) 1px, transparent 1px);
 }
 
 .premium-panel {
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(244, 249, 253, 0.9));
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(247, 249, 252, 0.92));
   backdrop-filter: blur(12px);
 }
 
 .dark .premium-panel {
-  background: linear-gradient(180deg, rgba(13, 25, 54, 0.85), rgba(8, 17, 40, 0.75));
+  background: linear-gradient(180deg, rgba(10, 21, 48, 0.88), rgba(5, 12, 30, 0.82));
   backdrop-filter: blur(12px);
 }
 
@@ -101,7 +119,7 @@ a {
 }
 
 .dark .text-brand-gradient {
-  background: linear-gradient(135deg, #6BA3FF 0%, #48ACD6 100%);
+  background: linear-gradient(135deg, #7AB3FF 0%, #48ACD6 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -117,4 +135,5 @@ a {
   -webkit-user-drag: none;
   pointer-events: none;
 }
+
 

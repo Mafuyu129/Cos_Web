@@ -1,6 +1,6 @@
 "use client";
 
-import { ExternalLink, FlaskConical, Mail, MapPin, MessageCircle, Phone, ShieldCheck } from "lucide-react";
+import { ExternalLink, Mail, MapPin, MessageCircle, Phone, ShieldCheck } from "lucide-react";
 import { Container } from "@/components/common/Container";
 import { PageHero } from "@/components/common/PageHero";
 import { SectionHeader } from "@/components/common/SectionHeader";
@@ -37,27 +37,24 @@ export default function ContactPage() {
           </div>
 
           <aside className="space-y-6 lg:sticky lg:top-28">
-            <div className="overflow-hidden rounded-3xl border border-[#0038AE]/20 bg-gradient-to-br from-[#04091A] via-[#00257A] to-[#0B5080] p-7 text-white shadow-premium">
-              <div className="flex items-center gap-2.5 border-b border-white/15 pb-4">
-                <FlaskConical size={20} className="text-[#48ACD6]" />
-                <div>
-                  <p className="font-mono text-[10px] font-bold uppercase tracking-widest text-[#48ACD6]">
-                    DIRECT LABORATORY CHANNELS
-                  </p>
-                  <h2 className="text-xl font-extrabold text-white">
-                    {locale === "th" ? "ช่องทางติดต่อโรงงานโดยตรง" : "Direct Factory Contact"}
-                  </h2>
-                </div>
+            <div className="border border-white/15 bg-[#030816] p-8 text-white">
+              <div className="border-b border-white/15 pb-5">
+                <p className="editorial-eyebrow text-[#48ACD6]">
+                  DIRECT LABORATORY CHANNELS
+                </p>
+                <h2 className="mt-3 text-2xl font-semibold text-white">
+                  {locale === "th" ? "ช่องทางติดต่อโรงงานโดยตรง" : "Direct Factory Contact"}
+                </h2>
               </div>
 
-              <div className="mt-6 grid gap-4 text-sm">
-                <div className="flex items-start gap-3.5 rounded-2xl border border-white/10 bg-white/[0.06] p-4">
-                  <Phone size={18} className="mt-0.5 shrink-0 text-[#48ACD6]" />
+              <div className="divide-y divide-white/10 text-sm">
+                <div className="flex items-start gap-3.5 py-4">
+                  <Phone size={17} className="mt-0.5 shrink-0 text-[#48ACD6]" />
                   <div>
-                    <p className="font-mono text-[10px] uppercase tracking-wider text-[#9EE4FF]">
+                    <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-[#48ACD6]">
                       {locale === "th" ? "โทรศัพท์ฝ่ายผลิตและประสานงาน" : "PHONE CONSULTATION"}
                     </p>
-                    <div className="mt-1 flex flex-wrap gap-x-3 gap-y-1 font-bold text-white">
+                    <div className="mt-1 flex flex-wrap gap-x-3 gap-y-1 font-semibold text-white">
                       {company.phone.map((phone) => (
                         <a
                           key={phone}
@@ -75,25 +72,25 @@ export default function ContactPage() {
                   href={company.lineUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className="flex items-start gap-3.5 rounded-2xl border border-white/10 bg-white/[0.06] p-4 transition hover:border-[#48ACD6]"
+                  className="flex items-start gap-3.5 py-4 transition hover:text-[#48ACD6]"
                 >
-                  <MessageCircle size={18} className="mt-0.5 shrink-0 text-[#48ACD6]" />
+                  <MessageCircle size={17} className="mt-0.5 shrink-0 text-[#48ACD6]" />
                   <div>
-                    <p className="font-mono text-[10px] uppercase tracking-wider text-[#9EE4FF]">
+                    <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-[#48ACD6]">
                       LINE OFFICIAL ACCOUNT
                     </p>
-                    <p className="mt-1 font-bold text-white">Line: {company.line}</p>
+                    <p className="mt-1 font-semibold text-white">LINE: {company.line}</p>
                   </div>
                 </a>
 
                 <a
                   href={`mailto:${company.email}`}
-                  className="flex items-start gap-3.5 rounded-2xl border border-white/10 bg-white/[0.06] p-4 transition hover:border-[#48ACD6]"
+                  className="flex items-start gap-3.5 py-4 transition hover:text-[#48ACD6]"
                 >
-                  <Mail size={18} className="mt-0.5 shrink-0 text-[#48ACD6]" />
+                  <Mail size={17} className="mt-0.5 shrink-0 text-[#48ACD6]" />
                   <div>
-                    <p className="font-mono text-[10px] uppercase tracking-wider text-[#9EE4FF]">EMAIL</p>
-                    <p className="mt-1 font-bold text-white">{company.email}</p>
+                    <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-[#48ACD6]">EMAIL</p>
+                    <p className="mt-1 font-semibold text-white">{company.email}</p>
                   </div>
                 </a>
 
@@ -101,24 +98,24 @@ export default function ContactPage() {
                   href={company.mapUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className="flex items-start gap-3.5 rounded-2xl border border-white/10 bg-white/[0.06] p-4 transition hover:border-[#48ACD6]"
+                  className="flex items-start gap-3.5 py-4 transition hover:text-[#48ACD6]"
                 >
-                  <MapPin size={18} className="mt-0.5 shrink-0 text-[#48ACD6]" />
+                  <MapPin size={17} className="mt-0.5 shrink-0 text-[#48ACD6]" />
                   <div>
-                    <p className="font-mono text-[10px] uppercase tracking-wider text-[#9EE4FF]">
+                    <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-[#48ACD6]">
                       {locale === "th" ? "ที่ตั้งโรงงานและห้องปฏิบัติการ" : "FACTORY ADDRESS"}
                     </p>
-                    <p className="mt-1 text-xs leading-relaxed text-white/90">{address}</p>
+                    <p className="mt-1 text-xs leading-relaxed text-white/80">{address}</p>
                   </div>
                 </a>
               </div>
 
-              <div className="mt-6 border-t border-white/15 pt-5">
+              <div className="mt-6 border-t border-white/15 pt-6">
                 <a
                   href={company.shopeeUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className="flex items-center justify-between rounded-2xl bg-[#EE4D2D] px-5 py-3.5 text-xs font-bold uppercase tracking-wider text-white shadow-md transition hover:bg-[#d84022]"
+                  className="flex items-center justify-between bg-[#EE4D2D] px-6 py-4 text-xs font-bold uppercase tracking-[0.14em] text-white transition hover:bg-[#d84022]"
                 >
                   <span className="flex items-center gap-2">
                     <ShopeeIcon className="h-4 w-4" />
@@ -129,12 +126,12 @@ export default function ContactPage() {
               </div>
             </div>
 
-            <div className="rounded-2xl border border-[#0038AE]/15 bg-white p-5 shadow-sm dark:border-white/10 dark:bg-[#0D1936]">
-              <div className="flex items-center gap-2.5 text-xs font-bold text-[#0038AE] dark:text-[#48ACD6]">
-                <ShieldCheck size={17} className="text-[#48ACD6]" />
+            <div className="border border-[#071126]/15 bg-white p-6 dark:border-white/15 dark:bg-[#050C1D]">
+              <div className="flex items-center gap-2.5 text-xs font-semibold uppercase tracking-[0.14em] text-[#0038AE] dark:text-[#48ACD6]">
+                <ShieldCheck size={16} className="text-[#48ACD6]" />
                 <span>{locale === "th" ? "การรักษาความลับของสูตรลูกค้า (NDA)" : "Formula Confidentiality Assured"}</span>
               </div>
-              <p className="mt-1.5 text-xs leading-relaxed text-text-muted dark:text-text-light/80">
+              <p className="mt-2 text-xs leading-relaxed text-text-muted dark:text-white/70">
                 {locale === "th"
                   ? "ข้อมูลการพัฒนาสูตรเฉพาะ (Custom Formula) และข้อมูลแบรนด์ของท่านจะถูกเก็บรักษาเป็นความลับภายใต้มาตรฐานของ Pherada Cosmetics"
                   : "All custom formulation briefs and brand specifications are strictly protected by Pherada Cosmetics."}
@@ -146,4 +143,5 @@ export default function ContactPage() {
     </>
   );
 }
+
 

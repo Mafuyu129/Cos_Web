@@ -47,12 +47,10 @@ const config: Config = {
           "sans-serif"
         ],
         serif: [
-          "Plus Jakarta Sans",
+          "Cormorant Garamond",
           "IBM Plex Sans Thai",
-          "Sarabun",
-          "ui-sans-serif",
-          "system-ui",
-          "sans-serif"
+          "Georgia",
+          "serif"
         ],
         mono: [
           "JetBrains Mono",

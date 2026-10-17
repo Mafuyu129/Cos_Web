@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import { Beaker, Building2, Cpu, Handshake, MapPin, ShieldCheck, Target, Users } from "lucide-react";
 import { CTASection } from "@/components/common/CTASection";
 import { Container } from "@/components/common/Container";
 import { FadeUp } from "@/components/common/FadeUp";
@@ -16,32 +15,28 @@ const pillars = [
     title: "Vision & Mission",
     titleTh: "วิสัยทัศน์และพันธกิจ",
     text: "เป็นโรงงานวิจัยและผลิตเวชสำอางคู่คิดสำหรับเจ้าของแบรนด์ใหม่และ SME ที่ต้องการเริ่มต้นอย่างเป็นระบบและโปร่งใส",
-    textEn: "A science-driven cosmeceutical factory partner for new brand owners and SMEs who want a transparent launch system.",
-    icon: Target
+    textEn: "A science-driven cosmeceutical factory partner for new brand owners and SMEs who want a transparent launch system."
   },
   {
     code: "02",
     title: "Dermo-Active R&D",
     titleTh: "วิจัยและนวัตกรรมเวชสำอาง",
     text: "พัฒนาสูตรเวชสำอางโดยคัดสรรสารสกัด Active เข้มข้น ปรับค่า pH เนื้อสัมผัส และความคงตัวให้เหมาะกับสภาพผิว",
-    textEn: "Clinical formula development with active ingredients, pH balance, and sensory profile tailored to skin needs.",
-    icon: Beaker
+    textEn: "Clinical formula development with active ingredients, pH balance, and sensory profile tailored to skin needs."
   },
   {
     code: "03",
     title: "Quality & Regulatory",
     titleTh: "คุณภาพและมาตรฐาน อย.",
     text: "ควบคุมการผลิตตามมาตรฐานความสะอาด ตรวจสอบคุณภาพ QC บันทึก BMR และขึ้นทะเบียนจดแจ้ง อย. ครบวงจร",
-    textEn: "Cleanroom production control, QC verification, BMR batch traceability, and complete Thai FDA registration.",
-    icon: ShieldCheck
+    textEn: "Cleanroom production control, QC verification, BMR batch traceability, and complete Thai FDA registration."
   },
   {
     code: "04",
     title: "Long-Term Brand Partner",
     titleTh: "พาร์ทเนอร์เติบโตระยะยาว",
     text: "ช่วยวางแผนขยายไลน์ผลิตภัณฑ์เวชสำอาง ปรับปรุงบรรจุภัณฑ์ และต่อยอดจุดขายให้แบรนด์เติบโตอย่างยั่งยืน",
-    textEn: "Strategic support for expanding clinical product lines, packaging upgrades, and sustainable brand growth.",
-    icon: Handshake
+    textEn: "Strategic support for expanding clinical product lines, packaging upgrades, and sustainable brand growth."
   }
 ];
 
@@ -62,7 +57,7 @@ export default function AboutPage() {
         descriptionEn="Pherada Cosmetics Ltd. is a one-stop cosmeceutical and skincare factory under The Blue Factory concept, supporting R&D formulation, packaging, Thai FDA registration, and cleanroom production."
       />
 
-      <section className="bg-[#F4F9FD] py-16 dark:bg-[#04091A] md:py-24">
+      <section className="border-b border-[#071126]/10 bg-[#F7F9FC] py-20 dark:border-white/10 dark:bg-[#030816] md:py-28">
         <Container>
           <FadeUp>
             <SectionHeader
@@ -74,39 +69,33 @@ export default function AboutPage() {
             />
           </FadeUp>
 
-          <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
-            {pillars.map((pillar, index) => {
-              const Icon = pillar.icon;
-              return (
-                <FadeUp key={pillar.title} delay={index * 0.06}>
-                  <div className="group relative flex h-full flex-col justify-between overflow-hidden rounded-2xl border border-[#0038AE]/15 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#48ACD6] hover:shadow-premium dark:border-white/10 dark:bg-[#0D1936]">
-                    <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-[#0038AE] to-[#48ACD6]" />
-                    <div>
-                      <div className="flex items-center justify-between">
-                        <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-[#0038AE] to-[#48ACD6] text-white shadow-md">
-                          <Icon size={22} />
-                        </div>
-                        <span className="font-mono text-[10px] font-bold text-[#0038AE] dark:text-[#48ACD6]">
-                          {pillar.code}
-                        </span>
-                      </div>
-                      <h2 className="mt-5 text-lg font-extrabold leading-snug text-text-dark dark:text-white">
-                        {locale === "th" ? pillar.titleTh : pillar.title}
-                      </h2>
-                      <p className="mt-2.5 text-sm leading-relaxed text-text-muted dark:text-text-light/85">
-                        {locale === "th" ? pillar.text : pillar.textEn}
-                      </p>
-                    </div>
+          <div className="mt-14 grid border-t border-l border-[#071126]/15 dark:border-white/15 md:grid-cols-2 lg:grid-cols-4">
+            {pillars.map((pillar, index) => (
+              <FadeUp key={pillar.title} delay={index * 0.06}>
+                <div className="flex h-full flex-col justify-between border-r border-b border-[#071126]/15 bg-white p-8 dark:border-white/15 dark:bg-[#050C1D]">
+                  <div>
+                    <span className="font-serif text-4xl font-light italic text-[#0038AE] dark:text-[#48ACD6]">
+                      {pillar.code}
+                    </span>
+                    <p className="mt-2 font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-text-muted dark:text-white/50">
+                      {pillar.title}
+                    </p>
+                    <h2 className="mt-3 text-xl font-semibold leading-snug text-[#071126] dark:text-white">
+                      {locale === "th" ? pillar.titleTh : pillar.title}
+                    </h2>
+                    <p className="mt-3 text-sm leading-relaxed text-text-muted dark:text-white/70">
+                      {locale === "th" ? pillar.text : pillar.textEn}
+                    </p>
                   </div>
-                </FadeUp>
-              );
-            })}
+                </div>
+              </FadeUp>
+            ))}
           </div>
         </Container>
       </section>
 
-      <section className="border-t border-[#0038AE]/12 bg-white py-16 dark:border-white/10 dark:bg-[#081128] md:py-24">
-        <Container className="grid gap-10 lg:grid-cols-12 lg:items-center">
+      <section className="bg-white py-20 dark:bg-[#050C1D] md:py-28">
+        <Container className="grid gap-12 lg:grid-cols-12 lg:items-start">
           <div className="lg:col-span-5">
             <SectionHeader
               eyebrow="Facility & Engineering"
@@ -116,75 +105,70 @@ export default function AboutPage() {
               descriptionEn="Structured production rooms and precision equipment for weighing, mixing, filling, and sealing cosmeceutical products."
             />
 
-            <div className="mt-6 inline-flex items-center gap-2 rounded-xl border border-[#0038AE]/20 bg-[#F4F9FD] px-4 py-2.5 font-mono text-xs font-bold text-[#0038AE] dark:border-[#48ACD6]/30 dark:bg-white/5 dark:text-[#48ACD6]">
-              <span>“{company.tagline}”</span>
-            </div>
+            <p className="mt-6 font-serif text-2xl italic text-[#0038AE] dark:text-[#48ACD6]">
+              “{company.tagline}”
+            </p>
 
-            <div className="relative mt-6 aspect-[16/11] overflow-hidden rounded-2xl border border-[#0038AE]/15 shadow-sm">
+            <div className="relative mt-6 aspect-[16/11] overflow-hidden border border-[#071126]/15 bg-[#030816] dark:border-white/15">
               <Image
                 src="/images/hero/clinical-lab-scientist.jpg"
                 alt="Pherada Cosmetics Formulation R&D Scientist"
                 fill
-                className="object-cover transition-transform duration-500 hover:scale-105"
+                className="object-cover transition-transform duration-700 hover:scale-105"
                 sizes="(max-width: 768px) 100vw, 450px"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#04091A]/80 via-transparent to-transparent" />
-              <div className="absolute bottom-3 left-3 right-3 text-white">
-                <p className="text-xs font-bold leading-tight">
-                  {locale === "th" ? "การวิจัยและพัฒนาสูตรเวชสำอางโดยนักวิทยาศาสตร์เครื่องสำอาง" : "Dedicated Formulation R&D Scientist"}
+              <div className="absolute inset-0 bg-gradient-to-t from-[#030816]/85 via-transparent to-transparent" />
+              <div className="absolute bottom-4 left-4 right-4 text-white">
+                <p className="font-serif text-sm italic text-[#9EE4FF]">
+                  In-House Formulation R&D
                 </p>
-                <p className="mt-0.5 text-[11px] text-[#9EE4FF]">
-                  {locale === "th" ? "ทดสอบค่า pH ความคงตัว และคัดสรรสารสกัด Active เกรดคลินิก" : "Clinical-grade active ingredients & pH stability testing"}
+                <p className="mt-0.5 text-xs text-white/85">
+                  {locale === "th"
+                    ? "การวิจัยและพัฒนาสูตรเวชสำอางโดยนักวิทยาศาสตร์เครื่องสำอาง"
+                    : "Clinical-grade active ingredients & pH stability testing"}
                 </p>
               </div>
             </div>
           </div>
 
           <div className="lg:col-span-7">
-            <div className="overflow-hidden rounded-3xl border border-[#0038AE]/20 bg-gradient-to-br from-[#04091A] via-[#00257A] to-[#0B5080] p-7 text-white shadow-premium md:p-9">
-              <div className="flex items-center justify-between border-b border-white/15 pb-4">
-                <div>
-                  <p className="font-mono text-xs font-semibold uppercase tracking-widest text-[#48ACD6]">
-                    FACILITY SPECIFICATION
-                  </p>
-                  <h2 className="mt-1 text-2xl font-extrabold text-white">
-                    {locale === "th" ? "ข้อมูลสถานที่ผลิตและเครื่องจักร" : "Factory & Equipment Profile"}
-                  </h2>
-                </div>
-                <Building2 size={28} className="text-[#48ACD6]" />
+            <div className="border border-white/15 bg-[#030816] p-8 text-white sm:p-12">
+              <div className="border-b border-white/15 pb-6">
+                <span className="editorial-eyebrow text-[#48ACD6]">
+                  FACILITY SPECIFICATION
+                </span>
+                <h2 className="mt-3 text-2xl font-semibold text-white sm:text-3xl">
+                  {locale === "th" ? "ข้อมูลสถานที่ผลิตและเครื่องจักรมาตรฐาน" : "Factory & Equipment Profile"}
+                </h2>
               </div>
 
-              <div className="mt-6 grid gap-4 sm:grid-cols-2">
-                <div className="rounded-2xl border border-white/15 bg-white/[0.06] p-4 backdrop-blur-sm">
-                  <div className="flex items-center gap-2 font-mono text-xs font-bold text-[#9EE4FF]">
-                    <MapPin size={14} className="text-[#48ACD6]" />
-                    <span>{locale === "th" ? "ที่ตั้งสถานที่ผลิต" : "PRODUCTION LOCATION"}</span>
-                  </div>
-                  <p className="mt-2 text-sm leading-relaxed text-white/90">{address}</p>
+              <div className="mt-8 grid gap-px bg-white/15 sm:grid-cols-2">
+                <div className="bg-[#050D22] p-6">
+                  <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[#48ACD6]">
+                    01 / {locale === "th" ? "ที่ตั้งสถานที่ผลิต" : "PRODUCTION LOCATION"}
+                  </p>
+                  <p className="mt-3 text-sm leading-relaxed text-white/85">{address}</p>
                 </div>
 
-                <div className="rounded-2xl border border-white/15 bg-white/[0.06] p-4 backdrop-blur-sm">
-                  <div className="flex items-center gap-2 font-mono text-xs font-bold text-[#9EE4FF]">
-                    <ShieldCheck size={14} className="text-[#48ACD6]" />
-                    <span>{locale === "th" ? "ขอบเขตธุรกิจ" : "BUSINESS SCOPE"}</span>
-                  </div>
-                  <p className="mt-2 text-sm leading-relaxed text-white/90">{businessScope}</p>
+                <div className="bg-[#050D22] p-6">
+                  <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[#48ACD6]">
+                    02 / {locale === "th" ? "ขอบเขตธุรกิจ" : "BUSINESS SCOPE"}
+                  </p>
+                  <p className="mt-3 text-sm leading-relaxed text-white/85">{businessScope}</p>
                 </div>
 
-                <div className="rounded-2xl border border-white/15 bg-white/[0.06] p-4 backdrop-blur-sm">
-                  <div className="flex items-center gap-2 font-mono text-xs font-bold text-[#9EE4FF]">
-                    <Cpu size={14} className="text-[#48ACD6]" />
-                    <span>{locale === "th" ? "เครื่องจักรในสายการผลิต" : "LAB & PRODUCTION EQUIPMENT"}</span>
-                  </div>
-                  <p className="mt-2 text-sm leading-relaxed text-white/90">{machines}</p>
+                <div className="bg-[#050D22] p-6">
+                  <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[#48ACD6]">
+                    03 / {locale === "th" ? "เครื่องจักรในสายการผลิต" : "LAB & PRODUCTION EQUIPMENT"}
+                  </p>
+                  <p className="mt-3 text-sm leading-relaxed text-white/85">{machines}</p>
                 </div>
 
-                <div className="rounded-2xl border border-white/15 bg-white/[0.06] p-4 backdrop-blur-sm">
-                  <div className="flex items-center gap-2 font-mono text-xs font-bold text-[#9EE4FF]">
-                    <Users size={14} className="text-[#48ACD6]" />
-                    <span>{locale === "th" ? "สถานที่เก็บรักษา & โครงสร้าง" : "STORAGE & LAYOUT"}</span>
-                  </div>
-                  <p className="mt-2 text-sm leading-relaxed text-white/90">
+                <div className="bg-[#050D22] p-6">
+                  <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[#48ACD6]">
+                    04 / {locale === "th" ? "สถานที่เก็บรักษา & โครงสร้าง" : "STORAGE & LAYOUT"}
+                  </p>
+                  <p className="mt-3 text-sm leading-relaxed text-white/85">
                     {locale === "th" ? company.factoryInfo.rooms : company.factoryInfo.roomsEn} • {storageAddress}
                   </p>
                 </div>
@@ -197,4 +181,5 @@ export default function AboutPage() {
     </>
   );
 }
+
 
