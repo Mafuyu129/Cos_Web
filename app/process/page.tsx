@@ -54,7 +54,7 @@ export default function ProcessPage() {
                     <h2 className="mt-4 text-2xl font-semibold text-white sm:text-3xl">
                       {locale === "th" ? path.title : path.titleEn}
                     </h2>
-                    <p className="mt-2 font-serif text-base italic text-white/75">
+                    <p className="mt-2 text-base font-medium text-[#9EE4FF]">
                       {locale === "th" ? path.subtitle : path.subtitleEn}
                     </p>
                   </div>

@@ -34,7 +34,7 @@ const variants: Record<ButtonVariant, string> = {
 export function Button(props: LinkButtonProps | NativeButtonProps) {
   const { children, variant = "primary", className, ...rest } = props;
   const classes = cn(
-    "inline-flex min-h-12 items-center justify-center gap-2.5 px-7 py-3.5 text-xs font-semibold uppercase tracking-[0.14em] transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#48ACD6]",
+    "inline-flex min-h-12 items-center justify-center gap-2.5 px-7 py-3.5 text-sm font-semibold transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#48ACD6]",
     variants[variant],
     className
   );

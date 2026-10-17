@@ -187,14 +187,14 @@ export function StarterKitBanner() {
             >
               <div>
                 <div className="flex items-center justify-between gap-2">
-                  <span className="font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-[#48ACD6]">
+                  <span className="font-mono text-xs font-semibold uppercase text-[#48ACD6]">
                     {pkg.tier}
                   </span>
                   <span
-                    className={`px-2.5 py-1 font-mono text-[10px] font-semibold uppercase tracking-wider ${
+                    className={`px-3 py-1 text-xs font-semibold ${
                       pkg.featured
                         ? "bg-[#48ACD6] text-[#030816]"
-                        : "border border-white/20 text-white/80"
+                        : "border border-white/25 text-white/90"
                     }`}
                   >
                     {pkg.highlight}
@@ -208,14 +208,14 @@ export function StarterKitBanner() {
                   {pkg.name}
                 </h3>
 
-                <p className="mt-4 text-sm leading-relaxed text-white/70">
+                <p className="mt-4 text-sm leading-relaxed text-white/85 sm:text-base">
                   {pkg.desc}
                 </p>
 
-                <div className="mt-7 space-y-3 border-t border-white/10 pt-6">
+                <div className="mt-7 space-y-3.5 border-t border-white/10 pt-6">
                   {pkg.features.map((feat) => (
-                    <div key={feat} className="flex items-start gap-2.5 text-xs leading-relaxed text-white/85 sm:text-sm">
-                      <Check size={15} className="mt-0.5 shrink-0 text-[#48ACD6]" />
+                    <div key={feat} className="flex items-start gap-2.5 text-sm leading-relaxed text-white/90">
+                      <Check size={16} className="mt-1 shrink-0 text-[#48ACD6]" />
                       <span>{feat}</span>
                     </div>
                   ))}
@@ -228,23 +228,23 @@ export function StarterKitBanner() {
                     href={pkg.ctaHref}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex w-full items-center justify-center gap-2 bg-[#EE4D2D] px-6 py-4 text-xs font-bold uppercase tracking-[0.14em] text-white transition hover:bg-[#d73f20]"
+                    className="flex w-full items-center justify-center gap-2 bg-[#EE4D2D] px-6 py-4 text-sm font-bold text-white transition hover:bg-[#d73f20]"
                   >
                     <ShopeeIcon className="h-4 w-4" />
                     <span>{pkg.ctaText}</span>
-                    <ArrowUpRight size={15} />
+                    <ArrowUpRight size={16} />
                   </a>
                 ) : (
                   <Link
                     href={pkg.ctaHref}
-                    className={`flex w-full items-center justify-center gap-2 px-6 py-4 text-xs font-bold uppercase tracking-[0.14em] transition ${
+                    className={`flex w-full items-center justify-center gap-2 px-6 py-4 text-sm font-bold transition ${
                       pkg.featured
                         ? "bg-[#48ACD6] text-[#030816] hover:bg-white"
                         : "border border-white/25 bg-white/[0.04] text-white hover:border-[#48ACD6] hover:bg-[#48ACD6] hover:text-[#030816]"
                     }`}
                   >
                     <span>{pkg.ctaText}</span>
-                    <ArrowRight size={15} />
+                    <ArrowRight size={16} />
                   </Link>
                 )}
               </div>

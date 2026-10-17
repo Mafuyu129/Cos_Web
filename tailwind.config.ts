@@ -32,28 +32,36 @@ const config: Config = {
         "dark-section": "#081128",
         "dark-card": "#0D1936",
         "light-bg": "#F4F9FD",
-        "text-dark": "#0A1931",
-        "text-muted": "#526581",
+        "text-dark": "#071126",
+        "text-muted": "#334766",
         "text-light": "#CBEBFF",
         border: "#D4E6F5"
       },
       fontFamily: {
         sans: [
-          "Plus Jakarta Sans",
+          "Anuphan",
+          "Prompt",
           "IBM Plex Sans Thai",
-          "Sarabun",
+          "Plus Jakarta Sans",
           "ui-sans-serif",
           "system-ui",
           "sans-serif"
         ],
+        display: [
+          "Prompt",
+          "Anuphan",
+          "Plus Jakarta Sans",
+          "sans-serif"
+        ],
         serif: [
           "Cormorant Garamond",
-          "IBM Plex Sans Thai",
+          "Prompt",
           "Georgia",
           "serif"
         ],
         mono: [
           "JetBrains Mono",
+          "Anuphan",
           "ui-monospace",
           "SFMono-Regular",
           "monospace"

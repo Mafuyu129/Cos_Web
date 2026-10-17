@@ -420,23 +420,23 @@ export function SimplePowerfulSection() {
                   {currentTexture.title}
                 </h4>
 
-                <p className="mt-1.5 font-serif text-lg italic text-[#0038AE] dark:text-[#9EE4FF]">
+                <p className="mt-2 text-base font-medium text-[#0038AE] dark:text-[#9EE4FF] sm:text-lg">
                   {currentTexture.subtitle}
                 </p>
 
-                <p className="mt-4 text-sm leading-relaxed text-text-muted dark:text-white/75 sm:text-base">
+                <p className="mt-4 text-base leading-relaxed text-text-muted dark:text-white/85">
                   {currentTexture.sensory}
                 </p>
 
                 <div className="mt-6 pt-4 border-t border-[#071126]/10 dark:border-white/10">
-                  <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.18em] text-[#071126]/60 dark:text-white/55">
+                  <p className="text-xs font-semibold text-[#071126]/75 dark:text-white/75">
                     {locale === "th" ? "สารสกัดสำคัญที่นิยมใช้ในเนื้อสูตรนี้ (Key Clinical Actives)" : "Key Clinical Actives"}
                   </p>
                   <div className="mt-3 flex flex-wrap gap-2">
                     {currentTexture.actives.map((act) => (
                       <span
                         key={act}
-                        className="border border-[#071126]/15 bg-[#F7F9FC] px-3.5 py-1.5 text-xs font-medium text-[#071126] dark:border-white/15 dark:bg-white/[0.04] dark:text-white"
+                        className="border border-[#071126]/15 bg-[#F7F9FC] px-3.5 py-1.5 text-sm font-medium text-[#071126] dark:border-white/15 dark:bg-white/[0.04] dark:text-white"
                       >
                         {act}
                       </span>
@@ -449,7 +449,7 @@ export function SimplePowerfulSection() {
               <div className="flex flex-col justify-between bg-[#F7F9FC] p-7 dark:bg-[#061026] sm:p-10 lg:col-span-5">
                 <div>
                   <div className="flex items-center justify-between border-b border-[#071126]/15 pb-3 dark:border-white/15">
-                    <span className="font-mono text-[11px] font-semibold uppercase tracking-[0.18em] text-[#0038AE] dark:text-[#48ACD6]">
+                    <span className="font-mono text-xs font-semibold uppercase text-[#0038AE] dark:text-[#48ACD6]">
                       SENSORY PROFILE SPEC
                     </span>
                     <span className="font-mono text-xs font-bold text-[#071126] dark:text-white">
@@ -459,34 +459,34 @@ export function SimplePowerfulSection() {
 
                   <div className="divide-y divide-[#071126]/10 dark:divide-white/10">
                     <div className="py-3.5">
-                      <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-text-muted dark:text-white/50">
+                      <p className="text-xs font-medium text-text-muted dark:text-white/65">
                         {locale === "th" ? "ความหนืดของเนื้อสูตร (Viscosity)" : "Viscosity"}
                       </p>
-                      <p className="mt-1 text-sm font-semibold text-[#071126] dark:text-white">
+                      <p className="mt-1 text-base font-semibold text-[#071126] dark:text-white">
                         {currentTexture.viscosity}
                       </p>
                     </div>
                     <div className="py-3.5">
-                      <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-text-muted dark:text-white/50">
+                      <p className="text-xs font-medium text-text-muted dark:text-white/65">
                         {locale === "th" ? "การซึมซาบเข้าสู่ผิว (Absorption)" : "Absorption"}
                       </p>
-                      <p className="mt-1 text-sm font-semibold text-[#071126] dark:text-white">
+                      <p className="mt-1 text-base font-semibold text-[#071126] dark:text-white">
                         {currentTexture.absorption}
                       </p>
                     </div>
                     <div className="py-3.5">
-                      <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-text-muted dark:text-white/50">
+                      <p className="text-xs font-medium text-text-muted dark:text-white/65">
                         {locale === "th" ? "ความรู้สึกหลังทา (Skin Finish)" : "Skin Finish"}
                       </p>
-                      <p className="mt-1 text-sm font-semibold text-[#071126] dark:text-white">
+                      <p className="mt-1 text-base font-semibold text-[#071126] dark:text-white">
                         {currentTexture.finish}
                       </p>
                     </div>
                     <div className="py-3.5">
-                      <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-text-muted dark:text-white/50">
+                      <p className="text-xs font-medium text-text-muted dark:text-white/65">
                         {locale === "th" ? "สูตรมาตรฐานอ้างอิง (Matched Formula)" : "Matched Base Formula"}
                       </p>
-                      <p className="mt-1 font-serif text-lg italic text-[#0038AE] dark:text-[#48ACD6]">
+                      <p className="mt-1 text-base font-semibold text-[#0038AE] dark:text-[#48ACD6]">
                         {currentTexture.matchedFormula}
                       </p>
                     </div>
@@ -496,14 +496,14 @@ export function SimplePowerfulSection() {
                 <div className="mt-6 grid grid-cols-2 gap-3 pt-4">
                   <Link
                     href={`/products/${currentTexture.slug}`}
-                    className="inline-flex items-center justify-center gap-2 bg-[#0038AE] px-4 py-3 text-xs font-semibold uppercase tracking-[0.12em] text-white transition hover:bg-[#002880] dark:bg-[#48ACD6] dark:text-[#030816]"
+                    className="inline-flex items-center justify-center gap-2 bg-[#0038AE] px-4 py-3.5 text-sm font-semibold text-white transition hover:bg-[#002880] dark:bg-[#48ACD6] dark:text-[#030816]"
                   >
                     <span>{locale === "th" ? "ดูสูตรอ้างอิง" : "View Formula"}</span>
-                    <ArrowRight size={14} />
+                    <ArrowRight size={15} />
                   </Link>
                   <Link
                     href="/contact"
-                    className="inline-flex items-center justify-center border border-[#071126]/20 bg-white px-4 py-3 text-xs font-semibold uppercase tracking-[0.12em] text-[#071126] transition hover:border-[#0038AE] hover:text-[#0038AE] dark:border-white/20 dark:bg-transparent dark:text-white"
+                    className="inline-flex items-center justify-center border border-[#071126]/20 bg-white px-4 py-3.5 text-sm font-semibold text-[#071126] transition hover:border-[#0038AE] hover:text-[#0038AE] dark:border-white/20 dark:bg-transparent dark:text-white"
                   >
                     {locale === "th" ? "สั่งพัฒนาเนื้อนี้" : "Custom R&D"}
                   </Link>

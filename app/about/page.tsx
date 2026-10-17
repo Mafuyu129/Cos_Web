@@ -144,31 +144,31 @@ export default function AboutPage() {
 
               <div className="mt-8 grid gap-px bg-white/15 sm:grid-cols-2">
                 <div className="bg-[#050D22] p-6">
-                  <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[#48ACD6]">
+                  <p className="text-xs font-semibold text-[#48ACD6]">
                     01 / {locale === "th" ? "ที่ตั้งสถานที่ผลิต" : "PRODUCTION LOCATION"}
                   </p>
-                  <p className="mt-3 text-sm leading-relaxed text-white/85">{address}</p>
+                  <p className="mt-3 text-sm leading-relaxed text-white/90 sm:text-base">{address}</p>
                 </div>
 
                 <div className="bg-[#050D22] p-6">
-                  <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[#48ACD6]">
+                  <p className="text-xs font-semibold text-[#48ACD6]">
                     02 / {locale === "th" ? "ขอบเขตธุรกิจ" : "BUSINESS SCOPE"}
                   </p>
-                  <p className="mt-3 text-sm leading-relaxed text-white/85">{businessScope}</p>
+                  <p className="mt-3 text-sm leading-relaxed text-white/90 sm:text-base">{businessScope}</p>
                 </div>
 
                 <div className="bg-[#050D22] p-6">
-                  <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[#48ACD6]">
+                  <p className="text-xs font-semibold text-[#48ACD6]">
                     03 / {locale === "th" ? "เครื่องจักรในสายการผลิต" : "LAB & PRODUCTION EQUIPMENT"}
                   </p>
-                  <p className="mt-3 text-sm leading-relaxed text-white/85">{machines}</p>
+                  <p className="mt-3 text-sm leading-relaxed text-white/90 sm:text-base">{machines}</p>
                 </div>
 
                 <div className="bg-[#050D22] p-6">
-                  <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[#48ACD6]">
+                  <p className="text-xs font-semibold text-[#48ACD6]">
                     04 / {locale === "th" ? "สถานที่เก็บรักษา & โครงสร้าง" : "STORAGE & LAYOUT"}
                   </p>
-                  <p className="mt-3 text-sm leading-relaxed text-white/85">
+                  <p className="mt-3 text-sm leading-relaxed text-white/90 sm:text-base">
                     {locale === "th" ? company.factoryInfo.rooms : company.factoryInfo.roomsEn} • {storageAddress}
                   </p>
                 </div>

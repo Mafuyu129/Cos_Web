@@ -71,7 +71,7 @@ export function HeroSection() {
             </h1>
 
             {/* Editorial Lead Paragraph */}
-            <p className="mt-6 max-w-2xl border-l-2 border-[#48ACD6] pl-5 text-base font-normal leading-relaxed text-white/75 md:text-lg">
+            <p className="mt-6 max-w-2xl border-l-2 border-[#48ACD6] pl-5 text-base font-normal leading-relaxed text-white/90 md:text-lg">
               {locale === "th"
                 ? "ห้างหุ้นส่วนจำกัด ภีรดา คอสเมติกส์ (Pherada Cosmetics) ผสานศาสตร์การวิจัยสารสกัดเวชสำอางระดับคลินิก เข้ากับการออกแบบเนื้อสัมผัสที่เรียบหรูแต่ทรงพลัง (A Simple is Powerful) ดูแลครบวงจรตั้งแต่คิดค้นสูตร บรรจุภัณฑ์ จดแจ้ง อย. และเอกสาร BMR เริ่มต้นสร้างแบรนด์ได้ตั้งแต่ 100 ชิ้น"
                 : "Pherada Cosmetics Ltd. unites clinical formulation science with sensory luxury ('A Simple is Powerful'). We guide founders from bespoke active R&D and packaging architecture to Thai FDA registration and full BMR batch traceability—starting at just 100 pieces."}
@@ -81,7 +81,7 @@ export function HeroSection() {
             <div className="mt-9 flex flex-col gap-4 sm:flex-row sm:items-center">
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center gap-3 bg-[#48ACD6] px-8 py-4 text-xs font-bold uppercase tracking-[0.16em] text-[#030816] transition hover:bg-white"
+                className="inline-flex items-center justify-center gap-3 bg-[#48ACD6] px-8 py-4 text-sm font-bold text-[#030816] transition hover:bg-white"
               >
                 <span>
                   {locale === "th" ? "ปรึกษาสร้างแบรนด์ & พัฒนาสูตรฟรี" : "Start Your Brand Consultation"}
@@ -91,7 +91,7 @@ export function HeroSection() {
 
               <Link
                 href="/products"
-                className="inline-flex items-center justify-center gap-3 border border-white/25 bg-white/[0.03] px-7 py-4 text-xs font-semibold uppercase tracking-[0.14em] text-white transition hover:border-[#48ACD6] hover:bg-white/[0.08]"
+                className="inline-flex items-center justify-center gap-3 border border-white/25 bg-white/[0.04] px-7 py-4 text-sm font-semibold text-white transition hover:border-[#48ACD6] hover:bg-white/[0.1]"
               >
                 <span>
                   {locale === "th" ? "สำรวจ 8 สูตรมาตรฐาน & สั่งเทสเตอร์" : "Explore 8 Base Formulas & Samples"}
@@ -101,7 +101,7 @@ export function HeroSection() {
             </div>
 
             {/* Direct Sample Store Note */}
-            <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-white/60">
+            <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-white/80">
               <span>
                 {locale === "th"
                   ? "✦ มีเซ็ตเทสเตอร์เนื้อสูตรจริงจัดส่งให้ทดสอบก่อนสั่งผลิต"
@@ -111,10 +111,10 @@ export function HeroSection() {
                 href={company.shopeeUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 font-medium text-[#48ACD6] underline underline-offset-4 transition hover:text-white"
+                className="inline-flex items-center gap-1 font-semibold text-[#48ACD6] underline underline-offset-4 transition hover:text-white"
               >
                 <span>{locale === "th" ? "สั่งซื้อเทสเตอร์ผ่าน Shopee Official" : "Order Samples on Shopee"}</span>
-                <ArrowUpRight size={13} />
+                <ArrowUpRight size={14} />
               </a>
             </div>
           </motion.div>
@@ -140,9 +140,9 @@ export function HeroSection() {
                 <div className="absolute inset-0 bg-gradient-to-t from-[#030816]/90 via-transparent to-[#030816]/20" />
 
                 {/* Top Editorial Index Label */}
-                <div className="absolute left-5 right-5 top-5 flex items-center justify-between border-b border-white/15 pb-3 text-[11px] uppercase tracking-[0.2em] text-white/80">
+                <div className="absolute left-5 right-5 top-5 flex items-center justify-between border-b border-white/15 pb-3 text-xs text-white/85">
                   <span>COLLECTION NO. 01</span>
-                  <span className="font-serif italic tracking-normal text-[#9EE4FF]">
+                  <span className="font-serif text-sm italic text-[#9EE4FF]">
                     The Blue Factory Edition
                   </span>
                 </div>
@@ -153,13 +153,13 @@ export function HeroSection() {
                     <p className="font-serif text-xl italic text-[#9EE4FF]">
                       A Simple is Powerful
                     </p>
-                    <p className="mt-0.5 text-xs text-white/80">
+                    <p className="mt-1 text-xs text-white/90 sm:text-sm">
                       {locale === "th"
                         ? "เวชสำอางสูตรเข้มข้น ปรับแต่งเนื้อสัมผัสและสารสกัดเฉพาะแบรนด์คุณ"
                         : "Clinical-grade formulations tailored exclusively to your brand identity"}
                     </p>
                   </div>
-                  <span className="shrink-0 border border-[#48ACD6]/40 bg-[#030816]/80 px-3 py-1.5 font-mono text-[10px] tracking-widest text-[#48ACD6]">
+                  <span className="shrink-0 border border-[#48ACD6]/40 bg-[#030816]/80 px-3 py-1.5 font-mono text-xs font-semibold text-[#48ACD6]">
                     pH 5.5
                   </span>
                 </div>
@@ -178,11 +178,11 @@ export function HeroSection() {
                     />
                   </div>
                   <div>
-                    <p className="font-serif text-xs italic text-[#48ACD6]">R&D Laboratory</p>
-                    <p className="text-xs font-semibold text-white">
+                    <p className="font-serif text-sm italic text-[#48ACD6]">R&D Laboratory</p>
+                    <p className="text-sm font-semibold text-white">
                       {locale === "th" ? "ทีมนักเคมีวิจัยสูตร" : "In-House Chemists"}
                     </p>
-                    <p className="mt-0.5 text-[11px] text-white/60">
+                    <p className="mt-0.5 text-xs text-white/75">
                       {locale === "th" ? "พัฒนาสูตรเฉพาะแบรนด์" : "Bespoke ODM / OEM"}
                     </p>
                   </div>
@@ -202,11 +202,11 @@ export function HeroSection() {
                     />
                   </div>
                   <div>
-                    <p className="font-serif text-xs italic text-[#48ACD6]">Sensory Library</p>
-                    <p className="text-xs font-semibold text-white group-hover:text-[#48ACD6]">
+                    <p className="font-serif text-sm italic text-[#48ACD6]">Sensory Library</p>
+                    <p className="text-sm font-semibold text-white group-hover:text-[#48ACD6]">
                       {locale === "th" ? "สัมผัสเนื้อสูตรจริง →" : "Texture Swatches →"}
                     </p>
-                    <p className="mt-0.5 text-[11px] text-white/60">
+                    <p className="mt-0.5 text-xs text-white/75">
                       {locale === "th" ? "เซรั่ม • ครีม • เจล • มาสก์" : "Serum • Cream • Gel"}
                     </p>
                   </div>
@@ -250,14 +250,14 @@ export function HeroSection() {
                 idx !== 0 ? "sm:border-l sm:border-white/15 sm:pl-6" : ""
               } ${idx % 2 === 1 ? "border-l border-white/15 pl-4 sm:pl-6" : "pr-4"}`}
             >
-              <span className="font-mono text-[10px] tracking-[0.2em] text-[#48ACD6]">
+              <span className="font-mono text-xs text-[#48ACD6]">
                 /{item.index}
               </span>
-              <p className="mt-1 font-serif text-2xl font-normal tracking-wide text-white sm:text-3xl">
+              <p className="mt-1 font-serif text-2xl font-semibold text-white sm:text-3xl">
                 {item.metric}
               </p>
-              <p className="mt-1 text-xs font-semibold text-white/90">{item.label}</p>
-              <p className="mt-0.5 text-[11px] text-white/50">{item.sub}</p>
+              <p className="mt-1.5 text-sm font-semibold text-white">{item.label}</p>
+              <p className="mt-0.5 text-xs text-white/75">{item.sub}</p>
             </div>
           ))}
         </div>

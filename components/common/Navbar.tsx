@@ -22,18 +22,18 @@ export function Navbar() {
   return (
     <header className="sticky top-0 z-50">
       {/* Top Architectural Editorial Bar */}
-      <div className="hidden border-b border-white/10 bg-[#020611] text-white/80 lg:block">
-        <Container className="flex h-9 items-center justify-between text-[11px] tracking-wider">
+      <div className="hidden border-b border-white/10 bg-[#020611] text-white/85 lg:block">
+        <Container className="flex h-10 items-center justify-between text-xs">
           <div className="flex items-center gap-5">
-            <span className="font-semibold uppercase tracking-[0.22em] text-[#48ACD6]">
+            <span className="font-semibold uppercase tracking-[0.18em] text-[#48ACD6]">
               THE BLUE FACTORY
             </span>
             <span className="h-3 w-px bg-white/15" />
-            <span className="font-serif text-xs italic tracking-wide text-white/75">
+            <span className="font-serif text-sm italic text-white/85">
               From the Concept to Global Success
             </span>
             <span className="h-3 w-px bg-white/15" />
-            <span className="text-white/70">
+            <span className="text-white/85">
               {locale === "th"
                 ? "โรงงานวิจัยและรับผลิตเวชสำอาง OEM / ODM มาตรฐาน อย. & BMR"
                 : "Clinical Cosmeceutical OEM / ODM • Thai FDA & BMR Standard"}
@@ -43,9 +43,9 @@ export function Navbar() {
           <div className="flex items-center gap-6">
             <a
               href={`tel:${company.phone[0].replaceAll("-", "")}`}
-              className="inline-flex items-center gap-1.5 text-white/80 transition hover:text-[#48ACD6]"
+              className="inline-flex items-center gap-1.5 font-medium text-white/90 transition hover:text-[#48ACD6]"
             >
-              <PhoneCall size={12} className="text-[#48ACD6]" />
+              <PhoneCall size={13} className="text-[#48ACD6]" />
               <span>{company.phone[0]}</span>
             </a>
             <span className="h-3 w-px bg-white/15" />
@@ -57,7 +57,7 @@ export function Navbar() {
             >
               <ShopeeIcon className="h-3.5 w-3.5 text-[#FF6B4A]" />
               <span>{locale === "th" ? "สั่งชุดเทสเตอร์ทดลอง (Shopee)" : "Order Discovery Samples"}</span>
-              <ArrowUpRight size={12} className="opacity-70" />
+              <ArrowUpRight size={13} className="opacity-80" />
             </a>
           </div>
         </Container>
@@ -70,15 +70,15 @@ export function Navbar() {
             <BrandMark className="h-11 w-11 rounded-lg border border-[#0038AE]/15 transition duration-300 group-hover:border-[#48ACD6] dark:border-white/15" />
             <div className="leading-tight">
               <div className="flex items-baseline gap-2">
-                <span className="text-xl font-bold tracking-[0.14em] text-[#071126] dark:text-white">
+                <span className="text-xl font-bold tracking-[0.1em] text-[#071126] dark:text-white">
                   PHERADA
                 </span>
-                <span className="font-serif text-sm italic text-[#0038AE] dark:text-[#48ACD6]">
+                <span className="font-serif text-base italic text-[#0038AE] dark:text-[#48ACD6]">
                   The Blue Factory
                 </span>
               </div>
-              <span className="block text-[10px] font-medium uppercase tracking-[0.18em] text-text-muted dark:text-white/55">
-                {locale === "th" ? "COSMECEUTICAL OEM & ODM LABORATORY" : "COSMECEUTICAL OEM & ODM LABORATORY"}
+              <span className="block text-[11px] font-medium uppercase tracking-[0.12em] text-text-muted dark:text-white/70">
+                COSMECEUTICAL OEM & ODM LABORATORY
               </span>
             </div>
           </Link>
@@ -92,17 +92,17 @@ export function Navbar() {
                   key={item.href}
                   href={item.href}
                   className={cn(
-                    "relative py-2 text-[13px] font-medium transition-colors duration-200",
-                    locale === "th" ? "tracking-wide" : "uppercase tracking-[0.12em] text-xs",
+                    "relative py-2 font-medium transition-colors duration-200",
+                    locale === "th" ? "text-[15px]" : "uppercase tracking-[0.12em] text-xs",
                     active
                       ? "font-semibold text-[#0038AE] dark:text-[#48ACD6]"
-                      : "text-[#071126]/75 hover:text-[#0038AE] dark:text-white/75 dark:hover:text-white"
+                      : "text-[#071126]/85 hover:text-[#0038AE] dark:text-white/85 dark:hover:text-white"
                   )}
                 >
                   {t(item.labelKey)}
                   <span
                     className={cn(
-                      "absolute inset-x-0 -bottom-0.5 h-[1.5px] bg-[#0038AE] transition-transform duration-300 dark:bg-[#48ACD6]",
+                      "absolute inset-x-0 -bottom-0.5 h-[2px] bg-[#0038AE] transition-transform duration-300 dark:bg-[#48ACD6]",
                       active ? "scale-x-100" : "scale-x-0"
                     )}
                   />
@@ -116,10 +116,10 @@ export function Navbar() {
             <ThemeToggle />
             <Link
               href="/contact"
-              className="inline-flex h-10 items-center gap-2 bg-[#0038AE] px-5 text-xs font-semibold uppercase tracking-[0.12em] text-white transition hover:bg-[#002880] dark:bg-[#48ACD6] dark:text-[#030816] dark:hover:bg-white"
+              className="inline-flex h-10 items-center gap-2 bg-[#0038AE] px-5 text-sm font-semibold text-white transition hover:bg-[#002880] dark:bg-[#48ACD6] dark:text-[#030816] dark:hover:bg-white"
             >
               <span>{t("nav.quote")}</span>
-              <ArrowUpRight size={14} />
+              <ArrowUpRight size={15} />
             </Link>
           </div>
 
@@ -149,14 +149,14 @@ export function Navbar() {
                   href={item.href}
                   onClick={() => setOpen(false)}
                   className={cn(
-                    "flex items-center justify-between py-3.5 text-sm font-medium transition",
+                    "flex items-center justify-between py-3.5 text-base font-medium transition",
                     active
                       ? "font-semibold text-[#0038AE] dark:text-[#48ACD6]"
-                      : "text-[#071126] dark:text-white/85"
+                      : "text-[#071126] dark:text-white/90"
                   )}
                 >
                   <span>{t(item.labelKey)}</span>
-                  <ArrowUpRight size={15} className="opacity-60" />
+                  <ArrowUpRight size={16} className="opacity-60" />
                 </Link>
               );
             })}
@@ -164,10 +164,10 @@ export function Navbar() {
               <Link
                 href="/contact"
                 onClick={() => setOpen(false)}
-                className="flex w-full items-center justify-center gap-2 bg-[#0038AE] py-3.5 text-xs font-semibold uppercase tracking-[0.14em] text-white"
+                className="flex w-full items-center justify-center gap-2 bg-[#0038AE] py-3.5 text-sm font-semibold text-white"
               >
                 <span>{t("nav.start")}</span>
-                <ArrowUpRight size={15} />
+                <ArrowUpRight size={16} />
               </Link>
             </div>
           </Container>
