@@ -47,11 +47,11 @@ export function SectionHeader({
           <span>{displayEyebrow}</span>
         </div>
       ) : null}
-      <h2 className="text-3xl font-semibold leading-[1.18] tracking-tight text-text-dark dark:text-white sm:text-4xl lg:text-[42px]">
+      <h2 className="text-2xl font-bold leading-[1.35] text-text-dark dark:text-white sm:text-3xl lg:text-4xl">
         {displayTitle}
       </h2>
       {displayDescription ? (
-        <p className="mt-4 text-base font-normal leading-relaxed text-text-muted dark:text-white/70 md:text-lg">
+        <p className="mt-3 text-sm font-normal leading-relaxed text-text-muted dark:text-white/80 sm:mt-4 sm:text-base md:text-lg">
           {displayDescription}
         </p>
       ) : null}

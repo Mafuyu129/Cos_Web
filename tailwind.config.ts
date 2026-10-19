@@ -9,10 +9,10 @@ const config: Config = {
   ],
   theme: {
     screens: {
-      sm: "390px",
-      md: "834px",
+      sm: "640px",
+      md: "768px",
       lg: "1024px",
-      xl: "1440px"
+      xl: "1280px"
     },
     extend: {
       colors: {
@@ -39,32 +39,34 @@ const config: Config = {
       },
       fontFamily: {
         sans: [
+          "var(--font-anuphan)",
+          "var(--font-prompt)",
           "Anuphan",
           "Prompt",
-          "IBM Plex Sans Thai",
-          "Plus Jakarta Sans",
           "ui-sans-serif",
           "system-ui",
           "sans-serif"
         ],
         display: [
+          "var(--font-prompt)",
+          "var(--font-anuphan)",
           "Prompt",
           "Anuphan",
-          "Plus Jakarta Sans",
           "sans-serif"
         ],
         serif: [
-          "Cormorant Garamond",
+          "var(--font-prompt)",
+          "var(--font-anuphan)",
           "Prompt",
-          "Georgia",
-          "serif"
+          "Anuphan",
+          "sans-serif"
         ],
         mono: [
-          "JetBrains Mono",
+          "var(--font-prompt)",
+          "var(--font-anuphan)",
+          "Prompt",
           "Anuphan",
-          "ui-monospace",
-          "SFMono-Regular",
-          "monospace"
+          "sans-serif"
         ]
       },
       boxShadow: {

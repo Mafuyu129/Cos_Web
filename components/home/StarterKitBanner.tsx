@@ -122,7 +122,7 @@ export function StarterKitBanner() {
         ];
 
   return (
-    <section className="relative overflow-hidden border-b border-white/10 bg-[#030816] py-20 text-white md:py-28">
+    <section className="relative overflow-hidden border-b border-white/10 bg-[#030816] py-14 text-white sm:py-20 md:py-28">
       {/* Subtle Cobalt Illumination */}
       <div className="pointer-events-none absolute left-1/4 top-0 h-[500px] w-[500px] rounded-full bg-[#0038AE]/30 blur-[160px]" />
       <div className="pointer-events-none absolute right-0 bottom-0 h-[420px] w-[420px] rounded-full bg-[#48ACD6]/15 blur-[140px]" />
@@ -130,15 +130,15 @@ export function StarterKitBanner() {
       <Container className="relative z-10">
         {/* Top Editorial Split Header */}
         <FadeUp>
-          <div className="grid items-end gap-8 border-b border-white/15 pb-12 lg:grid-cols-12">
+          <div className="grid items-end gap-6 border-b border-white/15 pb-8 sm:gap-8 sm:pb-12 lg:grid-cols-12">
             <div className="lg:col-span-7">
               <div className="editorial-eyebrow text-[#48ACD6]">
                 <span>BRAND LAUNCH PROGRAMS • แพ็กเกจเริ่มต้นสร้างแบรนด์</span>
               </div>
-              <p className="mt-4 font-serif text-2xl font-light italic text-[#9EE4FF] sm:text-3xl">
+              <p className="mt-3 text-lg font-bold text-[#9EE4FF] sm:text-2xl">
                 Start Small, Scale Confidently.
               </p>
-              <h2 className="mt-2 text-3xl font-semibold leading-[1.18] tracking-tight text-white sm:text-4xl lg:text-[42px]">
+              <h2 className="mt-2 text-2xl font-bold leading-[1.35] text-white sm:text-3xl lg:text-4xl">
                 {locale === "th"
                   ? "เลือกรูปแบบการเริ่มต้นสร้างแบรนด์ที่เหมาะกับงบประมาณและเป้าหมายของคุณ"
                   : "Tailored Brand Launch Programs — From Discovery Samples to Bespoke R&D"}
@@ -146,8 +146,8 @@ export function StarterKitBanner() {
             </div>
 
             <div className="lg:col-span-5">
-              <div className="flex items-center gap-4 border border-white/15 bg-white/[0.03] p-4">
-                <div className="relative h-16 w-20 shrink-0 overflow-hidden border border-white/15">
+              <div className="flex items-center gap-3.5 border border-white/15 bg-white/[0.03] p-4">
+                <div className="relative h-14 w-16 shrink-0 overflow-hidden border border-white/15 sm:h-16 sm:w-20">
                   <Image
                     src="/images/hero/cosmetic-texture-swatches.jpg"
                     alt="Pherada Discovery Swatches"
@@ -157,10 +157,10 @@ export function StarterKitBanner() {
                   />
                 </div>
                 <div>
-                  <p className="font-serif text-sm italic text-[#48ACD6]">
+                  <p className="text-xs font-bold text-[#48ACD6] sm:text-sm">
                     Sensory First Policy
                   </p>
-                  <p className="mt-0.5 text-xs leading-relaxed text-white/80">
+                  <p className="mt-0.5 text-xs leading-relaxed text-white/85">
                     {locale === "th"
                       ? "เราแนะนำให้ลูกค้าทุกท่านได้ลองสัมผัสเนื้อเซรั่มและครีมจริงก่อนตัดสินใจสั่งผลิต เพื่อความมั่นใจสูงสุด"
                       : "We encourage every founder to test our real clinical textures on skin before mass production."}
@@ -172,12 +172,12 @@ export function StarterKitBanner() {
         </FadeUp>
 
         {/* 3-Column Architectural Package Grid */}
-        <div className="mt-12 grid gap-0 border border-white/15 lg:grid-cols-3">
+        <div className="mt-8 grid gap-0 border border-white/15 sm:mt-12 lg:grid-cols-3">
           {launchPackages.map((pkg, idx) => (
             <FadeUp
               key={pkg.tier}
               delay={idx * 0.08}
-              className={`flex flex-col justify-between p-8 sm:p-10 ${
+              className={`flex flex-col justify-between p-5 sm:p-8 lg:p-10 ${
                 idx !== 2 ? "border-b border-white/15 lg:border-b-0 lg:border-r" : ""
               } ${
                 pkg.featured
@@ -186,12 +186,12 @@ export function StarterKitBanner() {
               }`}
             >
               <div>
-                <div className="flex items-center justify-between gap-2">
-                  <span className="font-mono text-xs font-semibold uppercase text-[#48ACD6]">
+                <div className="flex flex-wrap items-center justify-between gap-2">
+                  <span className="text-xs font-bold uppercase text-[#48ACD6]">
                     {pkg.tier}
                   </span>
                   <span
-                    className={`px-3 py-1 text-xs font-semibold ${
+                    className={`px-2.5 py-1 text-xs font-semibold ${
                       pkg.featured
                         ? "bg-[#48ACD6] text-[#030816]"
                         : "border border-white/25 text-white/90"
@@ -201,18 +201,18 @@ export function StarterKitBanner() {
                   </span>
                 </div>
 
-                <p className="mt-5 font-serif text-xl italic text-[#9EE4FF]">
+                <p className="mt-4 text-sm font-semibold text-[#9EE4FF] sm:text-base">
                   {pkg.subtitle}
                 </p>
-                <h3 className="mt-1 text-2xl font-semibold text-white">
+                <h3 className="mt-1 text-xl font-bold text-white sm:text-2xl">
                   {pkg.name}
                 </h3>
 
-                <p className="mt-4 text-sm leading-relaxed text-white/85 sm:text-base">
+                <p className="mt-3 text-sm leading-relaxed text-white/85 sm:text-base">
                   {pkg.desc}
                 </p>
 
-                <div className="mt-7 space-y-3.5 border-t border-white/10 pt-6">
+                <div className="mt-6 space-y-3 border-t border-white/10 pt-5 sm:mt-7 sm:pt-6">
                   {pkg.features.map((feat) => (
                     <div key={feat} className="flex items-start gap-2.5 text-sm leading-relaxed text-white/90">
                       <Check size={16} className="mt-1 shrink-0 text-[#48ACD6]" />
@@ -222,29 +222,29 @@ export function StarterKitBanner() {
                 </div>
               </div>
 
-              <div className="mt-9 pt-4">
+              <div className="mt-7 pt-3 sm:mt-9 sm:pt-4">
                 {pkg.external ? (
                   <a
                     href={pkg.ctaHref}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex w-full items-center justify-center gap-2 bg-[#EE4D2D] px-6 py-4 text-sm font-bold text-white transition hover:bg-[#d73f20]"
+                    className="flex w-full items-center justify-center gap-2 bg-[#EE4D2D] px-5 py-4 text-sm font-bold text-white transition hover:bg-[#d73f20]"
                   >
-                    <ShopeeIcon className="h-4 w-4" />
+                    <ShopeeIcon className="h-4 w-4 shrink-0" />
                     <span>{pkg.ctaText}</span>
-                    <ArrowUpRight size={16} />
+                    <ArrowUpRight size={16} className="shrink-0" />
                   </a>
                 ) : (
                   <Link
                     href={pkg.ctaHref}
-                    className={`flex w-full items-center justify-center gap-2 px-6 py-4 text-sm font-bold transition ${
+                    className={`flex w-full items-center justify-center gap-2 px-5 py-4 text-sm font-bold transition ${
                       pkg.featured
                         ? "bg-[#48ACD6] text-[#030816] hover:bg-white"
                         : "border border-white/25 bg-white/[0.04] text-white hover:border-[#48ACD6] hover:bg-[#48ACD6] hover:text-[#030816]"
                     }`}
                   >
                     <span>{pkg.ctaText}</span>
-                    <ArrowRight size={16} />
+                    <ArrowRight size={16} className="shrink-0" />
                   </Link>
                 )}
               </div>

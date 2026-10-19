@@ -45,23 +45,23 @@ export function PageHero({
         The Blue Factory
       </div>
 
-      <Container className="relative z-10 py-16 md:py-24">
-        <div className="flex flex-wrap items-center gap-4">
+      <Container className="relative z-10 py-12 sm:py-16 md:py-24">
+        <div className="flex flex-wrap items-center gap-3">
           <span className="editorial-eyebrow text-[#48ACD6]">
             {displayEyebrow}
           </span>
           <span className="hidden h-3 w-px bg-white/20 sm:inline-block" />
-          <span className="font-serif text-sm italic tracking-wide text-white/60">
+          <span className="hidden text-xs font-medium text-white/70 sm:inline">
             The Blue Factory • Pherada Cosmetics
           </span>
         </div>
 
-        <h1 className="mt-5 max-w-4xl text-3xl font-semibold leading-[1.16] tracking-tight text-white sm:text-4xl md:text-5xl lg:text-[52px]">
+        <h1 className="mt-4 max-w-4xl text-2xl font-bold leading-[1.35] text-white sm:mt-5 sm:text-4xl md:text-5xl">
           {displayTitle}
         </h1>
 
         {displayDescription ? (
-          <p className="mt-5 max-w-2xl border-l border-[#48ACD6]/40 pl-5 text-base font-normal leading-relaxed text-white/75 md:text-lg">
+          <p className="mt-4 max-w-2xl border-l-2 border-[#48ACD6] pl-4 text-sm font-normal leading-relaxed text-white/85 sm:mt-5 sm:pl-5 sm:text-base md:text-lg">
             {displayDescription}
           </p>
         ) : null}

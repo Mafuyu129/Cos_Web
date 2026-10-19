@@ -227,34 +227,34 @@ export function SimplePowerfulSection() {
   const currentTexture = textureArchitecture[activeTexture];
 
   return (
-    <section className="relative overflow-hidden border-b border-[#071126]/10 bg-[#F7F9FC] py-20 dark:border-white/10 dark:bg-[#050C1D] md:py-28">
-      <Container className="space-y-24">
+    <section className="relative overflow-hidden border-b border-[#071126]/10 bg-[#F7F9FC] py-14 dark:border-white/10 dark:bg-[#050C1D] sm:py-20 md:py-28">
+      <Container className="space-y-16 sm:space-y-24">
         {/* PART 1: THE BLUE FACTORY PHILOSOPHY (Editorial Split + Architectural Hairline List) */}
-        <div className="grid gap-12 lg:grid-cols-12 lg:items-start">
+        <div className="grid gap-10 lg:grid-cols-12 lg:items-start lg:gap-12">
           {/* Left Column: Editorial Chemist & Lab Visual */}
           <FadeUp className="lg:col-span-5">
             <div className="editorial-eyebrow text-[#0038AE] dark:text-[#48ACD6]">
               <span>THE BLUE FACTORY PHILOSOPHY</span>
             </div>
 
-            <p className="mt-4 font-serif text-3xl font-light italic text-[#0038AE] dark:text-[#9EE4FF] sm:text-4xl">
+            <p className="mt-3 text-lg font-bold text-[#0038AE] dark:text-[#9EE4FF] sm:text-2xl">
               “A Simple is Powerful.”
             </p>
 
-            <h2 className="mt-2 text-3xl font-semibold leading-[1.2] tracking-tight text-[#071126] dark:text-white sm:text-4xl">
+            <h2 className="mt-2 text-2xl font-bold leading-[1.35] text-[#071126] dark:text-white sm:text-3xl lg:text-4xl">
               {locale === "th"
                 ? "ความเรียบง่ายที่ทรงพลัง คือหัวใจของการพัฒนาสูตรเวชสำอาง"
                 : "Where Formulation Purity Meets Measurable Skin Efficacy"}
             </h2>
 
-            <p className="mt-4 text-sm leading-relaxed text-text-muted dark:text-white/70 sm:text-base">
+            <p className="mt-3.5 text-sm leading-relaxed text-text-muted dark:text-white/80 sm:text-base">
               {locale === "th"
                 ? "ที่ Pherada Cosmetics เราเชื่อว่าสกินแคร์ที่ดีไม่จำเป็นต้องซับซ้อนเกินความจำเป็น แต่ต้องคัดสรรสารสกัด Active ที่ตรงจุด ในความเข้มข้นที่เห็นผลจริง พร้อมเนื้อสัมผัสที่ผู้ใช้หลงรักตั้งแต่ครั้งแรกที่สัมผัส"
                 : "At Pherada Cosmetics, we believe extraordinary skincare is born from precision—combining clinically proven active concentrations with unforgettable sensory textures."}
             </p>
 
             {/* Editorial Studio Lab Image Frame */}
-            <div className="relative mt-8 aspect-[4/3.3] w-full overflow-hidden border border-[#071126]/15 bg-[#030816] dark:border-white/15">
+            <div className="relative mt-6 aspect-[4/3.2] w-full overflow-hidden border border-[#071126]/15 bg-[#030816] dark:border-white/15 sm:mt-8">
               <Image
                 src="/images/hero/clinical-lab-scientist.jpg"
                 alt="Pherada Cosmetics R&D Formulation Chemist"
@@ -263,9 +263,9 @@ export function SimplePowerfulSection() {
                 sizes="(max-width: 1024px) 100vw, 480px"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#030816]/85 via-transparent to-transparent" />
-              <div className="absolute bottom-4 left-5 right-5 flex items-end justify-between text-white">
+              <div className="absolute bottom-4 left-4 right-4 flex items-end justify-between gap-2 text-white sm:left-5 sm:right-5">
                 <div>
-                  <p className="font-serif text-sm italic text-[#9EE4FF]">
+                  <p className="text-xs font-bold text-[#9EE4FF] sm:text-sm">
                     Formulation & Quality Control
                   </p>
                   <p className="text-xs font-medium text-white/90">
@@ -274,7 +274,7 @@ export function SimplePowerfulSection() {
                       : "Precision R&D and full Batch Manufacturing Record (BMR) control"}
                   </p>
                 </div>
-                <span className="border border-white/25 bg-black/50 px-2.5 py-1 font-mono text-[10px] tracking-widest text-[#48ACD6]">
+                <span className="shrink-0 border border-white/25 bg-black/60 px-2.5 py-1 text-[11px] font-semibold text-[#48ACD6]">
                   LAB QC
                 </span>
               </div>
@@ -287,22 +287,22 @@ export function SimplePowerfulSection() {
               {factoryPillars.map((pillar) => (
                 <div
                   key={pillar.num}
-                  className="group grid gap-4 border-b border-[#071126]/15 py-7 transition-colors hover:bg-white/70 dark:border-white/15 dark:hover:bg-white/[0.02] sm:grid-cols-12 sm:items-baseline sm:px-4"
+                  className="group grid gap-2.5 border-b border-[#071126]/15 py-5 transition-colors hover:bg-white/70 dark:border-white/15 dark:hover:bg-white/[0.02] sm:grid-cols-12 sm:items-baseline sm:gap-4 sm:px-4 sm:py-7"
                 >
-                  <div className="sm:col-span-4">
-                    <span className="font-serif text-3xl font-light italic text-[#0038AE] dark:text-[#48ACD6]">
+                  <div className="flex items-center gap-3 sm:col-span-4 sm:block">
+                    <span className="text-2xl font-bold text-[#0038AE] dark:text-[#48ACD6] sm:text-3xl">
                       {pillar.num}
                     </span>
-                    <p className="mt-1 font-mono text-[11px] font-semibold uppercase tracking-[0.16em] text-[#071126]/60 dark:text-white/55">
+                    <p className="text-xs font-semibold uppercase text-[#071126]/70 dark:text-white/70 sm:mt-1">
                       {pillar.en}
                     </p>
                   </div>
 
                   <div className="sm:col-span-8">
-                    <h3 className="text-lg font-semibold text-[#071126] transition group-hover:text-[#0038AE] dark:text-white dark:group-hover:text-[#48ACD6] sm:text-xl">
+                    <h3 className="text-base font-bold text-[#071126] transition group-hover:text-[#0038AE] dark:text-white dark:group-hover:text-[#48ACD6] sm:text-xl">
                       {pillar.title}
                     </h3>
-                    <p className="mt-2 text-sm leading-relaxed text-text-muted dark:text-white/70">
+                    <p className="mt-1.5 text-sm leading-relaxed text-text-muted dark:text-white/80">
                       {pillar.desc}
                     </p>
                   </div>
@@ -310,12 +310,12 @@ export function SimplePowerfulSection() {
               ))}
             </div>
 
-            <div className="mt-6 flex flex-wrap items-center justify-between gap-4 bg-[#030816] p-6 text-white dark:border dark:border-white/15">
+            <div className="mt-6 flex flex-col gap-4 bg-[#030816] p-5 text-white dark:border dark:border-white/15 sm:flex-row sm:items-center sm:justify-between sm:p-6">
               <div>
-                <p className="font-serif text-lg italic text-[#9EE4FF]">
+                <p className="text-base font-bold text-[#9EE4FF]">
                   From Concept to Global Success
                 </p>
-                <p className="text-xs text-white/75">
+                <p className="mt-1 text-xs leading-relaxed text-white/85 sm:text-sm">
                   {locale === "th"
                     ? "ไม่ว่าคุณจะเป็นเจ้าของแบรนด์มือใหม่ หรือแบรนด์ที่ต้องการขยายไลน์สินค้า ทีมนักเคมีของเราพร้อมดูแลคุณ"
                     : "Whether launching your first hero product or expanding an existing line, our chemists are ready."}
@@ -323,38 +323,38 @@ export function SimplePowerfulSection() {
               </div>
               <Link
                 href="/services"
-                className="inline-flex items-center gap-2 border border-[#48ACD6] px-5 py-2.5 text-xs font-semibold uppercase tracking-[0.14em] text-[#48ACD6] transition hover:bg-[#48ACD6] hover:text-[#030816]"
+                className="inline-flex shrink-0 items-center justify-center gap-2 border border-[#48ACD6] px-5 py-3 text-sm font-semibold text-[#48ACD6] transition hover:bg-[#48ACD6] hover:text-[#030816]"
               >
                 <span>{locale === "th" ? "ดูบริการทั้งหมด" : "Explore Services"}</span>
-                <ArrowUpRight size={14} />
+                <ArrowUpRight size={15} />
               </Link>
             </div>
           </FadeUp>
         </div>
 
-        {/* PART 2: SENSORY TEXTURE & FORMULATION ARCHITECTURE (Inspired by BazicSkin /body/) */}
+        {/* PART 2: SENSORY TEXTURE & FORMULATION ARCHITECTURE */}
         <FadeUp delay={0.12}>
           <div className="border border-[#071126]/15 bg-white dark:border-white/15 dark:bg-[#030816]">
             {/* Top Architectural Header */}
             <div className="grid border-b border-[#071126]/15 dark:border-white/15 lg:grid-cols-12">
-              <div className="p-7 sm:p-10 lg:col-span-7 lg:border-r lg:border-[#071126]/15 lg:dark:border-white/15">
+              <div className="p-5 sm:p-8 lg:col-span-7 lg:border-r lg:border-[#071126]/15 lg:p-10 lg:dark:border-white/15">
                 <div className="editorial-eyebrow text-[#0038AE] dark:text-[#48ACD6]">
                   <span>SENSORY & TEXTURE ARCHITECTURE</span>
                 </div>
-                <h3 className="mt-3 text-2xl font-semibold tracking-tight text-[#071126] dark:text-white sm:text-3xl">
+                <h3 className="mt-2.5 text-xl font-bold text-[#071126] dark:text-white sm:text-2xl lg:text-3xl">
                   {locale === "th"
                     ? "สถาปัตยกรรมเนื้อสัมผัสเวชสำอาง เลือกเนื้อสูตรที่ใช่สำหรับแบรนด์คุณ"
                     : "Cosmetic Texture Architecture — Engineered for Sensory Perfection"}
                 </h3>
-                <p className="mt-2 text-sm text-text-muted dark:text-white/65">
+                <p className="mt-2 text-sm text-text-muted dark:text-white/75">
                   {locale === "th"
-                    ? "เปรียบเทียบความหนืด การซึมซาบ ฟินิชผิว และสารสกัดหลักของแต่ละเนื้อผลิตภัณฑ์จากห้องปฏิบัติการ Pherada"
-                    : "Explore the viscosity, absorption speed, skin finish, and active profile of each Pherada formulation category."}
+                    ? "กดเลือกแต่ละหมวดหมู่ด้านล่างเพื่อเปรียบเทียบความหนืด การซึมซาบ ฟินิชผิว และสารสกัดหลักของแต่ละเนื้อผลิตภัณฑ์"
+                    : "Select each category below to compare viscosity, absorption speed, skin finish, and active profile."}
                 </p>
               </div>
 
               {/* Right Macro Texture Visual */}
-              <div className="relative min-h-[200px] overflow-hidden bg-[#030816] lg:col-span-5">
+              <div className="relative min-h-[170px] overflow-hidden bg-[#030816] sm:min-h-[200px] lg:col-span-5">
                 <Image
                   src="/images/hero/cosmetic-texture-swatches.jpg"
                   alt="Macro Cosmetic Texture Swatches — Serum, Cream, Gel, Ampoule"
@@ -362,20 +362,20 @@ export function SimplePowerfulSection() {
                   className="object-cover opacity-90"
                   sizes="(max-width: 1024px) 100vw, 480px"
                 />
-                <div className="absolute inset-0 bg-gradient-to-r from-[#030816]/80 via-[#030816]/30 to-transparent" />
-                <div className="relative z-10 flex h-full flex-col justify-end p-7 text-white">
-                  <span className="font-serif text-2xl italic text-[#9EE4FF]">
+                <div className="absolute inset-0 bg-gradient-to-r from-[#030816]/85 via-[#030816]/35 to-transparent" />
+                <div className="relative z-10 flex h-full flex-col justify-end p-5 text-white sm:p-7">
+                  <span className="text-lg font-bold text-[#9EE4FF] sm:text-xl">
                     Sensory Formulation Lab
                   </span>
-                  <span className="mt-1 font-mono text-[11px] uppercase tracking-[0.2em] text-white/80">
+                  <span className="mt-1 text-xs font-medium text-white/85">
                     SERUM • CREAM • GEL • MASK • CLEANSER
                   </span>
                 </div>
               </div>
             </div>
 
-            {/* Interactive Texture Selector Bar (Hairline Tabs) */}
-            <div className="grid grid-cols-2 border-b border-[#071126]/15 dark:border-white/15 sm:grid-cols-3 lg:grid-cols-5">
+            {/* Interactive Texture Selector Bar */}
+            <div className="grid grid-cols-1 border-b border-[#071126]/15 dark:border-white/15 sm:grid-cols-2 lg:grid-cols-5">
               {textureArchitecture.map((item, idx) => {
                 const isSelected = activeTexture === idx;
                 return (
@@ -383,20 +383,20 @@ export function SimplePowerfulSection() {
                     key={item.num}
                     type="button"
                     onClick={() => setActiveTexture(idx)}
-                    className={`flex flex-col items-start justify-between border-b border-r border-[#071126]/10 p-5 text-left transition-all dark:border-white/10 lg:border-b-0 ${
+                    className={`flex items-center justify-between border-b border-[#071126]/10 px-5 py-4 text-left transition-all dark:border-white/10 sm:flex-col sm:items-start sm:border-r sm:p-5 lg:border-b-0 ${
                       isSelected
                         ? "bg-[#030816] text-white dark:bg-[#0038AE]"
-                        : "bg-[#F7F9FC]/60 text-[#071126] hover:bg-white dark:bg-white/[0.02] dark:text-white/75 dark:hover:bg-white/[0.05]"
+                        : "bg-[#F7F9FC]/60 text-[#071126] hover:bg-white dark:bg-white/[0.02] dark:text-white/80 dark:hover:bg-white/[0.05]"
                     }`}
                   >
                     <span
-                      className={`font-serif text-2xl italic ${
+                      className={`text-lg font-bold sm:text-2xl ${
                         isSelected ? "text-[#48ACD6] dark:text-[#9EE4FF]" : "text-[#0038AE] dark:text-[#48ACD6]"
                       }`}
                     >
                       {item.num}
                     </span>
-                    <span className="mt-3 font-mono text-[11px] font-semibold uppercase tracking-[0.14em]">
+                    <span className="text-xs font-bold uppercase sm:mt-2">
                       {item.categoryEn}
                     </span>
                   </button>
@@ -406,21 +406,21 @@ export function SimplePowerfulSection() {
 
             {/* Selected Texture Architectural Specification Sheet */}
             <div className="grid lg:grid-cols-12">
-              <div className="p-7 sm:p-10 lg:col-span-7 lg:border-r lg:border-[#071126]/15 lg:dark:border-white/15">
-                <div className="flex items-center gap-3">
-                  <span className="font-serif text-3xl italic text-[#0038AE] dark:text-[#48ACD6]">
+              <div className="p-5 sm:p-8 lg:col-span-7 lg:border-r lg:border-[#071126]/15 lg:p-10 lg:dark:border-white/15">
+                <div className="flex items-center gap-2.5">
+                  <span className="text-xl font-bold text-[#0038AE] dark:text-[#48ACD6] sm:text-2xl">
                     /{currentTexture.num}
                   </span>
-                  <span className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-[#0038AE] dark:text-[#48ACD6]">
+                  <span className="text-xs font-bold uppercase text-[#0038AE] dark:text-[#48ACD6]">
                     {currentTexture.categoryEn}
                   </span>
                 </div>
 
-                <h4 className="mt-3 text-2xl font-semibold text-[#071126] dark:text-white sm:text-3xl">
+                <h4 className="mt-2.5 text-xl font-bold text-[#071126] dark:text-white sm:text-2xl lg:text-3xl">
                   {currentTexture.title}
                 </h4>
 
-                <p className="mt-2 text-base font-medium text-[#0038AE] dark:text-[#9EE4FF] sm:text-lg">
+                <p className="mt-2 text-sm font-semibold text-[#0038AE] dark:text-[#9EE4FF] sm:text-base">
                   {currentTexture.subtitle}
                 </p>
 
@@ -446,13 +446,13 @@ export function SimplePowerfulSection() {
               </div>
 
               {/* Right Column: Sensory Telemetry Ledger */}
-              <div className="flex flex-col justify-between bg-[#F7F9FC] p-7 dark:bg-[#061026] sm:p-10 lg:col-span-5">
+              <div className="flex flex-col justify-between bg-[#F7F9FC] p-5 dark:bg-[#061026] sm:p-8 lg:col-span-5 lg:p-10">
                 <div>
                   <div className="flex items-center justify-between border-b border-[#071126]/15 pb-3 dark:border-white/15">
-                    <span className="font-mono text-xs font-semibold uppercase text-[#0038AE] dark:text-[#48ACD6]">
+                    <span className="text-xs font-bold uppercase text-[#0038AE] dark:text-[#48ACD6]">
                       SENSORY PROFILE SPEC
                     </span>
-                    <span className="font-mono text-xs font-bold text-[#071126] dark:text-white">
+                    <span className="text-xs font-bold text-[#071126] dark:text-white">
                       {currentTexture.ph}
                     </span>
                   </div>
@@ -462,7 +462,7 @@ export function SimplePowerfulSection() {
                       <p className="text-xs font-medium text-text-muted dark:text-white/65">
                         {locale === "th" ? "ความหนืดของเนื้อสูตร (Viscosity)" : "Viscosity"}
                       </p>
-                      <p className="mt-1 text-base font-semibold text-[#071126] dark:text-white">
+                      <p className="mt-1 text-sm font-semibold text-[#071126] dark:text-white sm:text-base">
                         {currentTexture.viscosity}
                       </p>
                     </div>
@@ -470,7 +470,7 @@ export function SimplePowerfulSection() {
                       <p className="text-xs font-medium text-text-muted dark:text-white/65">
                         {locale === "th" ? "การซึมซาบเข้าสู่ผิว (Absorption)" : "Absorption"}
                       </p>
-                      <p className="mt-1 text-base font-semibold text-[#071126] dark:text-white">
+                      <p className="mt-1 text-sm font-semibold text-[#071126] dark:text-white sm:text-base">
                         {currentTexture.absorption}
                       </p>
                     </div>
@@ -478,7 +478,7 @@ export function SimplePowerfulSection() {
                       <p className="text-xs font-medium text-text-muted dark:text-white/65">
                         {locale === "th" ? "ความรู้สึกหลังทา (Skin Finish)" : "Skin Finish"}
                       </p>
-                      <p className="mt-1 text-base font-semibold text-[#071126] dark:text-white">
+                      <p className="mt-1 text-sm font-semibold text-[#071126] dark:text-white sm:text-base">
                         {currentTexture.finish}
                       </p>
                     </div>
@@ -486,14 +486,14 @@ export function SimplePowerfulSection() {
                       <p className="text-xs font-medium text-text-muted dark:text-white/65">
                         {locale === "th" ? "สูตรมาตรฐานอ้างอิง (Matched Formula)" : "Matched Base Formula"}
                       </p>
-                      <p className="mt-1 text-base font-semibold text-[#0038AE] dark:text-[#48ACD6]">
+                      <p className="mt-1 text-sm font-semibold text-[#0038AE] dark:text-[#48ACD6] sm:text-base">
                         {currentTexture.matchedFormula}
                       </p>
                     </div>
                   </div>
                 </div>
 
-                <div className="mt-6 grid grid-cols-2 gap-3 pt-4">
+                <div className="mt-6 grid grid-cols-1 gap-3 pt-4 sm:grid-cols-2">
                   <Link
                     href={`/products/${currentTexture.slug}`}
                     className="inline-flex items-center justify-center gap-2 bg-[#0038AE] px-4 py-3.5 text-sm font-semibold text-white transition hover:bg-[#002880] dark:bg-[#48ACD6] dark:text-[#030816]"

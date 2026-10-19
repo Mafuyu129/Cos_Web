@@ -43,21 +43,21 @@ export function CTASection({
       </div>
 
       <Container className="relative z-10">
-        <div className="grid items-center gap-10 border border-white/15 bg-white/[0.02] p-8 sm:p-12 lg:grid-cols-12 lg:p-16">
+        <div className="grid items-center gap-8 border border-white/15 bg-white/[0.02] p-6 sm:p-10 lg:grid-cols-12 lg:gap-10 lg:p-16">
           <div className="lg:col-span-8">
             <div className="editorial-eyebrow text-[#48ACD6]">
               <span>{t("cta.eyebrow")} • THE BLUE FACTORY</span>
             </div>
 
-            <p className="mt-4 font-serif text-2xl font-light italic text-[#9EE4FF] sm:text-3xl">
+            <p className="mt-3 text-lg font-bold text-[#9EE4FF] sm:text-2xl">
               “From the Concept to Global Success.”
             </p>
 
-            <h2 className="mt-2 text-3xl font-semibold leading-[1.18] tracking-tight text-white sm:text-4xl md:text-5xl">
+            <h2 className="mt-2 text-2xl font-bold leading-[1.35] text-white sm:text-3xl md:text-4xl">
               {displayTitle ?? t("cta.title")}
             </h2>
 
-            <p className="mt-4 max-w-2xl text-base leading-relaxed text-white/75 md:text-lg">
+            <p className="mt-3.5 max-w-2xl text-sm leading-relaxed text-white/85 sm:text-base md:text-lg">
               {displayDescription ?? t("cta.description")}
             </p>
           </div>
@@ -65,7 +65,7 @@ export function CTASection({
           <div className="flex flex-col gap-3.5 lg:col-span-4">
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center gap-3 bg-[#48ACD6] px-8 py-4 text-xs font-bold uppercase tracking-[0.16em] text-[#030816] transition hover:bg-white"
+              className="inline-flex items-center justify-center gap-3 bg-[#48ACD6] px-6 py-4 text-sm font-bold text-[#030816] transition hover:bg-white sm:px-8"
             >
               <span>{t("cta.button")}</span>
               <ArrowRight size={16} />
@@ -75,7 +75,7 @@ export function CTASection({
               href={company.lineUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 border border-white/25 bg-white/[0.04] px-8 py-4 text-xs font-semibold uppercase tracking-[0.14em] text-white transition hover:border-[#48ACD6] hover:text-[#48ACD6]"
+              className="inline-flex items-center justify-center gap-2 border border-white/25 bg-white/[0.04] px-6 py-4 text-sm font-semibold text-white transition hover:border-[#48ACD6] hover:text-[#48ACD6] sm:px-8"
             >
               <span>LINE OFFICIAL: {company.line}</span>
               <ArrowUpRight size={15} />
@@ -83,7 +83,7 @@ export function CTASection({
 
             <Link
               href="/products"
-              className="inline-flex items-center justify-center gap-2 py-2 text-xs font-medium uppercase tracking-[0.14em] text-white/65 underline underline-offset-4 transition hover:text-white"
+              className="inline-flex items-center justify-center gap-2 py-2 text-xs font-medium text-white/80 underline underline-offset-4 transition hover:text-white sm:text-sm"
             >
               <span>{locale === "th" ? "สำรวจ 8 สูตรมาตรฐานพร้อมผลิต" : "Explore 8 Base Formulas"}</span>
             </Link>

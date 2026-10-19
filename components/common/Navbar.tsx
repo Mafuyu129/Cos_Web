@@ -65,20 +65,20 @@ export function Navbar() {
 
       {/* Main Luxury Navigation Header */}
       <div className="border-b border-[#071126]/10 bg-white/95 backdrop-blur-xl dark:border-white/10 dark:bg-[#030816]/95">
-        <Container className="flex h-[78px] items-center justify-between gap-4">
-          <Link href="/" className="group flex items-center gap-3.5" onClick={() => setOpen(false)}>
-            <BrandMark className="h-11 w-11 rounded-lg border border-[#0038AE]/15 transition duration-300 group-hover:border-[#48ACD6] dark:border-white/15" />
-            <div className="leading-tight">
-              <div className="flex items-baseline gap-2">
-                <span className="text-xl font-bold tracking-[0.1em] text-[#071126] dark:text-white">
+        <Container className="flex h-16 items-center justify-between gap-2 sm:h-[78px] sm:gap-4">
+          <Link href="/" className="group flex min-w-0 items-center gap-2.5 sm:gap-3.5" onClick={() => setOpen(false)}>
+            <BrandMark className="h-9 w-9 shrink-0 rounded-lg border border-[#0038AE]/15 transition duration-300 group-hover:border-[#48ACD6] dark:border-white/15 sm:h-11 sm:w-11" />
+            <div className="min-w-0 leading-tight">
+              <div className="flex items-baseline gap-1.5 sm:gap-2">
+                <span className="text-lg font-bold tracking-wide text-[#071126] dark:text-white sm:text-xl">
                   PHERADA
                 </span>
-                <span className="font-serif text-base italic text-[#0038AE] dark:text-[#48ACD6]">
+                <span className="hidden text-xs font-semibold text-[#0038AE] dark:text-[#48ACD6] sm:inline">
                   The Blue Factory
                 </span>
               </div>
-              <span className="block text-[11px] font-medium uppercase tracking-[0.12em] text-text-muted dark:text-white/70">
-                COSMECEUTICAL OEM & ODM LABORATORY
+              <span className="block truncate text-[10px] font-medium text-text-muted dark:text-white/70 sm:text-[11px]">
+                {locale === "th" ? "โรงงานผลิตเวชสำอาง OEM / ODM" : "COSMECEUTICAL OEM & ODM LAB"}
               </span>
             </div>
           </Link>
